@@ -1,5 +1,3 @@
-import { Text } from "@medusajs/ui"
-
 import { getProductPrice } from "@lib/util/get-product-price"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"
@@ -21,28 +19,24 @@ export default async function ProductPreview({
     regionId: region.id,
   })
 
-  if (!pricedProduct) {
-    return null
-  }
+  if (!pricedProduct) return null
 
-  const { cheapestPrice } = getProductPrice({
-    product: pricedProduct,
-  })
+  const { cheapestPrice } = getProductPrice({ product: pricedProduct })
 
   return (
-    <LocalizedClientLink href={`/products/${product.handle}`} className="group">
-      <div data-testid="product-wrapper">
+    <LocalizedClientLink href={`/products/${product.handle}`} className="group block">
+      <div className="border border-bluum-border rounded-lg overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg">
         <Thumbnail
           thumbnail={product.thumbnail}
           images={product.images}
-          size="full"
+          size="square"
           isFeatured={isFeatured}
         />
-        <div className="flex txt-compact-medium mt-4 justify-between">
-          <Text className="text-ui-fg-subtle" data-testid="product-title">
+        <div className="p-4">
+          <h3 className="text-base font-semibold text-bluum-text" data-testid="product-title">
             {product.title}
-          </Text>
-          <div className="flex items-center gap-x-2">
+          </h3>
+          <div className="mt-1">
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           </div>
         </div>
