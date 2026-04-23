@@ -15,7 +15,7 @@ export default async function RelatedProducts({
   const region = await getRegion(countryCode)
   if (!region) return null
 
-  const queryParams: HttpTypes.StoreProductParams = {
+  const queryParams: Record<string, unknown> = {
     is_giftcard: false,
   }
 
