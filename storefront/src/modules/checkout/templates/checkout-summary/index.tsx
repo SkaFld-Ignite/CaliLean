@@ -9,7 +9,7 @@ import RUODisclaimer from "@modules/common/components/ruo-disclaimer"
 const CheckoutSummary = ({ cart }: { cart: any }) => {
   return (
     <div className="sticky top-0 flex flex-col-reverse small:flex-col gap-y-8 py-8 small:py-0 ">
-      <div className="w-full bg-white flex flex-col">
+      <div className="w-full bg-calilean-bg flex flex-col">
         <Divider className="my-6 small:hidden" />
         <Heading
           level="h2"

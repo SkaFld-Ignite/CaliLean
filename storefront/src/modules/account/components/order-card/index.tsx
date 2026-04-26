@@ -24,7 +24,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
   }, [order])
 
   return (
-    <div className="bg-white flex flex-col" data-testid="order-card">
+    <div className="bg-calilean-bg border border-calilean-fog/30 rounded-rounded p-6 flex flex-col" data-testid="order-card">
       <div className="uppercase text-large-semi mb-1">
         #<span data-testid="order-display-id">{order.display_id}</span>
       </div>
