@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  CaliLean — parametric vial + label template (v0)
+  Edits to make per SKU:
+    - cap fill (#capFill)         : product family accent: #3A5A6A (Pacific) | #7C8A78 (Eucalyptus)
+    - compound name (#compound)   : e.g., "BPC-157" — set in Söhne (or Inter fallback)
+    - dosage (#dosage)            : "5 mg / vial" — Söhne Mono
+    - lot   (#lot)                : "LOT 24-0438" — Söhne Mono
+  Canvas is 480 × 900 to match the vial envelope in pdp-primary-grid.svg.
+  Glass uses subtle vertical specular only — no chrome, no gradient drama.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 900" width="480" height="900">
+  <title>CaliLean vial template — v0</title>
+  <defs>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"    stop-color="#1F2326" stop-opacity="0.06"/>
+      <stop offset="0.18" stop-color="#1F2326" stop-opacity="0.02"/>
+      <stop offset="0.5"  stop-color="#FFFFFF" stop-opacity="0.85"/>
+      <stop offset="0.82" stop-color="#1F2326" stop-opacity="0.02"/>
+      <stop offset="1"    stop-color="#1F2326" stop-opacity="0.07"/>
+    </linearGradient>
+    <linearGradient id="cap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.18"/>
+      <stop offset="0.5" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1"   stop-color="#000000" stop-opacity="0.22"/>
+    </linearGradient>
+    <linearGradient id="powder" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#EDE7DA"/>
+      <stop offset="1"   stop-color="#D8CFBE"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Salt ground (transparent in production; included for preview) -->
+  <rect width="480" height="900" fill="#F4F2EC"/>
+
+  <!-- ============ VIAL BODY ============ -->
+  <!-- Glass cylinder: top y=180, bottom y=820, width 220 centered -->
+  <g transform="translate(130 0)">
+
+    <!-- Glass shadow on Salt -->
+    <ellipse cx="110" cy="828" rx="118" ry="8" fill="#1F2326" fill-opacity="0.10"/>
+
+    <!-- Glass body -->
+    <rect x="0" y="180" width="220" height="640" rx="14" ry="14"
+          fill="#FFFFFF" fill-opacity="0.55" stroke="#1F2326" stroke-opacity="0.18" stroke-width="1.25"/>
+    <rect x="0" y="180" width="220" height="640" rx="14" ry="14" fill="url(#glass)"/>
+
+    <!-- Lyophilized cake (powder) sits in lower 38% of body -->
+    <rect x="14" y="580" width="192" height="226" rx="6" ry="6" fill="url(#powder)"/>
+    <!-- soft cake top edge -->
+    <path d="M14 588 Q110 572 206 588 L206 600 L14 600 Z" fill="#FFFFFF" fill-opacity="0.55"/>
+
+    <!-- Crimp seal collar (aluminum band, mid-Salt) -->
+    <rect x="-6" y="156" width="232" height="36" rx="3" ry="3"
+          fill="#D6D2C7" stroke="#1F2326" stroke-opacity="0.25" stroke-width="1"/>
+    <line x1="-6" y1="170" x2="226" y2="170" stroke="#1F2326" stroke-opacity="0.18" stroke-width="0.75"/>
+    <line x1="-6" y1="180" x2="226" y2="180" stroke="#1F2326" stroke-opacity="0.18" stroke-width="0.75"/>
+
+    <!-- Cap (color = product family accent) -->
+    <g id="capGroup">
+      <rect id="capFill" x="14" y="78" width="192" height="80" rx="4" ry="4"
+            fill="#3A5A6A"/>
+      <rect x="14" y="78" width="192" height="80" rx="4" ry="4" fill="url(#cap)"/>
+      <!-- center dimple (typical crimp cap) -->
+      <circle cx="110" cy="118" r="22" fill="#000" fill-opacity="0.18"/>
+    </g>
+
+    <!-- Stopper visible inside neck (rubber, dark grey-brown) -->
+    <rect x="14" y="156" width="192" height="14" fill="#3B342A"/>
+
+    <!-- ============ LABEL (wraparound) ============ -->
+    <!-- Salt label stock, Iron type. Centered on body. -->
+    <g id="label" transform="translate(20 380)">
+      <rect width="180" height="220" fill="#F4F2EC" stroke="#1F2326" stroke-opacity="0.10" stroke-width="0.5"/>
+
+      <!-- top hairline -->
+      <line x1="14" y1="22" x2="166" y2="22" stroke="#1F2326" stroke-opacity="0.85" stroke-width="0.75"/>
+
+      <!-- wordmark line (ASCII placeholder; actual ships outlined) -->
+      <text id="wordmark" x="14" y="44"
+            font-family="'Söhne', 'Inter', system-ui, sans-serif"
+            font-weight="500" font-size="11" letter-spacing="0.6"
+            fill="#1F2326">calilean</text>
+
+      <!-- compound name (display) -->
+      <text id="compound" x="14" y="84"
+            font-family="'GT Sectra Display', 'Fraunces', 'Cormorant Garamond', Georgia, serif"
+            font-size="22" fill="#1F2326">BPC-157</text>
+
+      <!-- subtitle / category -->
+      <text x="14" y="104"
+            font-family="'Söhne', 'Inter', system-ui, sans-serif"
+            font-size="9" letter-spacing="1.4"
+            fill="#1F2326" fill-opacity="0.7">RESEARCH PEPTIDE · RUO</text>
+
+      <!-- mid hairline -->
+      <line x1="14" y1="118" x2="166" y2="118" stroke="#1F2326" stroke-opacity="0.4" stroke-width="0.5"/>
+
+      <!-- dosage (mono) -->
+      <text id="dosage" x="14" y="142"
+            font-family="'Söhne Mono', 'JetBrains Mono', ui-monospace, Menlo, monospace"
+            font-size="11" fill="#1F2326">5 mg / vial</text>
+
+      <!-- volume + form -->
+      <text x="14" y="160"
+            font-family="'Söhne Mono', 'JetBrains Mono', ui-monospace, Menlo, monospace"
+            font-size="9" fill="#1F2326" fill-opacity="0.75">2 ml glass · lyophilized</text>
+
+      <!-- lot (mono) -->
+      <text id="lot" x="14" y="190"
+            font-family="'Söhne Mono', 'JetBrains Mono', ui-monospace, Menlo, monospace"
+            font-size="10" fill="#1F2326">LOT 24-0438</text>
+
+      <!-- bottom hairline -->
+      <line x1="14" y1="200" x2="166" y2="200" stroke="#1F2326" stroke-opacity="0.85" stroke-width="0.75"/>
+    </g>
+  </g>
+
+  <!-- editor notes (non-printing — strip before export) -->
+  <g font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#3A5A6A" fill-opacity="0.55">
+    <text x="14" y="14">edit: #capFill · #compound · #dosage · #lot</text>
+    <text x="14" y="892">strip ground rect + this text layer before export</text>
+  </g>
+</svg>

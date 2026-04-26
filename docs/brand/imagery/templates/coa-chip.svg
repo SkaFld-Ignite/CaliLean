@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  CaliLean — COA chip overlay (v0)
+  84 × 24 at 2000-wide canvas. Pacific fill, Salt type, Söhne Mono.
+  Edit #lotText for the SKU's lot.
+  Sits 3% from the corner per system-spec.md §8.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 24" width="84" height="24">
+  <title>COA chip — CaliLean v0</title>
+  <rect width="84" height="24" rx="2" ry="2" fill="#3A5A6A"/>
+  <text x="6" y="16"
+        font-family="'Söhne Mono', 'JetBrains Mono', ui-monospace, Menlo, monospace"
+        font-size="9" fill="#F4F2EC" letter-spacing="0.4">
+    <tspan font-weight="600">COA</tspan>
+    <tspan dx="2">·</tspan>
+    <tspan id="lotText" dx="2">LOT 24-0438</tspan>
+  </text>
+</svg>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  CaliLean — PDP primary composition grid (2000x2000)
+  Purpose: enforce composition rules from system-spec.md §7.
+  - 35% min negative space (outer rule)
+  - vial dead-center, carton -5° rotation, 15% overlap
+  - COA chip in lower-right, 3% inset, 84x24 at this canvas scale
+  Use: pull this layer into Figma/Illustrator at 100% as a non-printing guide.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" width="2000" height="2000" fill="none" stroke-linecap="square">
+  <title>PDP primary composition grid — CaliLean v0</title>
+  <defs>
+    <pattern id="dot" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.6" fill="#1F2326" fill-opacity="0.18"/>
+    </pattern>
+  </defs>
+
+  <!-- Salt ground -->
+  <rect width="2000" height="2000" fill="#F4F2EC"/>
+
+  <!-- 20-unit dot grid (non-printing guide) -->
+  <rect width="2000" height="2000" fill="url(#dot)"/>
+
+  <!-- 35% negative-space ring (inner working area = 1300x1300) -->
+  <rect x="350" y="350" width="1300" height="1300"
+        stroke="#3A5A6A" stroke-opacity="0.45" stroke-width="1.5" stroke-dasharray="8 8"/>
+  <text x="360" y="340" font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#3A5A6A" fill-opacity="0.7">
+    inner working area · negative-space &gt;= 35% Salt outside this rect
+  </text>
+
+  <!-- Centerlines -->
+  <line x1="1000" y1="0"    x2="1000" y2="2000" stroke="#1F2326" stroke-opacity="0.18" stroke-width="1"/>
+  <line x1="0"    y1="1000" x2="2000" y2="1000" stroke="#1F2326" stroke-opacity="0.18" stroke-width="1"/>
+
+  <!-- Rule of thirds (faint) -->
+  <line x1="666.66" y1="0" x2="666.66" y2="2000" stroke="#1F2326" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="1333.33" y1="0" x2="1333.33" y2="2000" stroke="#1F2326" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="0" y1="666.66" x2="2000" y2="666.66" stroke="#1F2326" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="0" y1="1333.33" x2="2000" y2="1333.33" stroke="#1F2326" stroke-opacity="0.10" stroke-width="1"/>
+
+  <!-- Vial center placement: 480x900 envelope, dead-center -->
+  <rect x="760" y="550" width="480" height="900"
+        stroke="#3A5A6A" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="760" y="540" font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#3A5A6A" fill-opacity="0.7">
+    vial envelope · 480 × 900 · dead-center
+  </text>
+
+  <!-- Carton placement: rotated -5°, overlapped 15% under vial right edge -->
+  <g transform="rotate(-5 1100 1000)">
+    <rect x="950" y="650" width="600" height="700"
+          stroke="#7C8A78" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <text x="950" y="640" font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#7C8A78" fill-opacity="0.85">
+      carton envelope · 600 × 700 · -5° rotation · 15% overlap
+    </text>
+  </g>
+
+  <!-- COA chip slot: 84x24 at 2000-wide canvas → 84x24 here, 3% inset (60px) -->
+  <rect x="1856" y="1916" width="84" height="24"
+        stroke="#D9624A" stroke-opacity="0.85" stroke-width="1.5"/>
+  <text x="1856" y="1908" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="#D9624A" fill-opacity="0.95"
+        text-anchor="end">COA chip · 84 × 24 · 3% corner inset</text>
+
+  <!-- Wordmark slot: max 12% long edge = 240px, top-left at 60px inset -->
+  <rect x="60" y="60" width="240" height="48"
+        stroke="#1F2326" stroke-opacity="0.45" stroke-width="1.5"/>
+  <text x="60" y="124" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="#1F2326" fill-opacity="0.6">
+    wordmark slot · max 12% long edge · never colored
+  </text>
+
+  <!-- Frame label -->
+  <text x="60" y="1980" font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#1F2326" fill-opacity="0.55">
+    CaliLean · PDP primary · 2000 × 2000 · Salt ground · v0
+  </text>
+</svg>
