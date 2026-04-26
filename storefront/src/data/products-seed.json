@@ -3,7 +3,7 @@
     "title": "BPC-157",
     "handle": "bpc-157",
     "description": "High-purity BPC-157 vials for research on tissue repair and cellular regeneration. Janoshik tested with COA. Free USA shipping.",
-    "thumbnail": "https://bluumpeptides.com/cdn/shop/files/bpc_157_5mg_10mg.webp?v=1766468971&width=600",
+    "thumbnail": "/brand/products/bpc-157/pdp-primary.jpg",
     "metadata": {
       "batch": "435410",
       "report": "11201",
@@ -28,7 +28,7 @@
       }
     ],
     "price": "$40.00",
-    "image": "https://bluumpeptides.com/cdn/shop/files/bpc_157_5mg_10mg.webp?v=1766468971&width=600"
+    "image": "/brand/products/bpc-157/pdp-primary.jpg"
   },
   {
     "title": "TH9507",
@@ -94,7 +94,7 @@
     "title": "TB-500",
     "handle": "tb-500",
     "description": "TB-500 (Thymosin Beta-4 fragment) for research on tissue regeneration and repair mechanisms.",
-    "thumbnail": "https://bluumpeptides.com/cdn/shop/files/tb500.webp?v=1762634774&width=600",
+    "thumbnail": "/brand/products/tb-500/pdp-primary.jpg",
     "metadata": {
       "batch": "542201",
       "report": "53457",
@@ -118,7 +118,7 @@
       }
     ],
     "price": "$45.00",
-    "image": "https://bluumpeptides.com/cdn/shop/files/tb500.webp?v=1762634774&width=600"
+    "image": "/brand/products/tb-500/pdp-primary.jpg"
   },
   {
     "title": "GHK-Cu",
@@ -183,7 +183,7 @@
     "title": "Glutathione",
     "handle": "glutathione",
     "description": "99.8% pure Glutathione peptide for research. Third-party tested. Research-grade tripeptide antioxidant.",
-    "thumbnail": "https://bluumpeptides.com/cdn/shop/files/l-glutathione.webp?v=1762634855&width=600",
+    "thumbnail": "/brand/products/glutathione/pdp-primary.jpg",
     "metadata": {
       "batch": "513219",
       "report": "53447",
@@ -207,7 +207,7 @@
       }
     ],
     "price": "$40.00",
-    "image": "https://bluumpeptides.com/cdn/shop/files/l-glutathione.webp?v=1762634855&width=600"
+    "image": "/brand/products/glutathione/pdp-primary.jpg"
   },
   {
     "title": "GLOW",
@@ -271,7 +271,7 @@
     "title": "BPC-157 / TB-500 Blend",
     "handle": "bpc-157-tb-500-blend",
     "description": "BPC-157 and TB-500 blend for research on tissue repair and cell migration. Third-party verified purity.",
-    "thumbnail": "https://bluumpeptides.com/cdn/shop/files/bpc-tb500.webp?v=1762634368&width=600",
+    "thumbnail": "/brand/products/bpc-157-tb-500-blend/pdp-primary.jpg",
     "metadata": {
       "batch": "421553",
       "report": "11201",
@@ -294,13 +294,13 @@
       }
     ],
     "price": "$100.00",
-    "image": "https://bluumpeptides.com/cdn/shop/files/bpc-tb500.webp?v=1762634368&width=600"
+    "image": "/brand/products/bpc-157-tb-500-blend/pdp-primary.jpg"
   },
   {
     "title": "NAD+",
     "handle": "nad",
     "description": "NAD+ 500mg for research on cellular metabolism and DNA repair. Verified purity, lyophilized for stability.",
-    "thumbnail": "https://bluumpeptides.com/cdn/shop/files/nad_500mg.webp?v=1766469676&width=600",
+    "thumbnail": "/brand/products/nad/pdp-primary.jpg",
     "metadata": {
       "batch": "424815",
       "report": "11518",
@@ -323,7 +323,7 @@
       }
     ],
     "price": "$60.00",
-    "image": "https://bluumpeptides.com/cdn/shop/files/nad_500mg.webp?v=1766469676&width=600"
+    "image": "/brand/products/nad/pdp-primary.jpg"
   },
   {
     "title": "Snap-8",
@@ -619,7 +619,7 @@
     "title": "Retatrutide",
     "handle": "retatrutide",
     "description": "Retatrutide Lyophilized Powder in 3ml vial. Research use only. Not intended for human consumption, clinical use, or veterinary applications.",
-    "thumbnail": "https://bluumpeptides.com/cdn/shop/files/retatrutide.webp?v=1766929802&width=2050",
+    "thumbnail": "/brand/products/retatrutide/pdp-primary.jpg",
     "metadata": {
       "batch": "Batch # 543218",
       "report": "Report # 12232",
@@ -642,7 +642,7 @@
       }
     ],
     "price": "$150.00",
-    "image": "https://bluumpeptides.com/cdn/shop/files/retatrutide.webp?v=1766929802&width=2050"
+    "image": "/brand/products/retatrutide/pdp-primary.jpg"
   },
   {
     "title": "Melanotan I",
@@ -851,7 +851,7 @@
     "title": "MOTS-C",
     "handle": "mots-c",
     "description": "RESEARCH USE ONLY. These compounds are NOT intended for human consumption, clinical use, or veterinary applications. We are not affiliated with any pharmaceutical companies or their commercial medications. By placing an order, you certify these materials will be used exclusively for in vitro testing and laboratory experimentation only. Bodily introduction of any kind into humans or animals is strictly forbidden by law. This product should only be handled by licensed, qualified professionals.",
-    "thumbnail": "https://bluumpeptides.com/cdn/shop/files/motsc.webp?v=1762633835&width=2050",
+    "thumbnail": "/brand/products/mots-c/pdp-primary.jpg",
     "metadata": {
       "batch": "#865302",
       "report": "#11199",
@@ -874,7 +874,7 @@
       }
     ],
     "price": "$100.00",
-    "image": "https://bluumpeptides.com/cdn/shop/files/motsc.webp?v=1762633835&width=2050"
+    "image": "/brand/products/mots-c/pdp-primary.jpg"
   },
   {
     "title": "Pinealon",
@@ -938,7 +938,7 @@
     "title": "CJC-1295 No DAC / Ipamorelin Blend",
     "handle": "cjc-12-no-dac-ipamorelin-blend",
     "description": "CJC-1295 (No DAC) + Ipamorelin Blend lyophilized peptide powder in a 3 mL vial. Research peptide blend commonly used in GHRH / GHSR pathway research (growth hormone\u2013related signaling). Solid, white to off-white lyophilized powder in a 3 mL glass vial.",
-    "thumbnail": "https://bluumpeptides.com/cdn/shop/files/cjc1295-ipa-blend.webp?v=1771650982&width=2050",
+    "thumbnail": "/brand/products/cjc-12-no-dac-ipamorelin-blend/pdp-primary.jpg",
     "metadata": {
       "batch": "371772",
       "report": "12063",
@@ -961,6 +961,6 @@
       }
     ],
     "price": "$75.00",
-    "image": "https://bluumpeptides.com/cdn/shop/files/cjc1295-ipa-blend.webp?v=1771650982&width=2050"
+    "image": "/brand/products/cjc-12-no-dac-ipamorelin-blend/pdp-primary.jpg"
   }
 ]
