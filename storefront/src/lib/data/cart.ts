@@ -9,6 +9,7 @@ import { redirect } from "next/navigation"
 import { getAuthHeaders, getCartId, removeCartId, setCartId } from "./cookies"
 import { getProductsById } from "./products"
 import { getRegion } from "./regions"
+import { RUO_ATTESTATION_LABEL, RUO_ATTESTATION_VERSION } from "@lib/ruo"
 
 export async function retrieveCart() {
   const cartId = await getCartId()
@@ -371,6 +372,19 @@ export async function placeOrder() {
   }
 
   return cartRes.cart
+}
+
+export async function setRuoAttestation(agreed: boolean) {
+  const ruo_attestation = agreed
+    ? {
+        agreed: true,
+        version: RUO_ATTESTATION_VERSION,
+        label: RUO_ATTESTATION_LABEL,
+        agreed_at: new Date().toISOString(),
+      }
+    : null
+
+  return updateCart({ metadata: { ruo_attestation } })
 }
 
 /**

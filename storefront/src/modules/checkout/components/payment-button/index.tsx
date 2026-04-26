@@ -14,13 +14,16 @@ import { isManual, isPaypal, isStripe } from "@lib/constants"
 type PaymentButtonProps = {
   cart: HttpTypes.StoreCart
   "data-testid": string
+  disabled?: boolean
 }
 
 const PaymentButton: React.FC<PaymentButtonProps> = ({
   cart,
   "data-testid": dataTestId,
+  disabled = false,
 }) => {
   const notReady =
+    disabled ||
     !cart ||
     !cart.shipping_address ||
     !cart.billing_address ||

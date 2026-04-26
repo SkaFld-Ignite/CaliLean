@@ -1,14 +1,21 @@
 "use client"
 
 import { Heading, Text, clx } from "@medusajs/ui"
+import { useState } from "react"
 
 import PaymentButton from "../payment-button"
+import RuoAttestation from "../ruo-attestation"
 import { useSearchParams } from "next/navigation"
 
 const Review = ({ cart }: { cart: any }) => {
   const searchParams = useSearchParams()
 
   const isOpen = searchParams.get("step") === "review"
+
+  const initialAttested =
+    cart?.metadata?.ruo_attestation?.agreed === true
+
+  const [attested, setAttested] = useState<boolean>(initialAttested)
 
   const paidByGiftcard =
     cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0
@@ -35,6 +42,7 @@ const Review = ({ cart }: { cart: any }) => {
       </div>
       {isOpen && previousStepsCompleted && (
         <>
+          <RuoAttestation agreed={attested} onChange={setAttested} />
           <div className="flex items-start gap-x-1 w-full mb-6">
             <div className="w-full">
               <Text className="txt-medium-plus text-ui-fg-base mb-1">
@@ -45,7 +53,11 @@ const Review = ({ cart }: { cart: any }) => {
               </Text>
             </div>
           </div>
-          <PaymentButton cart={cart} data-testid="submit-order-button" />
+          <PaymentButton
+            cart={cart}
+            data-testid="submit-order-button"
+            disabled={!attested}
+          />
         </>
       )}
     </div>
