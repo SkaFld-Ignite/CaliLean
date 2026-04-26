@@ -75,6 +75,8 @@ The Manhattan/Hermosa/Redondo/El Segundo/PV adult, 30–55, household income $25
 - **Adjectives:** zero or one. If you wrote two, cut one.
 - **No em-dashes in marketing copy.** They read self-conscious. Use periods.
 - **No exclamation points anywhere.** Including transactional emails.
+- **No italicized verbs in headlines.** "Peptides, *delivered*" / "Lab-tested *before* they hit your lab" is the Hims/telehealth-DTC house style. Forbidden. Italics are reserved for genuine titles of works (book, paper, study) — not for emphasis.
+- **No DTC trust ribbons.** "Verified Purity & Free US Shipping" pills above the fold belong on Hims/Roman/Ro. We carry trust through batch IDs and COA links, not ribbons.
 - **First person plural ("we") only when speaking as the company.** Otherwise second person.
 - **Numbers are written as numbers** (5mg, 90 days, 33 SKUs). Not "five milligrams."
 
@@ -157,6 +159,31 @@ Wordmark/lockup specifics, weights, asset list — see the **wordmark designer b
 
 **Forbidden:** Switzer (current Bluum font — explicit anti-reference). Any humanist sans (Avenir, Proxima, Gotham — too consumer-wellness). Any geometric-rounded sans (Circular, Visby — too SaaS).
 
+### 7.3 Surface ladder — locked
+
+Pure `#FFFFFF` is **forbidden** as a surface color anywhere on the storefront. It does not exist in the palette and reading a `#F4F2EC` page beside a `#FFFFFF` panel produces the cream→white seam that reads "Hims/telehealth DTC card." Surfaces ladder via warmth and border, never via lift to pure white.
+
+| Surface | Token | Hex | Use |
+|---|---|---|---|
+| **Page** | `--cl-bg` | `#F4F2EC` | All page bodies. Default surface for cart, checkout, account, modals. |
+| **Subtle** | `--cl-sand` | `#E6E2D6` | Pressed cards, COA panels, table-of-contents rails. Deeper-warm, not lighter. |
+| **Inverted** | `--cl-coa` | `#0F1417` | Lab black. Banners, footer, batch/data UI. |
+| **Hairline** | `--cl-fog` at 30% opacity | `#9CA3A8` | Borders for card differentiation when no warmth-step is desired. |
+
+**Implementation rule:** any `bg-white`, `bg-grey-0`, or `#FFFFFF` literal in storefront code is a brand bug. Card differentiation comes from a 1px `--cl-fog`/30 border + optional `0 1px 2px` shadow, not from a lighter background.
+
+### 7.4 Button contrast — locked
+
+CTAs are high-contrast against `--cl-bg`. **No sand-on-cream buttons.** Sand-on-cream (`#E6E2D6` on `#F4F2EC`) is a Hims signature and explicitly anti-CaliLean.
+
+| Button role | Background | Text | Use |
+|---|---|---|---|
+| Primary | `--cl-coa` `#0F1417` | `--cl-bg` `#F4F2EC` | "Shop Peptides," "Add to research," "Submit attestation." |
+| Secondary | transparent | `--cl-ink` `#1F2326` | 1.5px `--cl-ink` border. "View COA," "Read the methodology." |
+| Inverse | `--cl-bg` `#F4F2EC` | `--cl-coa` `#0F1417` | Used only inside dark sections (footer, lab banner). |
+
+The legacy `bg-bluum-primary` token (sand) is **not a CTA color**. It is a card or chip background only.
+
 ---
 
 ## 8. Application — what changes on the storefront
@@ -194,4 +221,5 @@ For the CTO/Designer brand-swap work in [SKA-4](/SKA/issues/SKA-4) and [SKA-11](
 
 ## Changelog
 
+- **v1.2 (2026-04-26)** — Anti-Hims patch. CEO flagged drift toward Hims aesthetic in [SKA-23](/SKA/issues/SKA-23). Added §7.3 (Surface ladder, no pure white), §7.4 (Button contrast, no sand-on-cream), and two voice rules (no italicized verbs, no DTC trust ribbons). Locked.
 - **v1.1 (2026-04-26)** — Reissued by CMO. Pivoted voice and tagline to RUO posture. Replaced "clinically formulated" with "research-grade." Replaced "made plain" with "plainly labeled." Removed clinician-of-record references. (Originally v1 was committed at `docs/brand/identity-brief.md` in commit `fa36925` in a prior workspace; that commit did not survive into the shared repo.)
