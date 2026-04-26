@@ -1,6 +1,6 @@
 import { getCategoriesList } from "@lib/data/categories"
 import { getCollectionsList } from "@lib/data/collections"
-import { RUO_DISCLAIMER_LONG } from "@lib/ruo"
+import { RUO_DISCLAIMER_SHORT } from "@lib/ruo"
 import { Text } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CaliLeanLogo from "@modules/calilean/icons/calilean-logo"
@@ -53,10 +53,10 @@ export default async function Footer() {
           <p
             role="note"
             aria-label="Research use only disclaimer"
-            data-ruo-disclaimer="long"
+            data-ruo-disclaimer="inline"
             className="text-xs text-white/40 max-w-2xl mx-auto"
           >
-            {RUO_DISCLAIMER_LONG}
+            {RUO_DISCLAIMER_SHORT}
           </p>
           <Text className="text-xs text-white/40 mt-3">
             &copy; {new Date().getFullYear()} CaliLean. All rights reserved.

@@ -23,7 +23,7 @@ const CheckoutSummary = ({ cart }: { cart: any }) => {
         <div className="my-6">
           <DiscountCode cart={cart} />
         </div>
-        <RUODisclaimer variant="short" />
+        <RUODisclaimer variant="inline" />
       </div>
     </div>
   )

@@ -42,7 +42,7 @@ const Summary = ({ cart }: SummaryProps) => {
       >
         <Button className="w-full h-10">Go to checkout</Button>
       </LocalizedClientLink>
-      <RUODisclaimer variant="short" />
+      <RUODisclaimer variant="inline" />
     </div>
   )
 }
