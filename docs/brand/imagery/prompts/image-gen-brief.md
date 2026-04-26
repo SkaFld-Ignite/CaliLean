@@ -2,9 +2,9 @@
 
 **Owner:** Designer
 **Tracking:** [SKA-14](/SKA/issues/SKA-14)
-**Provider target:** OpenAI gpt-image-1 (board-recommended). Brief is provider-agnostic — usable with DALL-E, Stable Diffusion XL, or Midjourney v6 with minor syntax edits.
+**Provider:** Google Imagen 4 via `generativelanguage.googleapis.com` (`imagen-4.0-fast-generate-001` / `imagen-4.0-generate-001` / `imagen-4.0-ultra-generate-001`). API key at `_default/.env.secrets` as `GOOGLE_API_KEY` (board landed 2026-04-26). Brief is mostly provider-agnostic — Imagen-specific notes are flagged inline.
 **Posture:** RUO. No human models in v0 generated content.
-**Status:** v0 — locked structure, not locked copy. Iterate on the surface-specific blocks; never edit the global guard rails.
+**Status:** v0.1 — bumped from v0 after the first launch batch revealed an Imagen failure mode where structural prompts (`SURFACE:`, `SUBJECT:`, `<RenderSettings>`) get rendered as visible canvas text. v0.1 keeps §1–§4 as the *system contract* and adds §1.5 — a natural-language template that is the actual recipe to send to Imagen at the standard tier. The structural blocks remain useful for documentation and for Ultra-tier renders where they survive intact.
 
 This brief gives anyone (Designer, CTO, ops) a reproducible way to render a CaliLean image. The structure is **system → surface → SKU/scene → guard rails**. Always include all four blocks.
 
@@ -13,6 +13,53 @@ This brief gives anyone (Designer, CTO, ops) a reproducible way to render a Cali
 ## 0. Why this exists
 
 Image gen drifts. Every render reverts toward "stock medical lab" or "Instagram wellness" unless we hold a tight system prompt. This file is the system prompt. Every prompt that ships goes into [`renders/<date>-<surface>-<sku>.txt`](./) (path TBD when production unblocks).
+
+---
+
+## 1.5. Natural-language template (Imagen 4 standard — what to actually send)
+
+**Use this template, not the block-by-block §1–§4 concat, when calling `imagen-4.0-generate-001` or `imagen-4.0-fast-generate-001`.** A single paragraph, no all-caps section headers, no `KEY: value` syntax. Substitute the bracketed placeholders.
+
+```
+An overhead photograph of a single small clear glass research vial (about
+two milliliters), photographed straight down from directly above, resting on
+a heavyweight off-white linen-cotton textile in a warm Salt off-white tone
+hex F4F2EC. The vial has an aluminum crimp seal cap colored [muted Pacific
+blue hex 3A5A6A (deep teal-blue) | muted Eucalyptus sage hex 7C8A78 (soft
+sage green)], with a slight matte finish, no logo on the cap. Inside the
+vial is a pale beige lyophilized cake, dry, slightly translucent at the
+edges. A clean wraparound paper label in the same Salt off-white wraps the
+lower two-thirds of the vial. The label is printed in dark Iron near-black
+ink. The wordmark "calilean" is set small in lower-case at the very top of
+the label, with a thin hairline rule beneath it. Below that, the compound
+name is set in a low-contrast modern serif at large size and reads exactly:
+[COMPOUND]. Below the compound name, a thin hairline rule, then the dosage
+line printed in monospace reads "[DOSAGE] mg / vial". Below the dosage
+line, set in monospace, the lot designation reads exactly: LOT [YY-####].
+Composition: the vial is centered in the square frame with at least 35%
+empty Salt-toned linen visible around it. No other props, no decoration,
+no other objects in the frame. Lighting: cool diffuse daylight from a
+north-facing window, color temperature about 5400 Kelvin, very soft and
+even, no harsh shadows, no directional spotlight, no glare on the glass,
+no flash, low contrast. Style: restrained editorial product photography
+in the style of an Aesop apothecary catalog crossed with a research bench,
+premium clinical, document-forward, sharp focus across the entire vial,
+the label perfectly legible, no motion blur, no bokeh on the subject, no
+lens flare, no HDR look. Strictly do not include: any other text or codes
+anywhere in the frame beyond the label content described, no people, no
+hands, no fingers, no faces, no white lab coats, no blue gloves, no
+beakers, no test tubes, no syringes, no needles, no green or red or blue
+liquid, no gradient backdrops, no marble, no wood grain, no sand, no gym
+equipment, no watermark, no instagram orange grading, no neon, no
+decorative borders, no mockup labels or annotations, no source code, no
+UI panels, no schema text.
+```
+
+**Why this works and the §1–§4 concat doesn't:** Imagen treats `KEY: value` blocks and `<XmlLikeTags>` as text content to render onto the canvas, not as instructions. The natural-language paragraph encodes the same constraints in prose form, which the model ingests as semantic guidance. Failure mode for the structural format: see [`renders/log.md`](../renders/log.md) — first BPC-157 and CJC-Ipamorelin renders rendered the prompt schema as visible "MOCKUP" code blocks on a purple backdrop.
+
+**Imagen Ultra exception:** `imagen-4.0-ultra-generate-001` survives the structural format intact (Ultra has a stronger prompt rewriter). Either format is fine for Ultra. For the hero render and Retatrutide PDP we used the structural format successfully on Ultra.
+
+**Imagen API parameters used:** `aspectRatio` (`1:1` for PDP, `16:9` for hero), `personGeneration: dont_allow`, `sampleCount: 1`. Optional `seed` for reproducibility (not used in v0 because we wanted variation).
 
 ---
 
@@ -190,4 +237,4 @@ frame, discard and rerender.
 
 ## 6. Versioning
 
-This brief is **v0**. Bump to v0.1 the first time we change any non-bracketed text. Bump to v1 when we lock a real photographer for hero. Bump to v2 when we replace the wordmark text on the label with the outlined custom wordmark from [SKA-13](/SKA/issues/SKA-13).
+This brief is **v0.1**. v0 → v0.1 added §1.5 natural-language template after the first launch batch revealed Imagen's prompt-leak failure mode at the standard tier (board moved hero to AI per [SKA-1](/SKA/issues/SKA-1) cascade, so the photographer-vs-AI fork in v0 collapsed). Bump to v1 when the wordmark text on the label is replaced with the outlined custom wordmark from [SKA-13](/SKA/issues/SKA-13). Bump to v2 when we add packaging-mockup compositing for SKUs that ship in cartons.

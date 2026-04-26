@@ -14,3 +14,10 @@ coverage/
 
 # Workspace-local secrets
 .env.secrets
+
+# Raster image-gen masters live in MinIO (docs/brand/imagery/hosting.md).
+# Web JPG review copies in docs/brand/imagery/renders/web/ stay in git for
+# async review without a MinIO round-trip. Prompts (*.prompt.txt) stay in
+# git as the audit trail. Raw Imagen PNGs are uploaded to MinIO out-of-band
+# via scripts/upload-brand-image.mjs.
+docs/brand/imagery/renders/raw/*.png
