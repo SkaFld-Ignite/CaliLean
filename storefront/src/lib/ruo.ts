@@ -28,3 +28,7 @@ export const RUO_AGE_GATE_HEADLINE = "Access research compounds"
 
 export const RUO_AGE_GATE_BODY =
   "CaliLean sells research-grade peptides for laboratory use only. You must be 21 or older to enter."
+
+export const RUO_LEGAL_LAST_UPDATED = "April 26, 2026"
+
+export const RUO_LEGAL_CONTACT_EMAIL = "hello@calilean.bio"

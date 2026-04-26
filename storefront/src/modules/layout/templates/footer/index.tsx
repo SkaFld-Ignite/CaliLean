@@ -36,6 +36,8 @@ export default async function Footer() {
               <li><LocalizedClientLink href="/store" className="text-sm text-white/80 hover:text-white transition-colors">About Us</LocalizedClientLink></li>
               <li><LocalizedClientLink href="/store" className="text-sm text-white/80 hover:text-white transition-colors">Contact</LocalizedClientLink></li>
               <li><LocalizedClientLink href="/account" className="text-sm text-white/80 hover:text-white transition-colors">My Account</LocalizedClientLink></li>
+              <li><LocalizedClientLink href="/terms" className="text-sm text-white/80 hover:text-white transition-colors">Terms of Service</LocalizedClientLink></li>
+              <li><LocalizedClientLink href="/privacy" className="text-sm text-white/80 hover:text-white transition-colors">Privacy Policy</LocalizedClientLink></li>
             </ul>
           </div>
 

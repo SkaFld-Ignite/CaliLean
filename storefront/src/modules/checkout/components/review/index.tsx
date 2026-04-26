@@ -5,6 +5,7 @@ import { useState } from "react"
 
 import PaymentButton from "../payment-button"
 import RuoAttestation from "../ruo-attestation"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { useSearchParams } from "next/navigation"
 
 const Review = ({ cart }: { cart: any }) => {
@@ -47,9 +48,15 @@ const Review = ({ cart }: { cart: any }) => {
             <div className="w-full">
               <Text className="txt-medium-plus text-ui-fg-base mb-1">
                 By clicking the Place Order button, you confirm that you have
-                read, understand and accept our Terms of Use, Terms of Sale and
-                Returns Policy and acknowledge that you have read Medusa
-                Store&apos;s Privacy Policy.
+                read and accept our{" "}
+                <LocalizedClientLink href="/terms" className="underline">
+                  Terms of Service
+                </LocalizedClientLink>{" "}
+                and{" "}
+                <LocalizedClientLink href="/privacy" className="underline">
+                  Privacy Policy
+                </LocalizedClientLink>
+                .
               </Text>
             </div>
           </div>
