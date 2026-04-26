@@ -5,7 +5,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 import AnnouncementBar from "@modules/bluum/components/announcement-bar"
-import BluumLogo from "@modules/bluum/icons/bluum-logo"
+import CaliLeanLogo from "@modules/calilean/icons/calilean-logo"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
@@ -32,7 +32,7 @@ export default async function Nav() {
 
             <div className="flex items-center h-full">
               <LocalizedClientLink href="/" className="flex items-center">
-                <BluumLogo className="h-7" color="#24201F" />
+                <CaliLeanLogo className="h-7" color="#1F2326" tracking="nav" />
               </LocalizedClientLink>
             </div>
 

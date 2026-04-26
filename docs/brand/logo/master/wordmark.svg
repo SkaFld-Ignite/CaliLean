@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  CaliLean — master wordmark (v0)
+  Cut: Editorial Display (Cut 1, GT Sectra reference)
+  Implementation: <text> SVG with Fraunces fallback chain.
+  Tracking: +30 (0.03em) baked via letter-spacing.
+  v0.1 follow-up: replace <text> with foundry-outlined Bezier glyphs.
+  Color: currentColor (inherits from caller).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120" role="img" aria-label="calilean">
+  <text
+    x="0"
+    y="92"
+    font-family="Fraunces, 'GT Sectra Display', 'Domaine Display', 'Times New Roman', serif"
+    font-size="104"
+    font-weight="400"
+    font-style="normal"
+    font-variation-settings="'opsz' 144, 'SOFT' 0, 'WONK' 0"
+    letter-spacing="0.03em"
+    fill="currentColor"
+  >calilean</text>
+</svg>

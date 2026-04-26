@@ -2,7 +2,7 @@ import { getCategoriesList } from "@lib/data/categories"
 import { getCollectionsList } from "@lib/data/collections"
 import { Text } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import BluumLogo from "@modules/bluum/icons/bluum-logo"
+import CaliLeanLogo from "@modules/calilean/icons/calilean-logo"
 
 export default async function Footer() {
   const { collections } = await getCollectionsList(0, 6)
@@ -13,7 +13,7 @@ export default async function Footer() {
       <div className="content-container py-16">
         <div className="grid grid-cols-1 small:grid-cols-4 gap-12">
           <div className="small:col-span-1">
-            <BluumLogo className="h-7 mb-4" color="#ffffff" />
+            <CaliLeanLogo className="h-7 mb-4" color="#ffffff" tracking="display" />
             <p className="text-sm text-white/60 leading-relaxed">
               USA-based supplier of high-purity peptides for advanced research and development. All products are for laboratory research use only.
             </p>
@@ -41,7 +41,7 @@ export default async function Footer() {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-white/50 mb-4">Support</h4>
             <ul className="space-y-2">
-              <li><span className="text-sm text-white/80">hello@bluumpeptides.com</span></li>
+              <li><span className="text-sm text-white/80">hello@calilean.bio</span></li>
               <li><span className="text-sm text-white/80">+1 512-903-2399</span></li>
               <li><span className="text-sm text-white/80">Mon-Fri 9AM-5PM CT</span></li>
             </ul>
@@ -50,10 +50,10 @@ export default async function Footer() {
 
         <div className="border-t border-white/10 mt-12 pt-8 text-center">
           <p className="text-xs text-white/40 max-w-2xl mx-auto">
-            DISCLAIMER: All products sold by Bluum are strictly intended for laboratory research use only. They are not approved for human or animal consumption, or for any form of therapeutic or diagnostic use.
+            DISCLAIMER: All products sold by CaliLean are strictly intended for laboratory research use only. They are not approved for human or animal consumption, or for any form of therapeutic or diagnostic use.
           </p>
           <Text className="text-xs text-white/40 mt-3">
-            &copy; {new Date().getFullYear()} Bluum Peptides. All rights reserved.
+            &copy; {new Date().getFullYear()} CaliLean. All rights reserved.
           </Text>
         </div>
       </div>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  CaliLean — favicon master (v0)
+  Lowercase 'c' tuned for 16px legibility.
+  Slightly heavier weight than wordmark Regular (Fraunces 600) to hold at small sizes.
+  Background: --cl-bg (#F4F2EC). Glyph: --cl-coa (#0F1417).
+  Square 64×64 viewBox; rasterizes cleanly to 16/32/48.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CaliLean">
+  <rect width="64" height="64" rx="10" fill="#F4F2EC"/>
+  <text
+    x="50%"
+    y="50%"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-family="Fraunces, 'GT Sectra Display', 'Domaine Display', 'Times New Roman', serif"
+    font-size="52"
+    font-weight="600"
+    font-variation-settings="'opsz' 9, 'SOFT' 0, 'WONK' 0"
+    fill="#0F1417"
+  >c</text>
+</svg>

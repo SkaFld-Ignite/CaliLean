@@ -21,15 +21,6 @@ module.exports = {
         padding: "padding-top padding-right padding-bottom padding-left",
       },
       colors: {
-        bluum: {
-          primary: '#C8DAE8',
-          accent: '#1F2937',
-          bg: '#FFFDFA',
-          text: '#24201F',
-          muted: '#6b7280',
-          border: '#e5e5e5',
-          'btn-secondary': '#EAEAEA',
-        },
         calilean: {
           bg: '#F4F2EC',
           ink: '#1F2326',
@@ -37,6 +28,19 @@ module.exports = {
           fog: '#9CA3A8',
           sand: '#E6E2D6',
           coa: '#0F1417',
+          alert: '#A23B2A',
+        },
+        // Compat alias: legacy `bluum-*` Tailwind classes resolve to
+        // CaliLean palette values until the mechanical class rename lands
+        // (tracked under SKA-4). New code MUST use `calilean-*`.
+        bluum: {
+          primary: '#E6E2D6',
+          accent: '#0F1417',
+          bg: '#F4F2EC',
+          text: '#1F2326',
+          muted: '#9CA3A8',
+          border: '#E6E2D6',
+          'btn-secondary': '#E6E2D6',
         },
         grey: {
           0: "#FFFFFF",
@@ -78,7 +82,12 @@ module.exports = {
         "3xl": "2rem",
       },
       fontFamily: {
-        sans: ['Switzer', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        // Pairing 1 — Editorial + Precision. Production fallbacks: Fraunces +
+        // Inter + JetBrains Mono via next/font/google. Procurement target:
+        // GT Sectra Display + Söhne + Söhne Mono. See `/DESIGN.md` §2.
+        sans: ['var(--font-sans)', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['var(--font-display)', 'Fraunces', '"GT Sectra Display"', '"Domaine Display"', 'Georgia', 'serif'],
+        mono: ['var(--font-mono)', '"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       keyframes: {
         ring: {

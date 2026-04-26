@@ -1,22 +1,27 @@
-@import url('https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap');
+/*
+ * Legacy Bluum CSS variables — preserved as compat aliases pointing at
+ * CaliLean Palette A values. Body font/colors now flow from Tailwind classes
+ * + next/font CSS variables (`--font-sans`, `--font-display`, `--font-mono`)
+ * declared in the root layout. Switzer has been removed (identity brief §7).
+ *
+ * Class rename `bluum-*` → `calilean-*` is a follow-up under SKA-4.
+ */
 
 :root {
-  --bluum-primary: #C8DAE8;
-  --bluum-accent: #1F2937;
-  --bluum-bg: #FFFDFA;
-  --bluum-text: #24201F;
-  --bluum-muted: #6b7280;
-  --bluum-border: #e5e5e5;
+  --bluum-primary: #E6E2D6;
+  --bluum-accent: #0F1417;
+  --bluum-bg: #F4F2EC;
+  --bluum-text: #1F2326;
+  --bluum-muted: #9CA3A8;
+  --bluum-border: #E6E2D6;
   --bluum-white: #ffffff;
-  --bluum-btn-secondary: #EAEAEA;
+  --bluum-btn-secondary: #E6E2D6;
   --bluum-radius: 8px;
   --bluum-radius-btn: 9px;
   --bluum-radius-pill: 32px;
 }
 
 body {
-  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: var(--bluum-text);
-  background: var(--bluum-bg);
+  font-family: var(--font-sans), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
 }

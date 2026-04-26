@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import BluumLogo from "@modules/bluum/icons/bluum-logo"
+import CaliLeanLogo from "@modules/calilean/icons/calilean-logo"
 
 const AgeGate = () => {
   const [visible, setVisible] = useState(false)
@@ -28,7 +28,7 @@ const AgeGate = () => {
   return (
     <div className="fixed inset-0 z-[9999] bg-black/65 backdrop-blur-sm flex items-center justify-center">
       <div className="bg-bluum-bg p-10 rounded-2xl text-center max-w-md w-[90%]">
-        <BluumLogo className="h-8 mx-auto mb-6" color="#24201F" />
+        <CaliLeanLogo className="h-8 mx-auto mb-6" color="#1F2326" tracking="display" />
         <p className="text-lg font-semibold mb-2">You must be at least 21 to visit this site.</p>
         <p className="text-sm text-bluum-muted mb-6">By entering this site, you are accepting our Terms of Service</p>
         <div className="flex gap-3 justify-center">

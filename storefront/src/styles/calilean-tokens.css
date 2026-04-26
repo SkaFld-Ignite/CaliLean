@@ -1,11 +1,25 @@
+/*
+ * CaliLean design tokens — Palette A (Salt & Iron) + wordmark tracking.
+ * Source: /DESIGN.md. Identity contract: docs/brand/identity-brief.md §7.
+ */
+
 :root {
+  /* Palette A — Salt & Iron */
   --cl-bg: #F4F2EC;
   --cl-ink: #1F2326;
   --cl-pacific: #3A5A6A;
   --cl-fog: #9CA3A8;
   --cl-sand: #E6E2D6;
   --cl-coa: #0F1417;
+  --cl-alert: #A23B2A;
+
+  /* Radii */
   --cl-radius: 8px;
   --cl-radius-btn: 9px;
   --cl-radius-pill: 32px;
+
+  /* Wordmark tracking — applied to <CaliLeanLogo> via CSS var. */
+  --brand-wordmark-tracking-nav: 0.02em;
+  --brand-wordmark-tracking-display: 0.03em;
+  --brand-wordmark-tracking-packaging: 0.06em;
 }
