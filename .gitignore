@@ -38,3 +38,4 @@ docs/**/archive/
 docs/**/assets/
 .sync-state.json
 .superpowers/
+.cursor/
