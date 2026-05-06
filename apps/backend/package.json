@@ -18,6 +18,7 @@
     "ib": "init-backend",
     "start": "cd .medusa/server && medusa start --verbose",
     "dev": "medusa develop",
+    "dev:doppler": "doppler run -- medusa develop",
     "email:dev": "email dev --dir=../../packages/plugin-email/src/providers/email-notifications/templates --port=3002",
     "ruo:test-alert": "ts-node --transpile-only scripts/test-ruo-geo-alert.ts",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
