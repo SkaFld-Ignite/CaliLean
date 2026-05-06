@@ -1,0 +1,7 @@
+setup:
+  - project: calilean
+    config: dev_backend
+    path: ./apps/backend
+  - project: calilean
+    config: dev_storefront
+    path: ./apps/storefront

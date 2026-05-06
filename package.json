@@ -6,7 +6,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev": "turbo dev",
+    "dev": "turbo dev --concurrency=20",
     "build": "turbo build",
     "start": "turbo start",
     "lint": "turbo lint",
