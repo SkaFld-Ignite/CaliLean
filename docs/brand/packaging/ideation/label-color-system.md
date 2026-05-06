@@ -161,7 +161,7 @@ ACCESSORY (Fog = mark):
 1. **`=` mark and QR code always match** — same category color on both elements
 2. **Cap and crimp never match** — cap is the product color, crimp is always silver aluminum
 3. **Two "signature" products** match cap to `=` mark (BPC-157 and MOTS-c) — these are the category flagships where monochrome accent reads as intentional
-4. **Metabolic caps graduate dark** — CL-1S (Amber/lightest) → CL-2T (Sienna/mid) → CL-3R (Rust/darkest). Visually communicates single → dual → triple agonist progression
+4. **Metabolic caps graduate dark** — CL-1S (Antique Gold/lightest) → CL-2T (Burnt Sienna/mid). CL-3R breaks from this pattern — Pacific Blue cap gives it a signature identity separate from the Metabolic graduation
 5. **GHK-Cu cap is Copper** — a meaningful color choice that references the compound's copper ion
 6. **All cap colors remain muted/desaturated** — no neons, no primaries, no high-saturation
 
