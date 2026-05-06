@@ -39,3 +39,4 @@ docs/**/assets/
 .sync-state.json
 .superpowers/
 .cursor/
+apps/backend/src/modules/restock/migrations/.snapshot-medusa.json

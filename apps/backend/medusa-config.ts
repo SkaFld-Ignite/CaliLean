@@ -294,12 +294,12 @@ const medusaConfig = {
     caching: true,
   },
   plugins: [
-  {
+  ...(GOOGLE_API_KEY ? [{
     resolve: "@calilean/plugin-ai-studio",
     options: {
       google_api_key: GOOGLE_API_KEY,
     },
-  },
+  }] : []),
   "@calilean/plugin-email",
   "@calilean/plugin-loyalty",
   "@calilean/plugin-reviews",
