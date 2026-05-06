@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "MedusaDocs": {
+      "type": "http",
+      "url": "https://docs.medusajs.com/mcp"
+    },
+    "stripe": {
+      "type": "http",
+      "url": "https://mcp.stripe.com"
+    }
+  }
+}
