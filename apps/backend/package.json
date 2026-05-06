@@ -23,6 +23,7 @@
     "ruo:test-alert": "ts-node --transpile-only scripts/test-ruo-geo-alert.ts",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "test:unit": "jest --testPathPattern=src/",
+    "test:smoke": "jest --testPathPattern=src/__tests__/smoke --testTimeout=15000",
     "test:coverage": "jest --coverage"
   },
   "dependencies": {

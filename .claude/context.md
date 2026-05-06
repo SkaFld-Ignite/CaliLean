@@ -17,7 +17,7 @@
 - Production is live at **calilean.com** (storefront) and **admin.calilean.com** (backend)
 - Secrets are managed in **Doppler** (project: `calilean`) with per-service branch configs (`dev_backend`, `dev_storefront`, `prd_backend`, `prd_storefront`)
 - The backend uses `patch-workflows.js` to fix pnpm duplicate workflow registration — always include `NODE_OPTIONS='--require ./patch-workflows.js'` when running `medusa develop`
-- **Production publishable API key mismatch** — the storefront env has a key that doesn't match the one in the Medusa API keys table. This is actively breaking the live store API.
+- **Production is healthy** — storefront, backend, and store API all operational. Publishable key is correctly linked to the Default Sales Channel.
 
 ## Architecture Quick Reference
 
@@ -82,8 +82,8 @@ CaliLean/
   - Added plugin-ai-studio (conditional), patch-workflows.js, doppler.yaml
   - Merged `feat/local-dev-setup` into master and pushed
   - Added MedusaDocs + Stripe MCP servers to Claude Code settings
-- **What's in progress:** Production publishable API key mismatch (storefront has wrong key)
-- **Immediate next step:** Fix the publishable key mismatch so the live storefront can fetch products
+- **What's in progress:** Nothing blocked — production verified healthy
+- **Immediate next step:** Wire Doppler → Railway integration, or begin backend smoke tests (SKA-5)
 - **Open questions:**
   - Should Doppler be wired to Railway (Doppler integration) to replace direct Railway env vars?
   - When to tag v0.2.0?
