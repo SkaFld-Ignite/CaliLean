@@ -59,7 +59,7 @@ function AgeGateInner() {
           Are you 21 or older?
         </h1>
         <p className="text-calilean-fog text-sm mb-10 leading-relaxed">
-          Our products contain hemp-derived compounds.
+          Our products are research-use-only peptides and compounds.
           <br />
           You must be 21 or older to enter.
         </p>
