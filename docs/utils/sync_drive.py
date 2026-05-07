@@ -20,6 +20,7 @@ SYNC_MAP = {
     'docs/deliverables/pitch-deck/': ('Cali Lean/External/Deck/', ['.pdf']),
     'docs/ops/': ('Cali Lean/Ops/', ['.xlsx', '.csv']),
     'docs/build/docs/strategy/': ('Cali Lean/Strategy/', ['.docx']),
+    'docs/brand/packaging/qr-codes/': ('Cali Lean/Brand/Packaging/QR Codes/', ['.png']),
     'docs/build/docs/brand/packaging/ideation/': ('Cali Lean/Brand/Packaging/Ideation/', ['.docx']),
     'docs/build/docs/brand/assets/imagery/': ('Cali Lean/Brand/Imagery/', ['.docx']),
 }
