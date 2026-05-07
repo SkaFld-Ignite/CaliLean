@@ -7,6 +7,7 @@ checkEnvVariables()
  */
 const nextConfig = {
   reactStrictMode: true,
+  transpilePackages: ["@calilean/ruo-compliance"],
   eslint: {
     ignoreDuringBuilds: false,
   },
