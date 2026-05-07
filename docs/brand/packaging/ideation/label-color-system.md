@@ -1,6 +1,6 @@
 # Label Color System — Final Spec
 
-**Date:** 2026-04-30
+**Date:** 2026-05-06
 **Status:** FINAL — 15 unique vial identities
 **Constraint:** Honors the brand's <25% saturation budget and Salt & Iron palette
 
@@ -10,10 +10,10 @@
 
 Every vial has **two** color-carrying elements that combine to create a unique identity:
 
-1. **`=` mark + QR code** → **Category color** (tells you the product family)
+1. **Favicon mark + QR code** → **Category color** (tells you the product family)
 2. **Cap** → **Product color** (tells you the specific compound)
 
-No two products share the same combination. You can identify any vial without reading the label.
+The accent element is the CaliLean favicon — a stylized lowercase "c" with a wave/swoosh tail — printed in the category color next to the wordmark on the label, and as metallic silver foil on the box front. The QR code shares the same category color. No two products share the same combination. You can identify any vial without reading the label.
 
 ```
          ┌───┐
@@ -21,32 +21,47 @@ No two products share the same combination. You can identify any vial without re
          └─┬─┘
       ┌────┴────┐
       │         │
-      │CaliLean │
-      │    ══   │ ← category color (= mark)
+      │CaliLean ©│ ← "©" = favicon mark, in category color
+      │──────────│
       │         │
-      │RESEARCH │
-      │GRADE    │
       │BPC-157  │
       │(10MG)   │
       │         │
-      │[QR] RUO │ ← category color (QR code)
+      │[QR] RUO │ ← QR code in category color
       └─────────┘
 ```
 
 ---
 
-## Category Colors (= mark + QR code)
+## Category Colors (favicon mark + QR code)
 
-6 muted accent colors, one per product family:
+6 muted accent colors, one per product family. The favicon mark (CaliLean "c" wave) appears next to the wordmark on the label in the category color, and as metallic silver foil on the box front face.
 
 | Category | Token | Hex | Swatch | Products in Category |
 |----------|-------|-----|--------|---------------------|
 | **Repair** | `cl-repair` | `#3A5A6A` | Pacific | BPC-157, TB-500, GHK-Cu, Wolverine |
-| **Metabolic** | `cl-metabolic` | `#B8622E` | Ember | CL-1S, CL-2T, CL-3R |
+| **Metabolic** | `cl-metabolic` | `#B8622E` | Ember | CL-1S, CL-2T |
 | **GH Axis** | `cl-ghaxis` | `#5B6E8A` | Slate | Ipamorelin, Tesamorelin |
 | **Longevity** | `cl-longevity` | `#7C8A78` | Eucalyptus | MOTS-c, SS-31 |
 | **Specialty** | `cl-specialty` | `#8A6E5B` | Driftwood | GLOW, KLOW, Melanotan 2 |
 | **Accessory** | `cl-accessory` | `#8B9298` | Fog | Bac Water |
+
+> **Note on CL-3R**: CL-3R uses the Pacific favicon mark and Pacific cap — it deliberately breaks from the Metabolic category to establish its own signature identity. It is not listed under Metabolic above.
+
+---
+
+## Palette Summary
+
+**17 total unique hex values** (down from 19 — Navy and Forest dropped in favor of reusing Charcoal and Dusk Slate).
+
+**Theoretical minimum: 9** — the Repair group (5 products) is the binding constraint, requiring 5 distinct cap colors. 6 favicon × 5 cap = 30 possible unique combos, more than enough for 15 products. Two of those 5 caps already exist as favicon colors (Pacific = CL-3R, Eucalyptus = MOTS-c), so only 3 net-new cap colors would be needed.
+
+| Role | Hex Values |
+|------|-----------|
+| Favicon / QR (6) | `#3A5A6A` `#B8622E` `#5B6E8A` `#7C8A78` `#8A6E5B` `#8B9298` |
+| Cap only (11) | `#4E5C72` `#2A6B6B` `#6B7E6B` `#3D3D3D` `#8A7D5A` `#7A4A35` `#4682B4` `#9A9478` `#7A6B5E` `#5E4538` `#B0B8BF` |
+
+Cap colors shared across products: `#4E5C72` Dusk Slate (BPC-157, SS-31) · `#3D3D3D` Charcoal (Wolverine, Tesamorelin)
 
 ---
 
@@ -54,38 +69,43 @@ No two products share the same combination. You can identify any vial without re
 
 15 cap colors, one per product. Each is distinct within its category AND across the full lineup. All crimps are silver aluminum.
 
-### Repair Category — Pacific `=` mark
+### Repair Category — Pacific favicon mark
 
 | Product | Cap Color | Cap Hex | Visual Contrast |
 |---------|-----------|---------|-----------------|
-| **BPC-157** | Pacific Blue | `#3A5A6A` | Cap matches `=` mark — the "signature" Repair compound |
+| **BPC-157** | Dusk Slate | `#4E5C72` | Muted blue-violet gray — cool but distinct from Pacific, Teal, and Patina. The Repair flagship with its own identity. |
 | **TB-500** | Deep Teal | `#2A6B6B` | Greener pull, distinct from Pacific |
 | **GHK-Cu** | Patina | `#6B7E6B` | Muted green-gray, nods to copper patina. Cooled from original Copper `#8B5E3C` for box harmony. |
 | **Wolverine** | Charcoal | `#3D3D3D` | Dark/aggressive — fits the "Wolverine" brand |
 
-### Metabolic Category — Ember `=` mark
+### Metabolic Category — Ember favicon mark
 
 | Product | Cap Color | Cap Hex | Visual Contrast |
 |---------|-----------|---------|-----------------|
 | **CL-1S** (Semaglutide) | Antique Gold | `#8A7D5A` | Desaturated olive-gold. Cooled from Amber `#C4842D` for box harmony. |
 | **CL-2T** (Tirzepatide) | Burnt Sienna | `#7A4A35` | Deeper/darker, cooled from `#A0522D` |
-| **CL-3R** (Retatrutide) | Pacific Blue | `#3A5A6A` | Breaks from Metabolic category — Pacific accent + Pacific cap. Signature product with its own identity. |
 
-### GH Axis Category — Slate `=` mark
-
-| Product | Cap Color | Cap Hex | Visual Contrast |
-|---------|-----------|---------|-----------------|
-| **Ipamorelin** | Steel Blue | `#4682B4` | Brighter blue, stands out from Slate |
-| **Tesamorelin** | Navy | `#2C3E50` | Darker, more serious tone |
-
-### Longevity Category — Eucalyptus `=` mark
+### CL-3R — Pacific favicon mark (own identity)
 
 | Product | Cap Color | Cap Hex | Visual Contrast |
 |---------|-----------|---------|-----------------|
-| **MOTS-c** | Sage | `#7C8A78` | Cap matches `=` mark — the "signature" Longevity compound |
-| **SS-31** | Forest | `#4A6350` | Deeper green, distinct from Sage |
+| **CL-3R** (Retatrutide) | Pacific Blue | `#3A5A6A` | Breaks from Metabolic — Pacific favicon + Pacific cap. Cap matches favicon mark: the signature monochrome identity. |
 
-### Specialty Category — Driftwood `=` mark
+### GH Axis Category — Slate favicon mark
+
+| Product | Cap Color | Cap Hex | Visual Contrast |
+|---------|-----------|---------|-----------------|
+| **Ipamorelin** | Steel Blue | `#4682B4` | Bright blue, stands out from Slate |
+| **Tesamorelin** | Charcoal | `#3D3D3D` | Dark neutral — high contrast against Steel Blue; reuses Wolverine's cap (Slate+Charcoal vs Pacific+Charcoal are unique combos) |
+
+### Longevity Category — Eucalyptus favicon mark
+
+| Product | Cap Color | Cap Hex | Visual Contrast |
+|---------|-----------|---------|-----------------|
+| **MOTS-c** | Sage | `#7C8A78` | Cap matches favicon mark — the "signature" Longevity compound |
+| **SS-31** | Dusk Slate | `#4E5C72` | Blue-violet gray — clearly distinct from Sage green; reuses BPC-157's cap (Eucalyptus+Dusk vs Pacific+Dusk are unique combos) |
+
+### Specialty Category — Driftwood favicon mark
 
 | Product | Cap Color | Cap Hex | Visual Contrast |
 |---------|-----------|---------|-----------------|
@@ -93,7 +113,7 @@ No two products share the same combination. You can identify any vial without re
 | **KLOW** | Clay | `#7A6B5E` | Earthy mid-tone, slightly adjusted from `#8E7360` |
 | **Melanotan 2** | Bronze | `#5E4538` | Dark warm, slightly deepened from `#6B4E3D` |
 
-### Accessory Category — Fog `=` mark
+### Accessory Category — Fog favicon mark
 
 | Product | Cap Color | Cap Hex | Visual Contrast |
 |---------|-----------|---------|-----------------|
@@ -103,19 +123,19 @@ No two products share the same combination. You can identify any vial without re
 
 ## Complete Reference Table — All 15 Products
 
-| # | Product | Category | `=` Mark / QR | Cap Color | Cap Hex | Unique Combo |
+| # | Product | Category | Favicon / QR | Cap Color | Cap Hex | Unique Combo |
 |---|---------|----------|--------------|-----------|---------|-------------|
-| 1 | BPC-157 | Repair | Pacific `#3A5A6A` | Pacific Blue | `#3A5A6A` | Pacific + Pacific |
+| 1 | BPC-157 | Repair | Pacific `#3A5A6A` | Dusk Slate | `#4E5C72` | Pacific + Dusk |
 | 2 | TB-500 | Repair | Pacific `#3A5A6A` | Deep Teal | `#2A6B6B` | Pacific + Teal |
 | 3 | GHK-Cu | Repair | Pacific `#3A5A6A` | Patina | `#6B7E6B` | Pacific + Patina |
 | 4 | Wolverine | Repair | Pacific `#3A5A6A` | Charcoal | `#3D3D3D` | Pacific + Charcoal |
 | 5 | CL-1S | Metabolic | Ember `#B8622E` | Antique Gold | `#8A7D5A` | Ember + Gold |
 | 6 | CL-2T | Metabolic | Ember `#B8622E` | Burnt Sienna | `#7A4A35` | Ember + Sienna |
-| 7 | CL-3R | Metabolic | Pacific `#3A5A6A` | Pacific Blue | `#3A5A6A` | Pacific + Pacific |
+| 7 | CL-3R | Own identity | Pacific `#3A5A6A` | Pacific Blue | `#3A5A6A` | Pacific + Pacific |
 | 8 | Ipamorelin | GH Axis | Slate `#5B6E8A` | Steel Blue | `#4682B4` | Slate + Steel |
-| 9 | Tesamorelin | GH Axis | Slate `#5B6E8A` | Navy | `#2C3E50` | Slate + Navy |
+| 9 | Tesamorelin | GH Axis | Slate `#5B6E8A` | Charcoal | `#3D3D3D` | Slate + Charcoal |
 | 10 | MOTS-c | Longevity | Eucalyptus `#7C8A78` | Sage | `#7C8A78` | Eucalyptus + Sage |
-| 11 | SS-31 | Longevity | Eucalyptus `#7C8A78` | Forest | `#4A6350` | Eucalyptus + Forest |
+| 11 | SS-31 | Longevity | Eucalyptus `#7C8A78` | Dusk Slate | `#4E5C72` | Eucalyptus + Dusk |
 | 12 | GLOW | Specialty | Driftwood `#8A6E5B` | Pewter Gold | `#9A9478` | Driftwood + Gold |
 | 13 | KLOW | Specialty | Driftwood `#8A6E5B` | Clay | `#8E7360` | Driftwood + Clay |
 | 14 | Melanotan 2 | Specialty | Driftwood `#8A6E5B` | Bronze | `#6B4E3D` | Driftwood + Bronze |
@@ -126,44 +146,47 @@ No two products share the same combination. You can identify any vial without re
 ## Visual Quick-ID Guide
 
 ```
-REPAIR (Pacific = mark):
-  BPC-157    ══ Pacific     🔵 Pacific cap     — the classic
-  TB-500     ══ Pacific     🟢 Teal cap        — greener
-  GHK-Cu     ══ Pacific     🟤 Copper cap      — warm
-  Wolverine  ══ Pacific     ⚫ Charcoal cap    — dark
+REPAIR (Pacific favicon):
+  BPC-157    © Pacific     🔷 Dusk Slate cap  — cool blue-violet, flagship
+  TB-500     © Pacific     🟢 Teal cap        — greener
+  GHK-Cu     © Pacific     🟤 Patina cap      — warm green-gray
+  Wolverine  © Pacific     ⚫ Charcoal cap    — dark/aggressive
 
-METABOLIC (Ember = mark):
-  CL-1S      ══ Ember       🟡 Amber cap       — lightest
-  CL-2T      ══ Ember       🟠 Sienna cap      — middle
-  CL-3R      ══ Pacific     🔵 Pacific cap     — signature, own identity
+METABOLIC (Ember favicon):
+  CL-1S      © Ember       🟡 Antique Gold cap — lightest
+  CL-2T      © Ember       🟠 Burnt Sienna cap — deeper
 
-GH AXIS (Slate = mark):
-  Ipamorelin  ══ Slate      🔵 Steel cap       — brighter
-  Tesamorelin ══ Slate      🔵 Navy cap        — darker
+CL-3R (Pacific favicon — own identity):
+  CL-3R      © Pacific     🔵 Pacific Blue cap — favicon matches cap, signature monochrome
 
-LONGEVITY (Eucalyptus = mark):
-  MOTS-c     ══ Eucalyptus  🟢 Sage cap        — matches
-  SS-31      ══ Eucalyptus  🟢 Forest cap      — deeper
+GH AXIS (Slate favicon):
+  Ipamorelin  © Slate      🔵 Steel Blue cap  — bright blue
+  Tesamorelin © Slate      ⚫ Charcoal cap    — dark neutral, high contrast
 
-SPECIALTY (Driftwood = mark):
-  GLOW       ══ Driftwood   🟡 Sand Gold cap   — luminous
-  KLOW       ══ Driftwood   🟤 Clay cap        — earthy
-  MT-2       ══ Driftwood   🟤 Bronze cap      — dark
+LONGEVITY (Eucalyptus favicon):
+  MOTS-c     © Eucalyptus  🟢 Sage cap        — favicon matches cap, signature monochrome
+  SS-31      © Eucalyptus  🔷 Dusk Slate cap  — blue-violet, clearly distinct from Sage
 
-ACCESSORY (Fog = mark):
-  Bac Water  ══ Fog         ⚪ Light Gray cap  — neutral
+SPECIALTY (Driftwood favicon):
+  GLOW       © Driftwood   🟡 Pewter Gold cap — luminous
+  KLOW       © Driftwood   🟤 Clay cap        — earthy
+  MT-2       © Driftwood   🟤 Bronze cap      — dark
+
+ACCESSORY (Fog favicon):
+  Bac Water  © Fog         ⚪ Light Gray cap  — neutral
 ```
 
 ---
 
 ## Design Rules
 
-1. **`=` mark and QR code always match** — same category color on both elements
+1. **Favicon mark and QR code always match** — same category color on both elements; the favicon is the CaliLean "c" wave mark, not the `=` sign
 2. **Cap and crimp never match** — cap is the product color, crimp is always silver aluminum
-3. **Two "signature" products** match cap to `=` mark (BPC-157 and MOTS-c) — these are the category flagships where monochrome accent reads as intentional
-4. **Metabolic caps graduate dark** — CL-1S (Antique Gold/lightest) → CL-2T (Burnt Sienna/mid). CL-3R breaks from this pattern — Pacific Blue cap gives it a signature identity separate from the Metabolic graduation
-5. **GHK-Cu cap is Copper** — a meaningful color choice that references the compound's copper ion
-6. **All cap colors remain muted/desaturated** — no neons, no primaries, no high-saturation
+3. **One "signature" monochrome product per category** — MOTS-c (Longevity) and CL-3R (own identity) match cap to favicon color. BPC-157 no longer uses this treatment — it has its own distinct Dusk Slate cap
+4. **CL-3R owns Pacific Blue cap** — no other product uses `#3A5A6A` as a cap color; BPC-157 moved to Dusk Slate `#4E5C72` to stay distinct
+5. **Metabolic caps graduate dark** — CL-1S (Antique Gold/lightest) → CL-2T (Burnt Sienna/mid). CL-3R is not part of this graduation — it breaks to its own Pacific identity
+6. **GHK-Cu cap is Patina** — muted green-gray that references the compound's copper ion without matching any other cap
+7. **All cap colors remain muted/desaturated** — no neons, no primaries, no high-saturation
 
 ---
 
@@ -182,22 +205,23 @@ Size variants (5mg vs 10mg, 10mg vs 30mg) share the same color combo. Only the d
 
 ## Renders Needed
 
-| # | Product | Type | Cap Hex | `=` Hex | Status |
-|---|---------|------|---------|---------|--------|
-| 1 | BPC-157 | Single vial + box | `#3A5A6A` | `#3A5A6A` | Re-render (fix dosage to 5mg or 10mg) |
-| 2 | TB-500 | Single vial + box | `#2A6B6B` | `#3A5A6A` | Re-render (add color) |
+| # | Product | Type | Cap Hex | Favicon / QR Hex | Status |
+|---|---------|------|---------|-----------------|--------|
+| 1 | BPC-157 | Single vial + box | `#4E5C72` | `#3A5A6A` | Re-render (new Dusk Slate cap + favicon replaces `=`) |
+| 2 | TB-500 | Single vial + box | `#2A6B6B` | `#3A5A6A` | Re-render (favicon replaces `=`) |
 | 3 | GHK-Cu | Single vial + box | `#6B7E6B` | `#3A5A6A` | **NEW** |
-| 4 | Wolverine | 2-vial stack + box | `#3D3D3D` | `#3A5A6A` | Re-render (add color) |
+| 4 | Wolverine | 2-vial stack + box | `#3D3D3D` | `#3A5A6A` | Re-render (favicon replaces `=`) |
 | 5 | CL-1S | Single vial + box | `#8A7D5A` | `#B8622E` | **NEW** |
 | 6 | CL-2T | Single vial + box | `#7A4A35` | `#B8622E` | **NEW** |
-| 7 | CL-3R | Single vial + box | `#3A5A6A` | `#3A5A6A` | Re-render (fix naming + Pacific accent + Pacific cap) |
+| 7 | CL-3R | Single vial + box | `#3A5A6A` | `#3A5A6A` | ✅ Approved — Pacific favicon + Pacific cap |
 | 8 | Ipamorelin | Single vial + box | `#4682B4` | `#5B6E8A` | **NEW** (standalone, not CJC stack) |
-| 9 | Tesamorelin | Single vial + box | `#2C3E50` | `#5B6E8A` | **NEW** |
-| 10 | MOTS-c | Single vial + box | `#7C8A78` | `#7C8A78` | Re-render (add color) |
-| 11 | SS-31 | Single vial + box | `#4A6350` | `#7C8A78` | **NEW** |
-| 12 | GLOW | Single vial + box | `#C2A878` | `#8A6E5B` | **NEW** |
-| 13 | KLOW | Single vial + box | `#8E7360` | `#8A6E5B` | **NEW** |
-| 14 | Melanotan 2 | Single vial + box | `#6B4E3D` | `#8A6E5B` | **NEW** |
+| 9 | Tesamorelin | Single vial + box | `#3D3D3D` | `#5B6E8A` | **NEW** (Charcoal cap, not Navy) |
+| 10 | MOTS-c | Single vial + box | `#7C8A78` | `#7C8A78` | Re-render (favicon replaces `=`) |
+| 11 | SS-31 | Single vial + box | `#4E5C72` | `#7C8A78` | **NEW** (Dusk Slate cap, not Forest) |
+| 12 | GLOW | Single vial + box | `#9A9478` | `#8A6E5B` | **NEW** |
+| 13 | KLOW | Single vial + box | `#7A6B5E` | `#8A6E5B` | **NEW** |
+| 14 | Melanotan 2 | Single vial + box | `#5E4538` | `#8A6E5B` | **NEW** |
 | 15 | Bac Water | Single vial + box | `#B0B8BF` | `#8B9298` | **NEW** |
 
 **9 new renders + 6 re-renders = 15 total**
+CL-3R render is approved and serves as the template for all other renders.
