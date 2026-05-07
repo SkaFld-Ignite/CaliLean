@@ -1,0 +1,1 @@
+export const GUARD_RAILS = `DO NOT include: hands, people, lab coats, blue gloves, beakers, test tubes, syringes, needles, gradient backdrops, marble, wood grain, sand, gym equipment, bokeh on subject, motion blur, lens flare, HDR look, instagram filter, neon, watermark, generated text beyond specified label content, mockup annotations, decorative borders, leaves, droplets.`
