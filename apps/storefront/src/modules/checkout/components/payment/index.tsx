@@ -56,9 +56,7 @@ const Payment = ({
     "checking"
   )
   const achComplete =
-    achName.length > 0 &&
-    achRouting.length === 9 &&
-    achAccount.length >= 4
+    achName.length > 0 && achRouting.length === 9 && achAccount.length >= 4
 
   const paidByGiftcard =
     cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0
