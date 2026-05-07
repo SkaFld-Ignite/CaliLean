@@ -337,4 +337,5 @@ const medusaConfig = {
   ]
 };
 
-export default defineConfig(medusaConfig as any);
+// @ts-expect-error -- conditional plugin/module spreads create complex union types
+export default defineConfig(medusaConfig);
