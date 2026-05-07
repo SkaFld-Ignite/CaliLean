@@ -28,7 +28,7 @@ export default async function CategorizedProducts({
   const [
     categories,
     {
-      response: { products },
+      response: { products: allProducts },
     },
   ] = await Promise.all([
     listCategories(),
@@ -37,11 +37,15 @@ export default async function CategorizedProducts({
       queryParams: {
         limit: 100,
         fields: "*variants.calculated_price,+categories.*",
+        status: ["published"] as any,
       },
       sortBy: "created_at",
       countryCode,
     }),
   ])
+
+  // Guard: only show published products (belt-and-suspenders against cache/API drift)
+  const products = allProducts.filter((p: any) => p.status === "published")
 
   // Find top-level categories and their children
   const topLevel = categories.filter((c: any) => !c.parent_category_id)
@@ -102,11 +106,13 @@ export default async function CategorizedProducts({
               )}
             </div>
             <ul className="grid grid-cols-2 small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8">
-              {categoryProducts.map((p) => (
-                <li key={p.id}>
-                  <ProductPreview product={p} region={region} />
-                </li>
-              ))}
+              {categoryProducts
+                .filter((p: any) => p.status === "published")
+                .map((p) => (
+                  <li key={p.id}>
+                    <ProductPreview product={p} region={region} />
+                  </li>
+                ))}
             </ul>
           </section>
         )
