@@ -35,11 +35,11 @@ addToCartWorkflow.hooks.validate(
     })
 
     const cartHasPreorderVariants = itemsInCart.some(
-      (item) => isPreorderVariant(item.variant?.preorder_variant as InferTypeOf<typeof PreorderVariant>)
+      (item: { variant?: { preorder_variant?: unknown } }) => isPreorderVariant(item.variant?.preorder_variant as InferTypeOf<typeof PreorderVariant>)
     )
 
     const newItemsHavePreorderVariants = variantsToAdd.some(
-      (variant) => isPreorderVariant(variant.preorder_variant as InferTypeOf<typeof PreorderVariant>)
+      (variant: { preorder_variant?: unknown }) => isPreorderVariant(variant.preorder_variant as InferTypeOf<typeof PreorderVariant>)
     )
 
     if (cartHasPreorderVariants !== newItemsHavePreorderVariants) {

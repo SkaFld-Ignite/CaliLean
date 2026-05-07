@@ -14,7 +14,7 @@ const LineItemUnitPrice = ({
   style = "default",
 }: LineItemUnitPriceProps) => {
   const { original_price_number, currency_code } =
-    getPricesForVariant(item.variant) ?? {}
+    (item.variant ? getPricesForVariant(item.variant) : undefined) ?? {}
 
   // Use the cart line item's unit_price which reflects quantity-based pricing
   const unitPrice = item.unit_price
@@ -33,7 +33,7 @@ const LineItemUnitPrice = ({
               className="line-through"
               data-testid="product-unit-original-price"
             >
-              {convertToLocale({ amount: originalPriceNum, currency_code })}
+              {convertToLocale({ amount: originalPriceNum, currency_code: currency_code ?? "usd" })}
             </span>
           </p>
           {style === "default" && (
@@ -49,7 +49,7 @@ const LineItemUnitPrice = ({
         })}
         data-testid="product-unit-price"
       >
-        {convertToLocale({ amount: unitPrice, currency_code })}
+        {convertToLocale({ amount: unitPrice, currency_code: currency_code ?? "usd" })}
       </span>
     </div>
   )

@@ -38,7 +38,7 @@ export const trackOrderPlacedWorkflow = createWorkflow(
       email: order.email,
       total: order.total,
       currency: order.currency_code,
-      items: order.items?.map((item) => ({
+      items: order.items?.map((item: { id?: string; title?: string; quantity?: number; variant?: unknown; unit_price?: number }) => ({
         id: item?.id,
         title: item?.title,
         quantity: item?.quantity,

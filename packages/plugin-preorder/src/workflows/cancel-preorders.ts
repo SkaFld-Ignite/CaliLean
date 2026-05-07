@@ -27,7 +27,7 @@ export const cancelPreordersWorkflow = createWorkflow(
       preorders: updatedPreorders,
       input
     }, (data) => {
-      return data.preorders.map((preorder) => ({
+      return data.preorders.map((preorder: { id: string; order_id?: string }) => ({
         id: preorder.id,
         order_id: data.input.order_id,
       }))

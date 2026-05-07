@@ -27,9 +27,9 @@ export const removeBundleFromCartWorkflow = createWorkflow(
       cart: carts[0],
       bundle_id,
     }, (data) => {
-      return data.cart.items.filter((item) => {
+      return data.cart.items.filter((item: { metadata?: Record<string, unknown>; id: string }) => {
         return item?.metadata?.bundle_id === data.bundle_id
-      }).map((item) => item!.id)
+      }).map((item: { id: string }) => item.id)
     })
 
     acquireLockStep({

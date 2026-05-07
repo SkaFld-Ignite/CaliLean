@@ -55,7 +55,7 @@ completeCartWorkflow.hooks.validate(
 
     // --- First-purchase discount validation ---
     const hasFirstPurchasePromo = cart.promotions?.some(
-      (promo) => promo?.code === FIRST_PURCHASE_PROMOTION_CODE
+      (promo: { code?: string }) => promo?.code === FIRST_PURCHASE_PROMOTION_CODE
     )
 
     if (!hasFirstPurchasePromo) {

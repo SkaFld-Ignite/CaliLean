@@ -31,7 +31,7 @@ export default async function userInviteHandler({
       }
     })
   } catch (error) {
-    logger.error('Error sending invite notification:', error)
+    logger.error('Error sending invite notification:', error instanceof Error ? error : new Error(String(error)))
   }
 }
 

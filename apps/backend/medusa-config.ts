@@ -40,7 +40,7 @@ import {
 } from './src/lib/constants';
 
 
-loadEnv(process.env.NODE_ENV, process.cwd());
+loadEnv(process.env.NODE_ENV || 'development', process.cwd());
 
 const medusaConfig = {
   projectConfig: {
@@ -337,4 +337,4 @@ const medusaConfig = {
   ]
 };
 
-export default defineConfig(medusaConfig);
+export default defineConfig(medusaConfig as any);

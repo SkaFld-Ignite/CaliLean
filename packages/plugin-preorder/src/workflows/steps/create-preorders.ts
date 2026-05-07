@@ -20,7 +20,7 @@ export const createPreordersStep = createStep(
       }))
     )
 
-    return new StepResponse(preorders, preorders.map((p) => p.id))
+    return new StepResponse(preorders, preorders.map((p: { id: string }) => p.id))
   },
   async (preorderIds, { container }) => {
     if (!preorderIds) {

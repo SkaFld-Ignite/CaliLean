@@ -50,7 +50,7 @@ export const syncStep = createStep(
 
       try {
         await promiseAll(
-          products.map(async (prod) => {
+          products.map(async (prod: any) => {
             const after = await sanityModule.upsertSyncDocument(
               "product",
               prod as unknown as ProductDTO

@@ -12,7 +12,7 @@ type LineItemPriceProps = {
 
 const LineItemPrice = ({ item, style = "default" }: LineItemPriceProps) => {
   const { currency_code, original_price_number } =
-    getPricesForVariant(item.variant) ?? {}
+    (item.variant ? getPricesForVariant(item.variant) : undefined) ?? {}
 
   const adjustmentsSum = (item.adjustments || []).reduce(
     (acc, adjustment) => adjustment.amount + acc,
@@ -40,7 +40,7 @@ const LineItemPrice = ({ item, style = "default" }: LineItemPriceProps) => {
               >
                 {convertToLocale({
                   amount: originalPrice,
-                  currency_code,
+                  currency_code: currency_code ?? "usd",
                 })}
               </span>
             </p>
@@ -59,7 +59,7 @@ const LineItemPrice = ({ item, style = "default" }: LineItemPriceProps) => {
         >
           {convertToLocale({
             amount: currentPrice,
-            currency_code,
+            currency_code: currency_code ?? "usd",
           })}
         </span>
       </div>

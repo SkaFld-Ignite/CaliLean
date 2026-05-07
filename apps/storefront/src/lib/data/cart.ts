@@ -314,20 +314,20 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
 
     if (sameAsBilling !== "on")
       data.billing_address = {
-        first_name: formData.get("billing_address.first_name"),
-        last_name: formData.get("billing_address.last_name"),
-        address_1: formData.get("billing_address.address_1"),
+        first_name: formData.get("billing_address.first_name") as string | null,
+        last_name: formData.get("billing_address.last_name") as string | null,
+        address_1: formData.get("billing_address.address_1") as string | null,
         address_2: "",
-        company: formData.get("billing_address.company"),
-        postal_code: formData.get("billing_address.postal_code"),
-        city: formData.get("billing_address.city"),
-        country_code: formData.get("billing_address.country_code"),
-        province: formData.get("billing_address.province"),
-        phone: formData.get("billing_address.phone"),
+        company: formData.get("billing_address.company") as string | null,
+        postal_code: formData.get("billing_address.postal_code") as string | null,
+        city: formData.get("billing_address.city") as string | null,
+        country_code: formData.get("billing_address.country_code") as string | null,
+        province: formData.get("billing_address.province") as string | null,
+        phone: formData.get("billing_address.phone") as string | null,
       }
 
-    const shippingProvince = String(data.shipping_address.province ?? "")
-    const shippingCountry = String(data.shipping_address.country_code ?? "")
+    const shippingProvince = String(formData.get("shipping_address.province") ?? "")
+    const shippingCountry = String(formData.get("shipping_address.country_code") ?? "")
     if (!isUsStateAllowed(shippingProvince, shippingCountry)) {
       // Structured rejection log so ops can measure suppression cost
       // (no PII — only the state code and a short cart-id prefix).

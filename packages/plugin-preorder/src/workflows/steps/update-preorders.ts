@@ -31,7 +31,7 @@ export const updatePreordersStep = createStep(
     const preorderModuleService = container.resolve("preorder") as any
 
     await preorderModuleService.updatePreorders(
-      preorders.map((preorder) => ({
+      preorders.map((preorder: { id: string; status?: string; item_id?: string; order_id?: string }) => ({
         id: preorder.id,
         status: preorder.status,
         item_id: preorder.item_id,

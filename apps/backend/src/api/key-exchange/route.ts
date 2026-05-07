@@ -14,7 +14,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     }
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
-    req.scope.resolve("logger").error("Key exchange failed:", message);
+    req.scope.resolve("logger").error("Key exchange failed: " + message);
     res.status(500).json({ error: "Internal server error" });
   }
 }

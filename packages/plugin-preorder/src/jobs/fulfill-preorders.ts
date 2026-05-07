@@ -85,7 +85,7 @@ export default async function fulfillPreordersJob(container: MedusaContainer) {
             }
           })
         } catch (e) {
-          logger.error(`Failed to fulfill preorder ${preorder.id}: ${e.message}`)
+          logger.error(`Failed to fulfill preorder ${preorder.id}: ${e instanceof Error ? e.message : String(e)}`)
         }
       }
     } while (preordersCount > limit * preordersOffset)

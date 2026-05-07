@@ -35,7 +35,7 @@ export const updateInvoicesStep = createStep(
     const invoiceGeneratorService = container.resolve(INVOICE_MODULE) as any
 
     await invoiceGeneratorService.updateInvoices(
-      prevData.map((i) => ({
+      prevData.map((i: { id: string; status: string }) => ({
         id: i.id,
         status: i.status
       }))

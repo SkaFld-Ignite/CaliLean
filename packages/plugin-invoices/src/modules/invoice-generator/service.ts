@@ -1,6 +1,7 @@
 import { MedusaService } from "@medusajs/framework/utils"
 import { InvoiceConfig } from "./models/invoice-config";
 import { Invoice, InvoiceStatus } from "./models/invoice";
+// @ts-expect-error -- pdfmake has no type declarations
 import PdfPrinter from "pdfmake/src/printer"
 import { InferTypeOf, OrderDTO, OrderLineItemDTO } from "@medusajs/framework/types"
 import axios from "axios"
@@ -46,12 +47,12 @@ class InvoiceGeneratorService extends MedusaService({
 
       const pdfDoc = printer.createPdfKitDocument(pdfContent as any)
 
-      pdfDoc.on('data', chunk => chunks.push(chunk));
+      pdfDoc.on('data', (chunk: Buffer) => chunks.push(chunk));
       pdfDoc.on('end', () => {
         const result = Buffer.concat(chunks);
         resolve(result);
       });
-      pdfDoc.on('error', err => reject(err));
+      pdfDoc.on('error', (err: Error) => reject(err));
 
       pdfDoc.end(); // Finalize PDF stream
     });

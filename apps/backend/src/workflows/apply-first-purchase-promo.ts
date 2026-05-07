@@ -31,7 +31,7 @@ export const applyFirstPurchasePromoWorkflow = createWorkflow(
       promotions
     }, (data) => {
       return data.promotions.length > 0 &&
-        !data.carts[0].promotions?.some((promo) => promo?.id === data.promotions[0].id) &&
+        !data.carts[0].promotions?.some((promo: { id?: string }) => promo?.id === data.promotions[0].id) &&
         data.carts[0].customer !== null &&
         data.carts[0].customer.orders?.length === 0
     })

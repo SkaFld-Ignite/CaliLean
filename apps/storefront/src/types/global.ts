@@ -11,6 +11,6 @@ export type VariantPrice = {
   original_price_number: number
   original_price: string
   currency_code: string
-  price_type: string
+  price_type: string | null | undefined
   percentage_diff: string
 }

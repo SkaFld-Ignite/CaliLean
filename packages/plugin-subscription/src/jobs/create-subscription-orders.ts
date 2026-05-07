@@ -42,7 +42,7 @@ export default async function createSubscriptionOrdersJob(
 
             logger.info(`Created new order ${result.order.id} for subscription ${subscription.id}`)
           } catch (e) {
-            logger.error(`Error creating a new order for subscription ${subscription.id}`, e)
+            logger.error(`Error creating a new order for subscription ${subscription.id}`, e instanceof Error ? e : new Error(String(e)))
           }
         })
       )

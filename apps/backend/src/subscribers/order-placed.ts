@@ -15,12 +15,14 @@ export default async function orderPlacedHandler({
   const orderModuleService: IOrderModuleService = container.resolve(Modules.ORDER)
 
   const order = await orderModuleService.retrieveOrder(data.id, { relations: ['items', 'summary', 'shipping_address'] })
-  const shippingAddress = await (orderModuleService as any).orderAddressService_.retrieve(order.shipping_address.id)
+  const shippingAddress = order.shipping_address
+    ? await (orderModuleService as any).orderAddressService_.retrieve(order.shipping_address.id)
+    : undefined
 
   // --- Send order confirmation email ---
   try {
     await notificationModuleService.createNotifications({
-      to: order.email,
+      to: order.email!,
       channel: 'email',
       template: EmailTemplates.ORDER_PLACED,
       data: {
@@ -34,7 +36,7 @@ export default async function orderPlacedHandler({
       }
     })
   } catch (error) {
-    logger.error('Error sending order confirmation notification:', error)
+    logger.error('Error sending order confirmation notification:', error instanceof Error ? error : new Error(String(error)))
   }
 
   // --- Generate invoice PDF ---
@@ -43,7 +45,7 @@ export default async function orderPlacedHandler({
       input: { order_id: data.id }
     })
   } catch (error) {
-    logger.error('Error generating invoice PDF:', error)
+    logger.error('Error generating invoice PDF:', error instanceof Error ? error : new Error(String(error)))
   }
 
   // --- Award loyalty points ---
@@ -52,7 +54,7 @@ export default async function orderPlacedHandler({
       input: { order_id: data.id }
     })
   } catch (error) {
-    logger.error('Error handling loyalty points:', error)
+    logger.error('Error handling loyalty points:', error instanceof Error ? error : new Error(String(error)))
   }
 
   // --- Track order placed analytics event (Segment) ---
@@ -61,7 +63,7 @@ export default async function orderPlacedHandler({
       input: { id: data.id }
     })
   } catch (error) {
-    logger.error('Error tracking order placed analytics event:', error)
+    logger.error('Error tracking order placed analytics event:', error instanceof Error ? error : new Error(String(error)))
   }
 }
 

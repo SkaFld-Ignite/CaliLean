@@ -61,7 +61,7 @@ export const reorderWorkflow = createWorkflow(
           postal_code: data.orders[0].shipping_address?.postal_code!,
           phone: data.orders[0].shipping_address?.phone!,
         },
-        items: data.orders[0].items?.map((item) => ({
+        items: data.orders[0].items?.map((item: { variant_id?: string; quantity?: number; unit_price?: number }) => ({
           variant_id: item?.variant_id!,
           quantity: item?.quantity!,
           unit_price: item?.unit_price!,
@@ -79,7 +79,7 @@ export const reorderWorkflow = createWorkflow(
     }, (data) => {
       return {
         cart_id: data.cart_id,
-        options: data.orders[0].shipping_methods?.map((method) => ({
+        options: data.orders[0].shipping_methods?.map((method: { shipping_option_id?: string; data?: Record<string, unknown> }) => ({
           id: method?.shipping_option_id!,
           data: method?.data!,
         })) ?? [],

@@ -121,7 +121,7 @@ export const applyLoyaltyOnCartWorkflow = createWorkflow(
       loyaltyPromo
     }, (data) => {
       const promos = [
-        ...(data.carts[0].promotions?.map((promo) => promo?.code).filter(Boolean) || []) as string[],
+        ...(data.carts[0].promotions?.map((promo: { code?: string }) => promo?.code).filter(Boolean) || []) as string[],
         data.promoToCreate.code
       ]
 

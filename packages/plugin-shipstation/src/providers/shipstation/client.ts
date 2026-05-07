@@ -30,7 +30,7 @@ export class ShipStationClient {
         throw new MedusaError(
           MedusaError.Types.INVALID_DATA,
           `An error occured while sending a request to ShipStation: ${
-            resp.errors.map((error) => error.message)
+            resp.errors.map((error: { message: string }) => error.message)
           }`
         )
       }
@@ -52,7 +52,7 @@ export class ShipStationClient {
         throw new MedusaError(
           MedusaError.Types.INVALID_DATA,
           `An error occured while retrieving rates from ShipStation: ${
-            resp.rate_response.errors.map((error) => error.message)
+            resp.rate_response.errors.map((error: { message: string }) => error.message)
           }`
         )
       }

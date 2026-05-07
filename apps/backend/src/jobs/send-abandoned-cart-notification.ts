@@ -51,7 +51,7 @@ export default async function sendAbandonedCartNotification(
         })
         totalSent += eligibleCarts.length
       } catch (error) {
-        logger.error("Failed to send abandoned cart notifications:", error)
+        logger.error("Failed to send abandoned cart notifications:", error instanceof Error ? error : new Error(String(error)))
       }
     }
 

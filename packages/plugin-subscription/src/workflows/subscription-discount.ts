@@ -43,7 +43,7 @@ export const subscriptionDiscountWorkflow = createWorkflow(
       },
       (data) => {
         const hasPromo = data.carts[0].promotions?.some(
-          (promo) => promo?.code === SUBSCRIPTION_PROMOTION_CODE
+          (promo: { code?: string }) => promo?.code === SUBSCRIPTION_PROMOTION_CODE
         )
 
         return (
