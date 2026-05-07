@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 import { Command } from "commander"
+import { registerEnvCommand } from "./commands/env"
+import { registerSyncCommand } from "./commands/sync"
+import { registerDiffCommand } from "./commands/diff"
+import { registerDumpCommand } from "./commands/dump"
+import { registerSeedCommand } from "./commands/seed"
 
 const program = new Command()
   .name("calilean")
@@ -15,6 +20,10 @@ const program = new Command()
   .option("--force", "Skip confirmation prompts (for CI)")
   .option("--dry-run", "Show what would change without applying")
 
-// Commands will be registered in subsequent tasks
+registerEnvCommand(program)
+registerSyncCommand(program)
+registerDiffCommand(program)
+registerDumpCommand(program)
+registerSeedCommand(program)
 
 program.parse()
