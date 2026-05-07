@@ -75,7 +75,7 @@ Comprehensive pricing analysis across 8 peptide/compound competitors reveals Cal
 | GLP2-T | 30mg | $399 | **$189.99** | $49.00 - $150.00 |
 | GLP3-R (Retatrutide) | 10mg | $179 | **$79.99** | $39.00 - $100.00 |
 | GLP3-R | 20mg | $329 | **$149.99** | $39.00 - $150.00 |
-| GLP3-R | 30mg | $449 | **$219.99** | $39.00 - $249.99 |
+| GLP3-R | 30mg | $449 | **$260.00** | $39.00 - $249.99 |
 
 #### GH Axis Category
 | Product | Variant | Old Price | New Price | Market Range |
