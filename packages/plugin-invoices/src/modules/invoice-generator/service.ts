@@ -1,7 +1,7 @@
 import { MedusaService } from "@medusajs/framework/utils"
 import { InvoiceConfig } from "./models/invoice-config";
 import { Invoice, InvoiceStatus } from "./models/invoice";
-// @ts-expect-error -- pdfmake has no type declarations
+// @ts-ignore -- pdfmake has no type declarations
 import PdfPrinter from "pdfmake/src/printer"
 import { InferTypeOf, OrderDTO, OrderLineItemDTO } from "@medusajs/framework/types"
 import axios from "axios"

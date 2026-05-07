@@ -17,7 +17,7 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "checkJs": false,
-    "strict": true
+    "strictNullChecks": true
   },
   "ts-node": {
     "swc": true
