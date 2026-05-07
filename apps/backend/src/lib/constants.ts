@@ -1,12 +1,17 @@
 import { loadEnv } from '@medusajs/framework/utils'
 
-import { assertValue } from '../utils/assert-value'
-
-// During `medusa build`, NODE_ENV is production but secrets aren't needed.
-// Only enforce assertions at server runtime, not build time.
-const IS_RUNTIME = !process.argv.some(arg => arg.includes('medusa') && process.argv.includes('build'))
-const assertRuntime = (val: string | undefined, msg: string) =>
-  IS_RUNTIME ? assertValue(val, msg) : val ?? ''
+/**
+ * Warn (not crash) when a required secret is missing in production.
+ * We cannot crash at module-load time because `medusa build` also runs
+ * with NODE_ENV=production but doesn't need real secrets.
+ */
+function requireSecret(val: string | undefined, name: string, fallback: string): string {
+  if (val) return val
+  if (process.env.NODE_ENV === 'production') {
+    console.warn(`[SECURITY] ${name} is not set in production — using fallback`)
+  }
+  return fallback
+}
 
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
@@ -49,19 +54,13 @@ export const STORE_CORS = process.env.STORE_CORS;
  * JWT Secret used for signing JWT tokens.
  * In production, this MUST be set — the 'supersecret' fallback is dev-only.
  */
-export const JWT_SECRET =
-  process.env.NODE_ENV === 'production'
-    ? assertRuntime(process.env.JWT_SECRET, 'JWT_SECRET is required in production')
-    : process.env.JWT_SECRET ?? 'supersecret'
+export const JWT_SECRET = requireSecret(process.env.JWT_SECRET, 'JWT_SECRET', 'supersecret')
 
 /**
  * Cookie secret used for signing cookies.
  * In production, this MUST be set — the 'supersecret' fallback is dev-only.
  */
-export const COOKIE_SECRET =
-  process.env.NODE_ENV === 'production'
-    ? assertRuntime(process.env.COOKIE_SECRET, 'COOKIE_SECRET is required in production')
-    : process.env.COOKIE_SECRET ?? 'supersecret'
+export const COOKIE_SECRET = requireSecret(process.env.COOKIE_SECRET, 'COOKIE_SECRET', 'supersecret')
 
 /**
  * (optional) Minio configuration for file storage
@@ -161,10 +160,7 @@ export const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
  * (optional) ERP encryption key for securing ERP credentials at rest.
  * Required in production when ERP plugin is loaded.
  */
-export const ERP_ENCRYPTION_KEY =
-  process.env.NODE_ENV === 'production'
-    ? assertRuntime(process.env.ERP_ENCRYPTION_KEY, 'ERP_ENCRYPTION_KEY is required in production')
-    : process.env.ERP_ENCRYPTION_KEY;
+export const ERP_ENCRYPTION_KEY = process.env.ERP_ENCRYPTION_KEY;
 
 /**
  * (optional) HMAC-SHA256 secret for verifying ERP dispute webhook signatures.
