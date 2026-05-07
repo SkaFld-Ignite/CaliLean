@@ -232,3 +232,5 @@ export type PromotionConfig = z.infer<typeof PromotionSchema>
 export type ShippingOptionConfig = z.infer<typeof ShippingOptionSchema>
 export type SalesChannelConfig = z.infer<typeof SalesChannelSchema>
 export type ApiKeyConfig = z.infer<typeof ApiKeySchema>
+export type InventoryLocationConfig = z.infer<typeof InventoryLocationSchema>
+export type InventoryConfig = z.infer<typeof InventorySchema>
