@@ -1,6 +1,6 @@
 import { loadEnv } from '@medusajs/framework/utils'
 
-import { assertValue } from 'utils/assert-value'
+import { assertValue } from '../utils/assert-value'
 
 // During `medusa build`, NODE_ENV is production but secrets aren't needed.
 // Only enforce assertions at server runtime, not build time.
