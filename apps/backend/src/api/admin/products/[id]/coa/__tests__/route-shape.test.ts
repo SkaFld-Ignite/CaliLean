@@ -19,11 +19,11 @@ describe("COA route layout", () => {
     expect(filesRoute).not.toMatch(/export const DELETE\s*=/)
   })
 
-  it("PATCH/DELETE panel mutations stay in coa/route.ts (no POST)", () => {
+  it("POST/DELETE panel mutations stay in coa/route.ts (no PATCH)", () => {
     const panelRoute = read(join(COA_DIR, "route.ts"))
-    expect(panelRoute).toMatch(/export const PATCH\s*=/)
+    expect(panelRoute).toMatch(/export const POST\s*=/)
     expect(panelRoute).toMatch(/export const DELETE\s*=/)
-    expect(panelRoute).not.toMatch(/export const POST\s*=/)
+    expect(panelRoute).not.toMatch(/export const PATCH\s*=/)
   })
 
   it("multer matcher targets /coa/files (where the POST handler lives)", () => {
