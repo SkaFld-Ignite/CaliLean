@@ -33,8 +33,9 @@ function liveToConfig(live: LiveStore): StoreDump {
 }
 
 export async function dumpStore(client: CaliLeanClient): Promise<StoreDump> {
-  const res = await client.get<{ store: LiveStore }>("/store")
-  const live = res.store
+  const res = await client.get<{ stores: LiveStore[] }>("/stores")
+  const live = res.stores[0]
+  if (!live) throw new Error("No store found in Medusa instance")
   return liveToConfig(live)
 }
 
@@ -45,8 +46,9 @@ export async function syncStore(
 ): Promise<{ created: number; updated: number; skipped: number }> {
   verbose("Syncing store settings")
 
-  const res = await client.get<{ store: LiveStore }>("/store")
-  const live = res.store
+  const res = await client.get<{ stores: LiveStore[] }>("/stores")
+  const live = res.stores[0]
+  if (!live) throw new Error("No store found in Medusa instance")
 
   const desired: Record<string, unknown> = {
     name: config.name,

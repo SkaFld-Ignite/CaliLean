@@ -1,0 +1,84 @@
+store:
+  name: "CaliLean"
+  default_currency: "usd"
+  supported_currencies: ["usd", "eur"]
+
+regions:
+  - name: "United States"
+    currency_code: "usd"
+    countries: ["us"]
+    automatic_taxes: true
+  - name: "Europe"
+    currency_code: "eur"
+    countries: ["dk", "fr", "de", "it", "es", "se", "gb"]
+    automatic_taxes: true
+
+categories:
+  - name: "Peptides"
+    handle: "peptides"
+    children:
+      - name: "Recovery"
+        handle: "recovery"
+      - name: "Weight Management"
+        handle: "weight-management"
+      - name: "Growth & Anti-Aging"
+        handle: "growth-anti-aging"
+      - name: "Longevity"
+        handle: "longevity"
+      - name: "Cosmetic"
+        handle: "cosmetic"
+  - name: "Supplies"
+    handle: "supplies"
+
+products:
+  - title: "BPC-157"
+    handle: "bpc-157"
+    status: "published"
+    categories: ["recovery"]
+    options:
+      - title: "Size"
+        values: ["5mg", "10mg"]
+    variants:
+      - title: "5mg"
+        sku: "CL-BPC-0005"
+        options: { Size: "5mg" }
+        manage_inventory: false
+        prices:
+          - currency_code: "usd"
+            amount: 29.74
+      - title: "10mg"
+        sku: "CL-BPC-0010"
+        options: { Size: "10mg" }
+        manage_inventory: false
+        prices:
+          - currency_code: "usd"
+            amount: 47.99
+
+sales_channels:
+  - name: "Default Sales Channel"
+
+api_keys:
+  - title: "Webshop"
+    type: "publishable"
+    sales_channels: ["Default Sales Channel"]
+
+shipping:
+  profiles:
+    - name: "Default Shipping Profile"
+      type: "default"
+
+promotions:
+  - code: "SUBSCRIBE_SAVE_15"
+    type: "standard"
+    is_automatic: false
+    application_method:
+      type: "percentage"
+      value: 15
+      allocation: "across"
+      target_type: "items"
+
+inventory:
+  locations:
+    - name: "CaliLean Warehouse"
+      address:
+        country_code: "us"
