@@ -25,18 +25,19 @@ export default function ParticleSwarm() {
       "#B8C4CC", // fog lightened
     ]
 
-    const BOID_COUNT = 450
-    const VISUAL_RANGE = 110
-    const PROTECTED_RANGE = 30
-    const CENTER_PULL = 0.0003 
-    const AVOID_FACTOR = 0.12   
-    const MATCH_FACTOR = 0.08   // Higher for more coordinated sparrow-like steering
-    const SPEED_LIMIT = 2.2     // Slightly slower for smoother motion
-    const MIN_SPEED = 0.7
-    
-    const MOUSE_RADIUS = 300 
-    const MOUSE_PULL = 0.006    // Very subtle attraction
-    const WANDER_STRENGTH = 0.15 // Increased for more undulating wave motion
+    const isMobile = window.innerWidth < 768
+    const BOID_COUNT = isMobile ? 160 : 350
+    const VISUAL_RANGE = 90
+    const PROTECTED_RANGE = 25
+    const CENTER_PULL = 0.00015
+    const AVOID_FACTOR = 0.04
+    const MATCH_FACTOR = 0.04
+    const SPEED_LIMIT = 0.45 // Cloud-slow drift
+    const MIN_SPEED = 0.06
+
+    const MOUSE_RADIUS = 250
+    const MOUSE_PULL = 0.002
+    const WANDER_STRENGTH = 0.018 // Very gentle — smooth cloud undulation
 
     let dpr = 1
     let boids: {
@@ -142,10 +143,10 @@ export default function ParticleSwarm() {
         b.vx += close_dx * AVOID_FACTOR
         b.vy += close_dy * AVOID_FACTOR
 
-        // Organic undulation (wander)
+        // Organic undulation (wander) — very gentle, cloud-like
         b.angle += (Math.random() - 0.5) * WANDER_STRENGTH
-        b.vx += Math.cos(b.angle) * 0.04
-        b.vy += Math.sin(b.angle) * 0.04
+        b.vx += Math.cos(b.angle) * 0.006
+        b.vy += Math.sin(b.angle) * 0.006
 
         // Smooth Mouse Orbiting (No spazziness)
         const mdx = mouse.x - b.x
@@ -153,25 +154,25 @@ export default function ParticleSwarm() {
         const mDistSq = mdx * mdx + mdy * mdy
         if (mDistSq < MOUSE_RADIUS * MOUSE_RADIUS) {
           const mDist = Math.sqrt(mDistSq)
-          
+
           // Target an orbit distance (e.g., 70px)
           const targetDist = 70
           const distError = mDist - targetDist
-          
+
           // Continuous smooth radial force (attract if far, repel if close)
           const radialForce = distError * 0.0005
           b.vx += mdx * radialForce
           b.vy += mdy * radialForce
-          
-          // Stronger tangential force for "circling" behavior
-          const tangentStrength = 0.06
+
+          // Gentle tangential force for soft circling
+          const tangentStrength = 0.008
           b.vx += (mdy / mDist) * tangentStrength
           b.vy -= (mdx / mDist) * tangentStrength
         }
 
         // Smooth boundary steering
-        const margin = 120
-        const turn = 0.12
+        const margin = 100
+        const turn = 0.02
         if (b.x < margin) b.vx += turn
         if (b.x > w - margin) b.vx -= turn
         if (b.y < margin) b.vy += turn
