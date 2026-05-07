@@ -11,8 +11,6 @@ overrides:
   '@medusajs/workflows-sdk': 2.14.1
   '@medusajs/orchestration': 2.14.1
 
-pnpmfileChecksum: nosnsxqo3i5ydmc6nluzymgeye
-
 importers:
 
   .:
@@ -3960,7 +3958,7 @@ packages:
     peerDependencies:
       '@medusajs/admin-sdk': 2.14.2
       '@medusajs/cli': 2.14.2
-      '@medusajs/framework': 2.14.1
+      '@medusajs/framework': 2.14.2
       '@medusajs/icons': 2.14.2
       '@medusajs/test-utils': 2.14.2
       '@medusajs/ui': 4.1.9
