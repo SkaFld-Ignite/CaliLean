@@ -3,7 +3,6 @@ import {
   defineMiddlewares,
   validateAndTransformBody,
 } from "@medusajs/framework/http"
-// @ts-expect-error -- multer v2 has no type declarations
 import multer from "multer"
 import { PostStoreCreateRestockSubscription } from "./store/restock-subscriptions/validators"
 
