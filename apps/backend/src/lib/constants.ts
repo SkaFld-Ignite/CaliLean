@@ -2,6 +2,12 @@ import { loadEnv } from '@medusajs/framework/utils'
 
 import { assertValue } from 'utils/assert-value'
 
+// During `medusa build`, NODE_ENV is production but secrets aren't needed.
+// Only enforce assertions at server runtime, not build time.
+const IS_RUNTIME = !process.argv.some(arg => arg.includes('medusa') && process.argv.includes('build'))
+const assertRuntime = (val: string | undefined, msg: string) =>
+  IS_RUNTIME ? assertValue(val, msg) : val ?? ''
+
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
 /**
@@ -45,7 +51,7 @@ export const STORE_CORS = process.env.STORE_CORS;
  */
 export const JWT_SECRET =
   process.env.NODE_ENV === 'production'
-    ? assertValue(process.env.JWT_SECRET, 'JWT_SECRET is required in production')
+    ? assertRuntime(process.env.JWT_SECRET, 'JWT_SECRET is required in production')
     : process.env.JWT_SECRET ?? 'supersecret'
 
 /**
@@ -54,7 +60,7 @@ export const JWT_SECRET =
  */
 export const COOKIE_SECRET =
   process.env.NODE_ENV === 'production'
-    ? assertValue(process.env.COOKIE_SECRET, 'COOKIE_SECRET is required in production')
+    ? assertRuntime(process.env.COOKIE_SECRET, 'COOKIE_SECRET is required in production')
     : process.env.COOKIE_SECRET ?? 'supersecret'
 
 /**
@@ -157,7 +163,7 @@ export const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
  */
 export const ERP_ENCRYPTION_KEY =
   process.env.NODE_ENV === 'production'
-    ? assertValue(process.env.ERP_ENCRYPTION_KEY, 'ERP_ENCRYPTION_KEY is required in production')
+    ? assertRuntime(process.env.ERP_ENCRYPTION_KEY, 'ERP_ENCRYPTION_KEY is required in production')
     : process.env.ERP_ENCRYPTION_KEY;
 
 /**
