@@ -29,7 +29,13 @@ function getCheckoutStep(cart: HttpTypes.StoreCart) {
   }
 }
 
-function SubscriptionBanner({ cart, discountRate = 0.115 }: { cart: HttpTypes.StoreCart; discountRate?: number }) {
+function SubscriptionBanner({
+  cart,
+  discountRate = 0.115,
+}: {
+  cart: HttpTypes.StoreCart
+  discountRate?: number
+}) {
   const isSubscribed = !!cart?.metadata?.subscription_interval
   const [loading, setLoading] = useState(false)
 

@@ -8,7 +8,13 @@ import { updateSubscriptionData, removeSubscriptionData } from "@lib/data/cart"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import { convertToLocale } from "@lib/util/money"
 
-const SubscriptionForm = ({ cart, discountRate = 0.115 }: { cart: any; discountRate?: number }) => {
+const SubscriptionForm = ({
+  cart,
+  discountRate = 0.115,
+}: {
+  cart: any
+  discountRate?: number
+}) => {
   const [purchaseType, setPurchaseType] = useState<"one-time" | "subscription">(
     cart?.metadata?.subscription_interval ? "subscription" : "one-time"
   )

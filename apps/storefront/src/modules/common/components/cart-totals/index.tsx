@@ -20,7 +20,10 @@ type CartTotalsProps = {
   discountRate?: number
 }
 
-const CartTotals: React.FC<CartTotalsProps> = ({ totals, discountRate = 0.115 }) => {
+const CartTotals: React.FC<CartTotalsProps> = ({
+  totals,
+  discountRate = 0.115,
+}) => {
   const {
     currency_code,
     total,

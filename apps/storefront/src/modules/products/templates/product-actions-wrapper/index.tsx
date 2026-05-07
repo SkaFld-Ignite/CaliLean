@@ -19,5 +19,11 @@ export default async function ProductActionsWrapper({
     return null
   }
 
-  return <ProductActions product={product} region={region} discountRate={discount_rate} />
+  return (
+    <ProductActions
+      product={product}
+      region={region}
+      discountRate={discount_rate}
+    />
+  )
 }

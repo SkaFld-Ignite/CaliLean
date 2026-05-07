@@ -33,5 +33,11 @@ export default async function Cart() {
     getSubscriptionConfig(),
   ])
 
-  return <CartTemplate cart={cart} customer={customer} discountRate={discount_rate} />
+  return (
+    <CartTemplate
+      cart={cart}
+      customer={customer}
+      discountRate={discount_rate}
+    />
+  )
 }

@@ -42,7 +42,11 @@ const SubscriptionOverview = ({
   return (
     <div className="flex flex-col gap-y-6 w-full">
       {subscriptions.map((sub) => (
-        <SubscriptionCard key={sub.id} subscription={sub} discountRate={discountRate} />
+        <SubscriptionCard
+          key={sub.id}
+          subscription={sub}
+          discountRate={discountRate}
+        />
       ))}
     </div>
   )

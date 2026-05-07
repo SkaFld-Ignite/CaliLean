@@ -70,7 +70,6 @@ export const GET = async (
     : `${STOREFRONT_URL}${campaign.destination_url}`
 
   const url = new URL(dest)
-  url.searchParams.delete("variant") // always land on product page, not a specific variant
   url.searchParams.set("utm_source", campaign.utm_source)
   url.searchParams.set("utm_medium", campaign.utm_medium)
   url.searchParams.set("utm_campaign", campaign.utm_campaign)

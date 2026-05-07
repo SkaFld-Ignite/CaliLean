@@ -1,5 +1,8 @@
 import { Metadata } from "next"
-import { listSubscriptions, getSubscriptionConfig } from "@lib/data/subscriptions"
+import {
+  listSubscriptions,
+  getSubscriptionConfig,
+} from "@lib/data/subscriptions"
 import SubscriptionOverview from "@modules/account/components/subscription-overview"
 
 export const metadata: Metadata = {
@@ -23,7 +26,10 @@ export default async function Subscriptions() {
         </p>
       </div>
       <div>
-        <SubscriptionOverview subscriptions={subscriptions} discountRate={discount_rate} />
+        <SubscriptionOverview
+          subscriptions={subscriptions}
+          discountRate={discount_rate}
+        />
       </div>
     </div>
   )

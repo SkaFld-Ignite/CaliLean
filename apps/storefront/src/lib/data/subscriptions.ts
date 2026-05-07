@@ -24,7 +24,10 @@ export type SubscriptionConfig = {
   display_label: string
 }
 
-const DEFAULT_CONFIG: SubscriptionConfig = { discount_rate: 0.115, display_label: "11.5%" }
+const DEFAULT_CONFIG: SubscriptionConfig = {
+  discount_rate: 0.115,
+  display_label: "11.5%",
+}
 
 export const getSubscriptionConfig = unstable_cache(
   async (): Promise<SubscriptionConfig> => {
