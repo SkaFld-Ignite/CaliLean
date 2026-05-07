@@ -1,7 +1,10 @@
+# Backend service build config (Storefront uses NIXPACKS_* env vars in Railway)
 [phases.setup]
 nixPkgs = ["pnpm"]
 
 [phases.install]
+# --no-frozen-lockfile required because .pnpmfile.cjs changes the lockfile
+# checksum, causing ERR_PNPM_LOCKFILE_CONFIG_MISMATCH with --frozen-lockfile
 cmds = ["pnpm install --no-frozen-lockfile"]
 cacheDirectories = [
   "node_modules",
