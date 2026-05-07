@@ -35,6 +35,7 @@ const TrustBadges = () => {
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
+            aria-hidden="true"
           >
             <path d={iconPaths[b.icon]} />
           </svg>

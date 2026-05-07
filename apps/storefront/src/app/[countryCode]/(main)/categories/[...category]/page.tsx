@@ -8,11 +8,11 @@ import CategoryTemplate from "@modules/categories/templates"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
 type Props = {
-  params: { category: string[]; countryCode: string }
-  searchParams: {
+  params: Promise<{ category: string[]; countryCode: string }>
+  searchParams: Promise<{
     sortBy?: SortOptions
     page?: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
@@ -50,8 +50,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
+    const { category } = await params
+
     const { product_categories } = await getCategoryByHandle(
-      params.category
+      category
     )
 
     const title = product_categories
@@ -66,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${title} | CaliLean`,
       description,
       alternates: {
-        canonical: `${params.category.join("/")}`,
+        canonical: `${category.join("/")}`,
       },
     }
   } catch (error) {
@@ -75,10 +77,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CategoryPage({ params, searchParams }: Props) {
-  const { sortBy, page } = searchParams
+  const { sortBy, page } = await searchParams
+  const { category, countryCode } = await params
 
   const { product_categories } = await getCategoryByHandle(
-    params.category
+    category
   )
 
   if (!product_categories) {
@@ -90,7 +93,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
       categories={product_categories}
       sortBy={sortBy}
       page={page}
-      countryCode={params.countryCode}
+      countryCode={countryCode}
     />
   )
 }

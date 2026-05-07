@@ -102,6 +102,7 @@ const SubscriptionForm = ({ cart }: { cart: any }) => {
           value={purchaseType}
           onValueChange={(v: any) => setPurchaseType(v)}
           className="flex flex-col gap-y-3"
+          aria-label="Purchase type"
         >
           {/* Subscribe option */}
           <div
@@ -112,6 +113,15 @@ const SubscriptionForm = ({ cart }: { cart: any }) => {
                 : "border-calilean-sand hover:border-calilean-fog bg-white"
             )}
             onClick={() => setPurchaseType("subscription")}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault()
+                setPurchaseType("subscription")
+              }
+            }}
+            role="radio"
+            aria-checked={purchaseType === "subscription"}
+            tabIndex={0}
           >
             <div className="flex items-start justify-between gap-x-4">
               <div className="flex items-center gap-x-3 flex-1">
@@ -173,6 +183,15 @@ const SubscriptionForm = ({ cart }: { cart: any }) => {
                 : "border-calilean-sand hover:border-calilean-fog bg-white"
             )}
             onClick={() => setPurchaseType("one-time")}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault()
+                setPurchaseType("one-time")
+              }
+            }}
+            role="radio"
+            aria-checked={purchaseType === "one-time"}
+            tabIndex={0}
           >
             <div className="flex items-start gap-x-3">
               <RadioGroup.Item value="one-time" id="one-time" />

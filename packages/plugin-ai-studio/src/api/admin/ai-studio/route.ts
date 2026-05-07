@@ -1,11 +1,12 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { generateImageWorkflow } from "../../../workflows/generate-image"
+import { PostGenerateImageInput } from "./validators"
 
 export const POST = async (
-  req: MedusaRequest,
+  req: MedusaRequest<PostGenerateImageInput>,
   res: MedusaResponse
 ) => {
-  const { prompt, aspectRatio, model, seed } = req.body as any
+  const { prompt, aspectRatio, model, seed } = req.validatedBody
 
   const { result } = await generateImageWorkflow(req.scope)
     .run({

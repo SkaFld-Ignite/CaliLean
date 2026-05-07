@@ -51,6 +51,8 @@ const FaqAccordion = () => {
             <div key={i}>
               <button
                 onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
+                aria-controls={`faq-panel-${i}`}
                 className="w-full flex justify-between items-center py-5 text-left text-lg font-semibold text-calilean-ink"
               >
                 {faq.q}
@@ -63,6 +65,8 @@ const FaqAccordion = () => {
                 </span>
               </button>
               <div
+                id={`faq-panel-${i}`}
+                role="region"
                 className="overflow-hidden transition-all duration-300"
                 style={{ maxHeight: open === i ? "300px" : "0" }}
               >

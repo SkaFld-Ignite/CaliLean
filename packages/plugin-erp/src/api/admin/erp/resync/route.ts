@@ -3,9 +3,10 @@ import { syncOrderToErpWorkflow } from "../../../../workflows/sync-order-to-erp"
 import { syncCustomerToErpWorkflow } from "../../../../workflows/sync-customer-to-erp"
 import { syncProductToErpWorkflow } from "../../../../workflows/sync-product-to-erp"
 import { syncPaymentToErpWorkflow } from "../../../../workflows/sync-payment-to-erp"
+import { PostResyncInput } from "./validators"
 
-export async function POST(req: MedusaRequest, res: MedusaResponse) {
-  const { entity, entity_id } = req.body as { entity: string; entity_id: string }
+export async function POST(req: MedusaRequest<PostResyncInput>, res: MedusaResponse) {
+  const { entity, entity_id } = req.validatedBody
 
   try {
     if (entity === "order") {

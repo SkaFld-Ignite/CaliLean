@@ -18,6 +18,7 @@
       "*": ["./src/*"]
     },
     "jsx": "react-jsx",
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "checkJs": false
