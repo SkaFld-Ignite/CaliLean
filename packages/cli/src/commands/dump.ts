@@ -76,7 +76,16 @@ export function registerDumpCommand(program: Command): void {
         variants: p.variants.map((v) => ({
           title: v.title,
           ...(v.sku ? { sku: v.sku } : {}),
-          ...(v.options ? { options: v.options } : {}),
+          ...(v.options?.length
+            ? {
+                options: Object.fromEntries(
+                  v.options.map((o) => [
+                    o.option?.title ?? "unknown",
+                    o.value,
+                  ])
+                ),
+              }
+            : {}),
           ...(v.prices?.length
             ? {
                 prices: v.prices.map((pr) => ({

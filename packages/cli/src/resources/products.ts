@@ -19,12 +19,18 @@ interface LiveOption {
   values: LiveOptionValue[]
 }
 
+interface LiveVariantOption {
+  value: string
+  option_id?: string
+  option?: { title: string }
+}
+
 interface LiveVariant {
   id: string
   title: string
   sku?: string
   prices: LivePrice[]
-  options?: Record<string, string>
+  options?: LiveVariantOption[]
 }
 
 interface LiveCategory {
