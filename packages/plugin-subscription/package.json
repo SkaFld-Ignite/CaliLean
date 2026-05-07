@@ -29,7 +29,7 @@
     "prepublishOnly": "medusa plugin:build"
   },
   "dependencies": {
-    "moment": "^2.30.1"
+    "date-fns": "^4.1.0"
   },
   "devDependencies": {
     "@medusajs/admin-sdk": "2.14.1",

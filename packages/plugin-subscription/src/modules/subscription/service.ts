@@ -6,7 +6,7 @@ import {
   SubscriptionInterval,
   SubscriptionStatus
 } from "./types";
-import moment from "moment";
+import { addMonths, addYears, isAfter } from "date-fns";
 
 class SubscriptionModuleService extends MedusaService({
   Subscription
@@ -103,18 +103,13 @@ class SubscriptionModuleService extends MedusaService({
   }): Date | null {
     // period=0 means indefinite — always advance by 1 month
     const increment = period === 0 ? 1 : period
-    const nextOrderDate = moment(last_order_date)
-      .add(
-        increment,
-        interval === SubscriptionInterval.MONTHLY ?
-          "month" : "year"
-      )
-    const expirationMomentDate = moment(expiration_date)
+    const addFn = interval === SubscriptionInterval.MONTHLY ? addMonths : addYears
+    const nextOrderDate = addFn(last_order_date, increment)
 
     // if next order date is after the expiration date, return
     // null. Otherwise, return the next order date.
-    return nextOrderDate.isAfter(expirationMomentDate) ?
-      null : nextOrderDate.toDate()
+    return isAfter(nextOrderDate, expiration_date) ?
+      null : nextOrderDate
   }
 
   getExpirationDate({
@@ -128,14 +123,10 @@ class SubscriptionModuleService extends MedusaService({
   }) {
     // period=0 means indefinite — set expiration 100 years out
     if (period === 0) {
-      return moment(subscription_date).add(100, "year").toDate()
+      return addYears(subscription_date, 100)
     }
-    return moment(subscription_date)
-      .add(
-        period,
-        interval === SubscriptionInterval.MONTHLY ?
-          "month" : "year"
-      ).toDate()
+    const addFn = interval === SubscriptionInterval.MONTHLY ? addMonths : addYears
+    return addFn(subscription_date, period)
   }
 }
 

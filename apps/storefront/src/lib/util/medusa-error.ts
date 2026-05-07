@@ -1,10 +1,21 @@
-export default function medusaError(error: any): never {
+export default function medusaError(error: unknown): never {
   // Medusa JS SDK throws errors with message directly
-  const message =
-    error?.response?.data?.message ||
-    error?.response?.data ||
-    error?.message ||
-    "An unknown error occurred"
+  let message: unknown = "An unknown error occurred"
+
+  if (error instanceof Error) {
+    message = error.message
+  } else if (
+    typeof error === "object" &&
+    error !== null &&
+    "response" in error
+  ) {
+    const response = (error as { response?: { data?: { message?: string } | string } }).response
+    if (typeof response?.data === "object" && response.data !== null && "message" in response.data) {
+      message = response.data.message
+    } else if (response?.data) {
+      message = response.data
+    }
+  }
 
   const formatted =
     typeof message === "string"

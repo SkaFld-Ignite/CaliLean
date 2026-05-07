@@ -68,13 +68,13 @@ export const createReturnRequest = async (
   state: {
     success: boolean
     error: string | null
-    return: any | null
+    return: HttpTypes.StoreReturn | null
   },
   formData: FormData
 ): Promise<{
   success: boolean
   error: string | null
-  return: any | null
+  return: HttpTypes.StoreReturn | null
 }> => {
   const orderId = formData.get("order_id") as string
   const items = JSON.parse(formData.get("items") as string)

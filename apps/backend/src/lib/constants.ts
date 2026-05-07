@@ -160,3 +160,11 @@ export const ERP_ENCRYPTION_KEY =
     ? assertValue(process.env.ERP_ENCRYPTION_KEY, 'ERP_ENCRYPTION_KEY is required in production')
     : process.env.ERP_ENCRYPTION_KEY;
 
+/**
+ * (optional) HMAC-SHA256 secret for verifying ERP dispute webhook signatures.
+ * When set, incoming POST requests to /erp/disputes/webhook/[provider_id] must
+ * include a valid `x-webhook-signature` header. Without it the endpoint logs a
+ * warning and accepts unauthenticated requests (development only).
+ */
+export const ERP_WEBHOOK_SECRET = process.env.ERP_WEBHOOK_SECRET;
+

@@ -200,9 +200,9 @@ export async function enrichLineItems(
 
   // Enrich line items with product and variant information
   const enrichedItems = lineItems.map((item) => {
-    const product = products.find((p: any) => p.id === item.product_id)
+    const product = products.find((p) => p.id === item.product_id)
     const variant = product?.variants?.find(
-      (v: any) => v.id === item.variant_id
+      (v) => v.id === item.variant_id
     )
 
     // If product or variant is not found, return the original item
@@ -276,8 +276,9 @@ export async function submitPromotionForm(
   const code = formData.get("code") as string
   try {
     await applyPromotions([code])
-  } catch (e: any) {
-    return e.message
+  } catch (e: unknown) {
+    if (e instanceof Error) return e.message
+    return String(e)
   }
 }
 
@@ -306,7 +307,7 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
         phone: formData.get("shipping_address.phone"),
       },
       email: formData.get("email"),
-    } as any
+    } as HttpTypes.StoreUpdateCart
 
     const sameAsBilling = formData.get("same_as_billing")
     if (sameAsBilling === "on") data.billing_address = data.shipping_address
@@ -342,8 +343,9 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     }
 
     await updateCart(data)
-  } catch (e: any) {
-    return e.message
+  } catch (e: unknown) {
+    if (e instanceof Error) return e.message
+    return String(e)
   }
 
   return null
@@ -406,15 +408,17 @@ export async function placeOrder() {
   const cart = await retrieveCart()
   const isSubscription = !!cart?.metadata?.subscription_interval
 
-  let cartRes: any
+  type CartCompletionResult = {
+    type: "cart" | "order"
+    cart?: HttpTypes.StoreCart
+    order?: HttpTypes.StoreOrder
+  }
+
+  let cartRes: CartCompletionResult
 
   if (isSubscription) {
     // Use the custom subscribe endpoint for subscription orders
-    cartRes = await sdk.client.fetch<{
-      type: "cart" | "order"
-      cart?: HttpTypes.StoreCart
-      order?: HttpTypes.StoreOrder
-    }>(`/store/carts/${cartId}/subscribe`, {
+    cartRes = await sdk.client.fetch<CartCompletionResult>(`/store/carts/${cartId}/subscribe`, {
       method: "POST",
       headers: await getAuthHeaders(),
     })
@@ -430,10 +434,11 @@ export async function placeOrder() {
   }
 
   if (cartRes?.type === "order") {
+    const order = cartRes.order!
     const countryCode =
-      cartRes.order.shipping_address?.country_code?.toLowerCase()
+      order.shipping_address?.country_code?.toLowerCase()
     await removeCartId()
-    redirect(`/${countryCode}/order/confirmed/${cartRes?.order.id}`)
+    redirect(`/${countryCode}/order/confirmed/${order.id}`)
   }
 
   return cartRes.cart
