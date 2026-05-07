@@ -53,7 +53,7 @@ const ResearchNav: React.FC<ResearchNavProps> = ({ headings }) => {
                 onClick={() => handleClick(h.id)}
                 className={`w-full text-left text-xs py-1.5 px-2.5 rounded transition-colors ${
                   activeId === h.id
-                    ? "bg-[#7090AB]/10 text-[#7090AB] border-l-2 border-[#7090AB]"
+                    ? "bg-calilean-pacific/10 text-calilean-pacific border-l-2 border-calilean-pacific"
                     : "text-calilean-fog hover:text-calilean-ink"
                 }`}
               >
@@ -73,7 +73,7 @@ const ResearchNav: React.FC<ResearchNavProps> = ({ headings }) => {
               onClick={() => handleClick(h.id)}
               className={`whitespace-nowrap text-xs py-1.5 px-3 rounded-full border transition-colors ${
                 activeId === h.id
-                  ? "bg-[#7090AB]/10 border-[#7090AB] text-[#7090AB]"
+                  ? "bg-calilean-pacific/10 border-calilean-pacific text-calilean-pacific"
                   : "border-calilean-sand text-calilean-fog hover:text-calilean-ink"
               }`}
             >

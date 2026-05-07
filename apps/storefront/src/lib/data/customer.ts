@@ -1,5 +1,6 @@
 "use server"
 
+import "server-only"
 import { sdk } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
@@ -194,7 +195,7 @@ export async function updatePassword(
 
 export async function signout(_countryCode?: string) {
   await sdk.auth.logout()
-  removeAuthToken()
+  await removeAuthToken()
   revalidateTag("auth")
   revalidateTag("customer")
   redirect("/gate")

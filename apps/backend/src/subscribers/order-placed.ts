@@ -10,6 +10,7 @@ export default async function orderPlacedHandler({
   event: { data },
   container,
 }: SubscriberArgs<any>) {
+  const logger = container.resolve("logger")
   const notificationModuleService: INotificationModuleService = container.resolve(Modules.NOTIFICATION)
   const orderModuleService: IOrderModuleService = container.resolve(Modules.ORDER)
 
@@ -33,7 +34,7 @@ export default async function orderPlacedHandler({
       }
     })
   } catch (error) {
-    console.error('Error sending order confirmation notification:', error)
+    logger.error('Error sending order confirmation notification:', error)
   }
 
   // --- Generate invoice PDF ---
@@ -42,7 +43,7 @@ export default async function orderPlacedHandler({
       input: { order_id: data.id }
     })
   } catch (error) {
-    console.error('Error generating invoice PDF:', error)
+    logger.error('Error generating invoice PDF:', error)
   }
 
   // --- Award loyalty points ---
@@ -51,7 +52,7 @@ export default async function orderPlacedHandler({
       input: { order_id: data.id }
     })
   } catch (error) {
-    console.error('Error handling loyalty points:', error)
+    logger.error('Error handling loyalty points:', error)
   }
 
   // --- Track order placed analytics event (Segment) ---
@@ -60,7 +61,7 @@ export default async function orderPlacedHandler({
       input: { id: data.id }
     })
   } catch (error) {
-    console.error('Error tracking order placed analytics event:', error)
+    logger.error('Error tracking order placed analytics event:', error)
   }
 }
 

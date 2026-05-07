@@ -34,6 +34,8 @@ export default function ProductReviewsForm({
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
     if (!content || !rating) {
       toast.error("Error", {
         description: "Please fill in required fields.",
@@ -41,7 +43,6 @@ export default function ProductReviewsForm({
       return
     }
 
-    e.preventDefault()
     setIsLoading(true)
     addProductReview({
       title,

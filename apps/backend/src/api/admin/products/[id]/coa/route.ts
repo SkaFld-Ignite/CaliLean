@@ -26,7 +26,7 @@ async function loadProduct(
   return (data?.[0] as ProductWithMetadata | undefined) ?? null
 }
 
-export const PATCH = async (
+export const POST = async (
   req: MedusaRequest,
   res: MedusaResponse
 ): Promise<void> => {

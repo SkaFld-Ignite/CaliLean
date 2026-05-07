@@ -33,7 +33,7 @@ export const Cite: React.FC<CiteProps> = ({ id }) => {
     <a
       href={`#ref-${id}`}
       title={title}
-      className="inline-flex items-center px-1.5 py-0.5 bg-[#7090AB]/10 rounded text-[11px] font-medium text-[#7090AB] no-underline hover:bg-[#7090AB]/20 transition-colors"
+      className="inline-flex items-center px-1.5 py-0.5 bg-calilean-pacific/10 rounded text-[11px] font-medium text-calilean-pacific no-underline hover:bg-calilean-pacific/20 transition-colors"
     >
       {id}
     </a>
@@ -61,14 +61,14 @@ export const Ref: React.FC<RefProps> = (props) => {
 
   return (
     <li id={`ref-${props.id}`} className="py-1.5 text-[11px] leading-relaxed text-calilean-fog">
-      <span className="text-[#7090AB] font-medium mr-1">[{props.id}]</span>
+      <span className="text-calilean-pacific font-medium mr-1">[{props.id}]</span>
       {props.authors} &ldquo;{props.title}&rdquo;{" "}
       <em>{props.journal}.</em> {props.year}.{" "}
       <a
         href={href}
         target="_blank"
         rel="noreferrer noopener"
-        className="text-[#7090AB] underline-offset-2 hover:underline"
+        className="text-calilean-pacific underline-offset-2 hover:underline"
       >
         PubMed
       </a>

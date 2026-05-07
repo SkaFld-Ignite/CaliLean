@@ -60,13 +60,13 @@ function ResetPasswordForm() {
         </div>
 
         <div className="flex items-center justify-center gap-3 mt-8 mb-8">
-          <div className="w-8 h-[1.5px] bg-gradient-to-r from-transparent to-[#7090AB]" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#7090AB]" />
-          <div className="w-8 h-[1.5px] bg-gradient-to-l from-transparent to-[#7090AB]" />
+          <div className="w-8 h-[1.5px] bg-gradient-to-r from-transparent to-calilean-pacific" />
+          <div className="w-1.5 h-1.5 rounded-full bg-calilean-pacific" />
+          <div className="w-8 h-[1.5px] bg-gradient-to-l from-transparent to-calilean-pacific" />
         </div>
 
         <div className="max-w-[340px] mx-auto relative">
-          <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-b from-[#7090AB]/20 via-transparent to-[#7090AB]/10 pointer-events-none" />
+          <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-b from-calilean-pacific/20 via-transparent to-calilean-pacific/10 pointer-events-none" />
           <div className="bg-calilean-bg/80 backdrop-blur-sm rounded-2xl p-6 relative">
             {!token ? (
               <div className="text-center py-2">

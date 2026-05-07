@@ -29,12 +29,12 @@ function AgeGateInner() {
 
       {/* Corner accents */}
       <div className="absolute top-10 left-10 hidden small:block">
-        <div className="w-[100px] h-[1px] bg-gradient-to-r from-[#7090AB]/40 to-transparent" />
-        <div className="w-[1px] h-[100px] bg-gradient-to-b from-[#7090AB]/40 to-transparent" />
+        <div className="w-[100px] h-[1px] bg-gradient-to-r from-calilean-pacific/40 to-transparent" />
+        <div className="w-[1px] h-[100px] bg-gradient-to-b from-calilean-pacific/40 to-transparent" />
       </div>
       <div className="absolute bottom-10 right-10 hidden small:flex flex-col items-end">
-        <div className="w-[1px] h-[100px] bg-gradient-to-t from-[#7090AB]/40 to-transparent ml-auto" />
-        <div className="w-[100px] h-[1px] bg-gradient-to-l from-[#7090AB]/40 to-transparent" />
+        <div className="w-[1px] h-[100px] bg-gradient-to-t from-calilean-pacific/40 to-transparent ml-auto" />
+        <div className="w-[100px] h-[1px] bg-gradient-to-l from-calilean-pacific/40 to-transparent" />
       </div>
 
       <div className="w-full max-w-[480px] text-center relative z-10">
@@ -45,14 +45,14 @@ function AgeGateInner() {
           </div>
         </div>
 
-        <p className="text-[#7090AB] text-[13px] uppercase tracking-[0.2em] font-medium mt-8 mb-8">
+        <p className="text-calilean-pacific text-[13px] uppercase tracking-[0.2em] font-medium mt-8 mb-8">
           Sequenced for results
         </p>
 
         <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="w-8 h-[1.5px] bg-gradient-to-r from-transparent to-[#7090AB]" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#7090AB]" />
-          <div className="w-8 h-[1.5px] bg-gradient-to-l from-transparent to-[#7090AB]" />
+          <div className="w-8 h-[1.5px] bg-gradient-to-r from-transparent to-calilean-pacific" />
+          <div className="w-1.5 h-1.5 rounded-full bg-calilean-pacific" />
+          <div className="w-8 h-[1.5px] bg-gradient-to-l from-transparent to-calilean-pacific" />
         </div>
 
         <h1 className="text-calilean-ink text-[28px] font-semibold tracking-tight mb-3">
@@ -80,9 +80,9 @@ function AgeGateInner() {
         </div>
 
         <div className="flex items-center justify-center gap-3 mt-10">
-          <div className="w-8 h-[1.5px] bg-gradient-to-r from-transparent to-[#7090AB]" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#7090AB]" />
-          <div className="w-8 h-[1.5px] bg-gradient-to-l from-transparent to-[#7090AB]" />
+          <div className="w-8 h-[1.5px] bg-gradient-to-r from-transparent to-calilean-pacific" />
+          <div className="w-1.5 h-1.5 rounded-full bg-calilean-pacific" />
+          <div className="w-8 h-[1.5px] bg-gradient-to-l from-transparent to-calilean-pacific" />
         </div>
       </div>
     </div>

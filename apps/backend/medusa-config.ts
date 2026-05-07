@@ -35,7 +35,8 @@ import {
   NMI_API_KEY,
   NMI_TOKENIZATION_KEY,
   NMI_SANDBOX,
-  GOOGLE_API_KEY
+  GOOGLE_API_KEY,
+  ERP_ENCRYPTION_KEY
 } from './src/lib/constants';
 
 
@@ -283,7 +284,7 @@ const medusaConfig = {
     {
       resolve: "@calilean/plugin-erp/modules/erp",
       options: {
-        encryption_key: process.env.ERP_ENCRYPTION_KEY,
+        encryption_key: ERP_ENCRYPTION_KEY,
       },
     }, {
       resolve: "@calilean/plugin-erp/modules/dispute",

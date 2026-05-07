@@ -1,5 +1,6 @@
 "use server"
 
+import "server-only"
 import { sdk } from "@lib/config"
 import { getAuthHeaders } from "@lib/data/cookies"
 import medusaError from "@lib/util/medusa-error"

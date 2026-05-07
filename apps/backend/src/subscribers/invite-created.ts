@@ -9,6 +9,7 @@ export default async function userInviteHandler({
     container,
   }: SubscriberArgs<any>) {
 
+  const logger = container.resolve("logger")
   const notificationModuleService: INotificationModuleService = container.resolve(
     Modules.NOTIFICATION,
   )
@@ -30,7 +31,7 @@ export default async function userInviteHandler({
       }
     })
   } catch (error) {
-    console.error(error)
+    logger.error('Error sending invite notification:', error)
   }
 }
 

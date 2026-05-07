@@ -13,6 +13,8 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
       res.json({ publishableApiKey: defaultApiKey.token });
     }
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    const message = error instanceof Error ? error.message : "Unknown error";
+    req.scope.resolve("logger").error("Key exchange failed:", message);
+    res.status(500).json({ error: "Internal server error" });
   }
 }

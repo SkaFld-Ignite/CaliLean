@@ -40,14 +40,22 @@ export const AUTH_CORS = process.env.AUTH_CORS;
 export const STORE_CORS = process.env.STORE_CORS;
 
 /**
- * JWT Secret used for signing JWT tokens
+ * JWT Secret used for signing JWT tokens.
+ * In production, this MUST be set — the 'supersecret' fallback is dev-only.
  */
-export const JWT_SECRET = process.env.JWT_SECRET ?? 'supersecret'
+export const JWT_SECRET =
+  process.env.NODE_ENV === 'production'
+    ? assertValue(process.env.JWT_SECRET, 'JWT_SECRET is required in production')
+    : process.env.JWT_SECRET ?? 'supersecret'
 
 /**
- * Cookie secret used for signing cookies
+ * Cookie secret used for signing cookies.
+ * In production, this MUST be set — the 'supersecret' fallback is dev-only.
  */
-export const COOKIE_SECRET = process.env.COOKIE_SECRET ?? 'supersecret'
+export const COOKIE_SECRET =
+  process.env.NODE_ENV === 'production'
+    ? assertValue(process.env.COOKIE_SECRET, 'COOKIE_SECRET is required in production')
+    : process.env.COOKIE_SECRET ?? 'supersecret'
 
 /**
  * (optional) Minio configuration for file storage
@@ -72,7 +80,7 @@ export const RESEND_API_KEY = process.env.RESEND_API_KEY;
 export const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL || process.env.RESEND_FROM;
 
 /**
- * (optionl) SendGrid API Key and from Email - do not set if using Resend
+ * (optional) SendGrid API Key and from Email - do not set if using Resend
  */
 export const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 export const SENDGRID_FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || process.env.SENDGRID_FROM;
@@ -142,4 +150,13 @@ export const GOOGLE_CALLBACK_URL = process.env.GOOGLE_CALLBACK_URL;
  * (optional) Google API Key for AI Studio
  */
 export const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
+
+/**
+ * (optional) ERP encryption key for securing ERP credentials at rest.
+ * Required in production when ERP plugin is loaded.
+ */
+export const ERP_ENCRYPTION_KEY =
+  process.env.NODE_ENV === 'production'
+    ? assertValue(process.env.ERP_ENCRYPTION_KEY, 'ERP_ENCRYPTION_KEY is required in production')
+    : process.env.ERP_ENCRYPTION_KEY;
 

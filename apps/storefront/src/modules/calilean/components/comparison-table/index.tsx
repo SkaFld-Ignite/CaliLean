@@ -31,7 +31,7 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
                   key={compound}
                   className={`text-center py-3 px-3 font-semibold ${
                     i === highlightIndex
-                      ? "text-[#7090AB]"
+                      ? "text-calilean-pacific"
                       : "text-calilean-fog"
                   }`}
                 >
