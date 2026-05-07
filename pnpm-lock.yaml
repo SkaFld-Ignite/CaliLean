@@ -60,9 +60,6 @@ importers:
       '@calilean/plugin-subscription':
         specifier: workspace:*
         version: link:../../packages/plugin-subscription
-      '@calilean/ruo-compliance':
-        specifier: workspace:*
-        version: link:../../packages/ruo-compliance
       '@medusajs/admin-sdk':
         specifier: 2.14.1
         version: 2.14.1
@@ -208,9 +205,6 @@ importers:
 
   apps/storefront:
     dependencies:
-      '@calilean/ruo-compliance':
-        specifier: workspace:*
-        version: link:../../packages/ruo-compliance
       '@headlessui/react':
         specifier: ^1.6.1
         version: 1.7.19(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -1090,8 +1084,6 @@ importers:
       vite:
         specifier: ^5.2.11
         version: 5.4.21(@types/node@20.19.39)(terser@5.46.2)
-
-  packages/ruo-compliance: {}
 
 packages:
 
