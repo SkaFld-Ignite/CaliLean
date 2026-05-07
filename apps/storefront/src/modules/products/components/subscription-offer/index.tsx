@@ -2,7 +2,6 @@
 
 import { clx } from "@medusajs/ui"
 import { CheckMini } from "@medusajs/icons"
-import { useState } from "react"
 import { getProductPrice } from "@lib/util/get-product-price"
 import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
@@ -12,14 +11,16 @@ const SUBSCRIPTION_DISCOUNT = 0.115
 type SubscriptionOfferProps = {
   product: HttpTypes.StoreProduct
   variant?: HttpTypes.StoreProductVariant
+  selected: "one-time" | "subscribe"
+  onSelect: (value: "one-time" | "subscribe") => void
 }
 
 export default function SubscriptionOffer({
   product,
   variant,
+  selected,
+  onSelect,
 }: SubscriptionOfferProps) {
-  const [selected, setSelected] = useState<"one-time" | "subscribe">("one-time")
-
   const { cheapestPrice, variantPrice } = getProductPrice({
     product,
     variantId: variant?.id,
@@ -42,11 +43,7 @@ export default function SubscriptionOffer({
   })
 
   return (
-    <div
-      className="flex flex-col gap-y-2"
-      role="radiogroup"
-      aria-label="Purchase type"
-    >
+    <div className="flex flex-col gap-y-2" role="radiogroup" aria-label="Purchase type">
       {/* One-time */}
       <div
         className={clx(
@@ -55,11 +52,11 @@ export default function SubscriptionOffer({
             ? "border-calilean-ink bg-calilean-sand/10 ring-1 ring-calilean-ink"
             : "border-calilean-sand hover:border-calilean-fog bg-white"
         )}
-        onClick={() => setSelected("one-time")}
+        onClick={() => onSelect("one-time")}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault()
-            setSelected("one-time")
+            onSelect("one-time")
           }
         }}
         role="radio"
@@ -69,9 +66,7 @@ export default function SubscriptionOffer({
         <div
           className={clx(
             "w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors",
-            selected === "one-time"
-              ? "border-calilean-ink"
-              : "border-calilean-fog"
+            selected === "one-time" ? "border-calilean-ink" : "border-calilean-fog"
           )}
         >
           {selected === "one-time" && (
@@ -96,11 +91,11 @@ export default function SubscriptionOffer({
             ? "border-calilean-ink bg-calilean-sand/10 ring-1 ring-calilean-ink"
             : "border-calilean-sand hover:border-calilean-fog bg-white"
         )}
-        onClick={() => setSelected("subscribe")}
+        onClick={() => onSelect("subscribe")}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault()
-            setSelected("subscribe")
+            onSelect("subscribe")
           }
         }}
         role="radio"
@@ -111,9 +106,7 @@ export default function SubscriptionOffer({
           <div
             className={clx(
               "w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors",
-              selected === "subscribe"
-                ? "border-calilean-ink"
-                : "border-calilean-fog"
+              selected === "subscribe" ? "border-calilean-ink" : "border-calilean-fog"
             )}
           >
             {selected === "subscribe" && (
@@ -145,9 +138,7 @@ export default function SubscriptionOffer({
           <div className="mt-3 flex flex-col gap-y-1.5 pl-7">
             <div className="flex items-center gap-x-2 text-calilean-pacific">
               <CheckMini />
-              <span className="text-xs">
-                Free Priority Shipping on every order
-              </span>
+              <span className="text-xs">Free Priority Shipping on every order</span>
             </div>
             <div className="flex items-center gap-x-2 text-calilean-pacific">
               <CheckMini />

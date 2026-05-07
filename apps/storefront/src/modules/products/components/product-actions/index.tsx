@@ -12,7 +12,7 @@ import OptionSelect from "./option-select"
 import ProductPrice from "../product-price"
 import QuantitySelector from "../quantity-selector"
 import SubscriptionOffer from "../subscription-offer"
-import { addToCart } from "@lib/data/cart"
+import { addToCart, updateSubscriptionData, removeSubscriptionData } from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
 
 type ProductActionsProps = {
@@ -45,6 +45,7 @@ export default function ProductActions({
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
   const [quantity, setQuantity] = useState(1)
+  const [purchaseType, setPurchaseType] = useState<"one-time" | "subscribe">("one-time")
   const countryCode = useParams().countryCode as string
 
   // Preselect the first variant on mount
@@ -75,33 +76,24 @@ export default function ProductActions({
 
   // check if the selected variant is in stock
   const inStock = useMemo(() => {
-    // If we don't manage inventory, we can always add to cart
     if (selectedVariant && !selectedVariant.manage_inventory) {
       return true
     }
-
-    // If we allow back orders on the variant, we can add to cart
     if (selectedVariant?.allow_backorder) {
       return true
     }
-
-    // If there is inventory available, we can add to cart
     if (
       selectedVariant?.manage_inventory &&
       (selectedVariant?.inventory_quantity || 0) > 0
     ) {
       return true
     }
-
-    // Otherwise, we can't add to cart
     return false
   }, [selectedVariant])
 
   const actionsRef = useRef<HTMLDivElement>(null)
-
   const inView = useIntersection(actionsRef, "0px")
 
-  // add the selected variant to the cart
   const handleAddToCart = async () => {
     if (!selectedVariant?.id) return null
 
@@ -112,6 +104,12 @@ export default function ProductActions({
       quantity,
       countryCode,
     })
+
+    if (purchaseType === "subscribe") {
+      await updateSubscriptionData()
+    } else {
+      await removeSubscriptionData()
+    }
 
     setIsAdding(false)
   }
@@ -142,7 +140,12 @@ export default function ProductActions({
           disabled={!!disabled || isAdding}
         />
 
-        <SubscriptionOffer product={product} variant={selectedVariant} />
+        <SubscriptionOffer
+          product={product}
+          variant={selectedVariant}
+          selected={purchaseType}
+          onSelect={setPurchaseType}
+        />
 
         <Button
           onClick={handleAddToCart}
@@ -156,6 +159,10 @@ export default function ProductActions({
             ? "Select variant"
             : !inStock
             ? "Out of stock"
+            : purchaseType === "subscribe"
+            ? quantity > 1
+              ? `Subscribe — Add ${quantity}`
+              : "Subscribe & Add to Cart"
             : quantity > 1
             ? `Add ${quantity} to cart`
             : "Add to cart"}
