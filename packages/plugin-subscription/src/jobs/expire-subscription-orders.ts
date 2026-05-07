@@ -1,7 +1,7 @@
 import { MedusaContainer } from "@medusajs/framework/types";
 import SubscriptionModuleService from "../modules/subscription/service";
 import { SUBSCRIPTION_MODULE } from "../modules/subscription";
-import { endOfDay } from "date-fns";
+import moment from "moment";
 import { SubscriptionStatus } from "../modules/subscription/types";
 
 export default async function expireSubscriptionOrdersJob(
@@ -16,7 +16,12 @@ export default async function expireSubscriptionOrdersJob(
   let pagesCount = 0
 
   do {
-    const endToday = endOfDay(new Date())
+    const endToday = moment(new Date()).set({
+      second: 59,
+      minute: 59,
+      hour: 23,
+    })
+    .toDate()
 
     const [subscriptions, count] = await subscriptionModuleService
       .listAndCountSubscriptions({

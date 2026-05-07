@@ -1,7 +1,7 @@
 import { MedusaContainer } from "@medusajs/framework/types";
 import SubscriptionModuleService from "../modules/subscription/service";
 import { SUBSCRIPTION_MODULE } from "../modules/subscription";
-import { endOfDay } from "date-fns";
+import moment from "moment";
 import createSubscriptionOrderWorkflow from "../workflows/create-subscription-order";
 import { SubscriptionStatus } from "../modules/subscription/types";
 
@@ -17,7 +17,12 @@ export default async function createSubscriptionOrdersJob(
   let pagesCount = 0
 
   do {
-    const endToday = endOfDay(new Date())
+    const endToday = moment(new Date()).set({
+      second: 59,
+      minute: 59,
+      hour: 23,
+    })
+    .toDate()
 
     const [subscriptions, count] = await subscriptionModuleService
       .listAndCountSubscriptions({
@@ -42,7 +47,7 @@ export default async function createSubscriptionOrdersJob(
 
             logger.info(`Created new order ${result.order.id} for subscription ${subscription.id}`)
           } catch (e) {
-            logger.error(`Error creating a new order for subscription ${subscription.id}`, e instanceof Error ? e : new Error(String(e)))
+            logger.error(`Error creating a new order for subscription ${subscription.id}`, e)
           }
         })
       )
