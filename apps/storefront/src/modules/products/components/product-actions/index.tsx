@@ -11,16 +11,14 @@ import MobileActions from "./mobile-actions"
 import OptionSelect from "./option-select"
 import ProductPrice from "../product-price"
 import QuantitySelector from "../quantity-selector"
-import StackAndSave from "../stack-and-save"
+import SubscriptionOffer from "../subscription-offer"
 import { addToCart } from "@lib/data/cart"
-import { sdk } from "@lib/config"
 import { HttpTypes } from "@medusajs/types"
 
 type ProductActionsProps = {
   product: HttpTypes.StoreProduct
   region: HttpTypes.StoreRegion
   disabled?: boolean
-  cartQuantity?: number
 }
 
 const optionsAsKeymap = (variantOptions: any) => {
@@ -43,7 +41,6 @@ export default function ProductActions({
   product,
   region,
   disabled,
-  cartQuantity = 0,
 }: ProductActionsProps) {
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
@@ -75,31 +72,6 @@ export default function ProductActions({
       return isEqual(variantOptions, options)
     })
   }, [product.variants, options])
-
-  // Fetch variant prices from custom API for Stack and Save tiers
-  const [variantPricesMap, setVariantPricesMap] = useState<
-    Record<string, any[]>
-  >({})
-
-  useEffect(() => {
-    if (!product.id) return
-    sdk.client
-      .fetch<{ variants: { id: string; prices: any[] }[] }>(
-        `/store/products/${product.id}/prices`
-      )
-      .then(({ variants: vp }) => {
-        const map: Record<string, any[]> = {}
-        for (const v of vp) {
-          map[v.id] = v.prices
-        }
-        setVariantPricesMap(map)
-      })
-      .catch(() => {})
-  }, [product.id])
-
-  const variantPrices = selectedVariant
-    ? variantPricesMap[selectedVariant.id]
-    : undefined
 
   // check if the selected variant is in stock
   const inStock = useMemo(() => {
@@ -170,10 +142,7 @@ export default function ProductActions({
           disabled={!!disabled || isAdding}
         />
 
-        <StackAndSave
-          quantity={cartQuantity + quantity}
-          prices={variantPrices}
-        />
+        <SubscriptionOffer product={product} variant={selectedVariant} />
 
         <Button
           onClick={handleAddToCart}

@@ -25,8 +25,7 @@ const SubscriptionForm = ({ cart }: { cart: any }) => {
 
   const currencyCode = cart?.currency_code || "usd"
   const subtotal = cart?.subtotal ?? 0
-  const discountedMonthly = Math.round(subtotal * 0.85)
-  const monthlySavings = subtotal - discountedMonthly
+  const discountedMonthly = Math.round(subtotal * 0.885)
 
   // Sync state when cart changes externally
   useEffect(() => {
@@ -136,19 +135,19 @@ const SubscriptionForm = ({ cart }: { cart: any }) => {
                       size="small"
                       className="bg-green-100 text-green-700 border-green-200"
                     >
-                      15% off
+                      11.5% off
                     </Badge>
                   </div>
                   <div className="flex items-baseline gap-x-2">
-                    <Text className="text-xl-semi text-calilean-ink">
-                      {convertToLocale({
-                        amount: discountedMonthly,
-                        currency_code: currencyCode,
-                      })}
-                    </Text>
                     <Text className="text-small-regular text-ui-fg-subtle line-through">
                       {convertToLocale({
                         amount: subtotal,
+                        currency_code: currencyCode,
+                      })}
+                    </Text>
+                    <Text className="text-xl-semi text-calilean-ink">
+                      {convertToLocale({
+                        amount: discountedMonthly,
                         currency_code: currencyCode,
                       })}
                     </Text>
@@ -156,16 +155,6 @@ const SubscriptionForm = ({ cart }: { cart: any }) => {
                       / month
                     </Text>
                   </div>
-                  {monthlySavings > 0 && (
-                    <Text className="text-small-regular text-calilean-pacific font-medium">
-                      Save{" "}
-                      {convertToLocale({
-                        amount: monthlySavings,
-                        currency_code: currencyCode,
-                      })}{" "}
-                      every delivery
-                    </Text>
-                  )}
                   <Text className="text-xsmall-regular text-ui-fg-subtle">
                     Renews monthly — cancel anytime
                   </Text>
@@ -256,7 +245,7 @@ const SubscriptionForm = ({ cart }: { cart: any }) => {
             <div className="flex items-center justify-between">
               <Text className="text-base-semi text-calilean-ink">
                 {cart?.metadata?.subscription_interval
-                  ? "Monthly Subscription – 15% off"
+                  ? "Monthly Subscription – 11.5% off"
                   : "One-time Purchase"}
               </Text>
               {cart?.metadata?.subscription_interval && (
