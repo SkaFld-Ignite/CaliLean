@@ -6,15 +6,13 @@ export const POST = async (
   req: MedusaRequest<PostGenerateImageInput>,
   res: MedusaResponse
 ) => {
-  const { prompt, aspectRatio, model, seed } = req.validatedBody
+  const { prompt, model } = req.validatedBody
 
   const { result } = await generateImageWorkflow(req.scope)
     .run({
       input: {
         prompt,
-        aspectRatio,
         model,
-        seed,
       },
     })
 
