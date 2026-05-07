@@ -1,6 +1,7 @@
 "use client"
 
 import { Button, Badge } from "@medusajs/ui"
+import { CheckMini } from "@medusajs/icons"
 import { useState } from "react"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { SubscriptionData, cancelSubscription } from "@lib/data/subscriptions"
@@ -76,14 +77,20 @@ const SubscriptionCard = ({
 
   return (
     <div className="border border-gray-200 rounded-lg p-6">
+      {/* Header */}
       <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-x-3">
+        <div className="flex items-center gap-x-3 flex-wrap gap-y-2">
           <h3 className="text-base-semi">
             Subscription #{subscription.id.slice(-8)}
           </h3>
           <Badge color={statusColors[status] || "grey"}>
             {status.charAt(0).toUpperCase() + status.slice(1)}
           </Badge>
+          {status === "active" && (
+            <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-green-100 text-green-700 border border-green-200">
+              11.5% off every order
+            </span>
+          )}
         </div>
         {status === "active" && (
           <Button
@@ -98,6 +105,25 @@ const SubscriptionCard = ({
         )}
       </div>
 
+      {/* Active subscription perks */}
+      {status === "active" && (
+        <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-btn flex flex-col gap-y-1.5">
+          <div className="flex items-center gap-x-2 text-green-700">
+            <CheckMini />
+            <span className="text-xs font-medium">
+              11.5% discount applied to every renewal order
+            </span>
+          </div>
+          <div className="flex items-center gap-x-2 text-green-700">
+            <CheckMini />
+            <span className="text-xs">
+              Free Priority Shipping on every order
+            </span>
+          </div>
+        </div>
+      )}
+
+      {/* Details grid */}
       <div className="grid grid-cols-2 gap-4 text-sm">
         <div>
           <span className="text-ui-fg-subtle">Interval</span>

@@ -20,8 +20,7 @@ const getBadgeColor = (status: SubscriptionStatus) => {
 }
 
 const getStatusTitle = (status: SubscriptionStatus) => {
-  return status.charAt(0).toUpperCase() +
-    status.substring(1)
+  return status.charAt(0).toUpperCase() + status.substring(1)
 }
 
 const columnHelper = createDataTableColumnHelper<SubscriptionData>()
@@ -34,40 +33,55 @@ const columns = [
     header: "Main Order",
   }),
   columnHelper.accessor("customer.email", {
-    header: "Customer"
+    header: "Customer",
+  }),
+  columnHelper.accessor("interval", {
+    header: "Plan",
+    cell: ({ getValue }) => {
+      const interval = getValue()
+      return (
+        <span className="flex items-center gap-x-2">
+          {interval === "monthly" ? "Monthly" : "Yearly"}
+          <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-green-100 text-green-800 border border-green-200">
+            11.5% off
+          </span>
+        </span>
+      )
+    },
   }),
   columnHelper.accessor("subscription_date", {
-    header: "Subscription Date",
+    header: "Started",
+    cell: ({ getValue }) => new Date(getValue()).toLocaleDateString(),
+  }),
+  columnHelper.accessor("next_order_date", {
+    header: "Next Order",
     cell: ({ getValue }) => {
-      return getValue().toLocaleString()
-    }
+      const v = getValue()
+      return v ? new Date(v).toLocaleDateString() : "—"
+    },
   }),
   columnHelper.accessor("expiration_date", {
-    header: "Expiry Date",
-    cell: ({ getValue }) => {
-      return getValue().toLocaleString()
-    }
+    header: "Expires",
+    cell: ({ getValue }) => new Date(getValue()).toLocaleDateString(),
   }),
   columnHelper.accessor("status", {
     header: "Status",
-    cell: ({ getValue }) => {
-      return (
-        <Badge color={getBadgeColor(getValue())}>
-          {getStatusTitle(getValue())}
-        </Badge>
-      )
-    }
+    cell: ({ getValue }) => (
+      <Badge color={getBadgeColor(getValue())}>
+        {getStatusTitle(getValue())}
+      </Badge>
+    ),
   }),
 ]
 
 const SubscriptionsPage = () => {
   const navigate = useNavigate()
   const [pagination, setPagination] = useState<DataTablePaginationState>({
-    pageSize: 4,
+    pageSize: 20,
     pageIndex: 0,
   })
   const [data, setData] = useState<{
-    subscriptions: SubscriptionData[],
+    subscriptions: SubscriptionData[]
     count: number
   } | undefined>(undefined)
   const [isLoading, setIsLoading] = useState(true)
@@ -108,15 +122,13 @@ const SubscriptionsPage = () => {
     },
   })
 
-
   return (
     <Container>
       <DataTable instance={table}>
         <DataTable.Toolbar>
           <Heading level="h1">Subscriptions</Heading>
         </DataTable.Toolbar>
-				<DataTable.Table />
-        {/** This component will render the pagination controls **/}
+        <DataTable.Table />
         <DataTable.Pagination />
       </DataTable>
     </Container>

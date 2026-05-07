@@ -12,7 +12,11 @@ import OptionSelect from "./option-select"
 import ProductPrice from "../product-price"
 import QuantitySelector from "../quantity-selector"
 import SubscriptionOffer from "../subscription-offer"
-import { addToCart, updateSubscriptionData, removeSubscriptionData } from "@lib/data/cart"
+import {
+  addToCart,
+  updateSubscriptionData,
+  removeSubscriptionData,
+} from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
 
 type ProductActionsProps = {
@@ -45,7 +49,9 @@ export default function ProductActions({
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
   const [quantity, setQuantity] = useState(1)
-  const [purchaseType, setPurchaseType] = useState<"one-time" | "subscribe">("one-time")
+  const [purchaseType, setPurchaseType] = useState<"one-time" | "subscribe">(
+    "one-time"
+  )
   const countryCode = useParams().countryCode as string
 
   // Preselect the first variant on mount

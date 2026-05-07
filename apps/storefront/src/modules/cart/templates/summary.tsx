@@ -57,7 +57,9 @@ function SubscriptionBanner({ cart }: { cart: HttpTypes.StoreCart }) {
         <div className="flex items-center gap-x-2 text-calilean-ink">
           <CheckMini className="text-calilean-pacific flex-shrink-0" />
           <div className="flex flex-col gap-y-0.5">
-            <span className="text-sm font-medium">Monthly Subscription — 11.5% off</span>
+            <span className="text-sm font-medium">
+              Monthly Subscription — 11.5% off
+            </span>
             {savings > 0 && (
               <span className="text-xs text-calilean-pacific font-medium">
                 Saving ${(savings / 100).toFixed(2)} this order

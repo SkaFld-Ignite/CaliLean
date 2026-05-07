@@ -1,8 +1,7 @@
 "use client"
 
 import { convertToLocale } from "@lib/util/money"
-import { InformationCircleSolid } from "@medusajs/icons"
-import { Tooltip, Text, clx } from "@medusajs/ui"
+import { Text } from "@medusajs/ui"
 import React from "react"
 
 type CartTotalsProps = {
@@ -14,30 +13,32 @@ type CartTotalsProps = {
     discount_total?: number | null
     gift_card_total?: number | null
     currency_code: string
+    promotions?: any[]
+    items?: any[]
+    metadata?: any
   }
-  cart?: any
 }
 
-const CartTotals: React.FC<CartTotalsProps> = ({ totals, cart }) => {
+const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
   const {
     currency_code,
     total,
     subtotal,
     tax_total,
     shipping_total,
-    discount_total,
     gift_card_total,
+    promotions,
+    items,
+    metadata,
   } = totals
 
-  const subscriptionInterval = cart?.metadata?.subscription_interval
+  const subscriptionInterval = metadata?.subscription_interval
 
   return (
     <div>
-      <div className="flex flex-col gap-y-2 txt-medium text-ui-fg-subtle ">
+      <div className="flex flex-col gap-y-2 txt-medium text-ui-fg-subtle">
         <div className="flex items-center justify-between">
-          <span className="flex gap-x-1 items-center text-calilean-ink font-medium">
-            Subtotal
-          </span>
+          <span className="text-calilean-ink font-medium">Subtotal</span>
           <span
             data-testid="cart-subtotal"
             data-value={subtotal || 0}
@@ -47,29 +48,30 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals, cart }) => {
           </span>
         </div>
 
-        {cart?.promotions?.map((promo: any) => (
-          <div key={promo.id} className="flex items-center justify-between">
-            <span className="flex items-center gap-x-1 italic">
-              {promo.code === "SUBSCRIBE_SAVE_15"
-                ? "Subscription Savings (15%)"
-                : `Promo: ${promo.code}`}
-            </span>
-            <span className="text-calilean-pacific font-medium">
-              -{" "}
-              {convertToLocale({
-                amount: (cart.items || []).reduce((acc: number, item: any) => {
-                  return (
-                    acc +
-                    (item.adjustments || [])
-                      .filter((a: any) => a.promotion_id === promo.id)
-                      .reduce((sum: number, adj: any) => sum + adj.amount, 0)
-                  )
-                }, 0),
-                currency_code,
-              })}
-            </span>
-          </div>
-        ))}
+        {(promotions ?? []).map((promo: any) => {
+          const promoAmount = (items ?? []).reduce((acc: number, item: any) => {
+            return (
+              acc +
+              (item.adjustments || [])
+                .filter((a: any) => a.promotion_id === promo.id)
+                .reduce((sum: number, adj: any) => sum + adj.amount, 0)
+            )
+          }, 0)
+
+          const label =
+            promo.code === "SUBSCRIBE_SAVE_15"
+              ? "Subscription Savings (11.5%)"
+              : `Promo: ${promo.code}`
+
+          return (
+            <div key={promo.id} className="flex items-center justify-between">
+              <span className="flex items-center gap-x-1 italic">{label}</span>
+              <span className="text-calilean-pacific font-medium">
+                - {convertToLocale({ amount: promoAmount, currency_code })}
+              </span>
+            </div>
+          )
+        })}
 
         <div className="flex items-center justify-between">
           <span>Shipping</span>
@@ -78,7 +80,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals, cart }) => {
           </span>
         </div>
         <div className="flex justify-between">
-          <span className="flex gap-x-1 items-center ">Taxes</span>
+          <span>Taxes</span>
           <span data-testid="cart-taxes" data-value={tax_total || 0}>
             {convertToLocale({ amount: tax_total ?? 0, currency_code })}
           </span>
@@ -115,11 +117,11 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals, cart }) => {
         <div className="mt-4 p-3 bg-calilean-sand/30 rounded-btn border border-calilean-sand">
           <div className="flex items-center justify-between">
             <Text className="text-small-regular text-calilean-ink font-medium">
-              Monthly Subscription – 15% off every order
+              Monthly Subscription — 11.5% off every order
             </Text>
           </div>
           <Text className="text-[10px] text-ui-fg-subtle leading-tight italic mt-1">
-            Renews monthly. One-time promotions apply to first order only.
+            Renews monthly. Cancel anytime.
           </Text>
         </div>
       )}

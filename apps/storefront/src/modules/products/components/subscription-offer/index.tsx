@@ -43,7 +43,11 @@ export default function SubscriptionOffer({
   })
 
   return (
-    <div className="flex flex-col gap-y-2" role="radiogroup" aria-label="Purchase type">
+    <div
+      className="flex flex-col gap-y-2"
+      role="radiogroup"
+      aria-label="Purchase type"
+    >
       {/* One-time */}
       <div
         className={clx(
@@ -66,7 +70,9 @@ export default function SubscriptionOffer({
         <div
           className={clx(
             "w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors",
-            selected === "one-time" ? "border-calilean-ink" : "border-calilean-fog"
+            selected === "one-time"
+              ? "border-calilean-ink"
+              : "border-calilean-fog"
           )}
         >
           {selected === "one-time" && (
@@ -106,7 +112,9 @@ export default function SubscriptionOffer({
           <div
             className={clx(
               "w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors",
-              selected === "subscribe" ? "border-calilean-ink" : "border-calilean-fog"
+              selected === "subscribe"
+                ? "border-calilean-ink"
+                : "border-calilean-fog"
             )}
           >
             {selected === "subscribe" && (
@@ -138,7 +146,9 @@ export default function SubscriptionOffer({
           <div className="mt-3 flex flex-col gap-y-1.5 pl-7">
             <div className="flex items-center gap-x-2 text-calilean-pacific">
               <CheckMini />
-              <span className="text-xs">Free Priority Shipping on every order</span>
+              <span className="text-xs">
+                Free Priority Shipping on every order
+              </span>
             </div>
             <div className="flex items-center gap-x-2 text-calilean-pacific">
               <CheckMini />
