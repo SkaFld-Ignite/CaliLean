@@ -17,9 +17,10 @@ type CartTotalsProps = {
     items?: any[]
     metadata?: any
   }
+  discountRate?: number
 }
 
-const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
+const CartTotals: React.FC<CartTotalsProps> = ({ totals, discountRate = 0.115 }) => {
   const {
     currency_code,
     total,
@@ -33,6 +34,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
   } = totals
 
   const subscriptionInterval = metadata?.subscription_interval
+  const discountPct = Math.round(discountRate * 1000) / 10
 
   return (
     <div>
@@ -60,7 +62,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
 
           const label =
             promo.code === "SUBSCRIBE_SAVE_15"
-              ? "Subscription Savings (11.5%)"
+              ? `Subscription Savings (${discountPct}%)`
               : `Promo: ${promo.code}`
 
           return (
@@ -117,7 +119,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
         <div className="mt-4 p-3 bg-calilean-sand/30 rounded-btn border border-calilean-sand">
           <div className="flex items-center justify-between">
             <Text className="text-small-regular text-calilean-ink font-medium">
-              Monthly Subscription — 11.5% off every order
+              Monthly Subscription — {discountPct}% off every order
             </Text>
           </div>
           <Text className="text-[10px] text-ui-fg-subtle leading-tight italic mt-1">

@@ -10,9 +10,11 @@ import SubscriptionForm from "@modules/checkout/components/subscription"
 export default async function CheckoutForm({
   cart,
   customer,
+  discountRate,
 }: {
   cart: HttpTypes.StoreCart | null
   customer: HttpTypes.StoreCustomer | null
+  discountRate?: number
 }) {
   if (!cart) {
     return null
@@ -33,7 +35,7 @@ export default async function CheckoutForm({
         </div>
 
         <div>
-          <SubscriptionForm cart={cart} />
+          <SubscriptionForm cart={cart} discountRate={discountRate} />
         </div>
 
         <div>

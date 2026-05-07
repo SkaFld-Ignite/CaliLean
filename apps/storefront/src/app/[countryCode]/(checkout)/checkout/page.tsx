@@ -5,6 +5,7 @@ import Wrapper from "@modules/checkout/components/payment-wrapper"
 import CheckoutForm from "@modules/checkout/templates/checkout-form"
 import CheckoutSummary from "@modules/checkout/templates/checkout-summary"
 import { enrichLineItems, retrieveCart } from "@lib/data/cart"
+import { getSubscriptionConfig } from "@lib/data/subscriptions"
 import { HttpTypes } from "@medusajs/types"
 import { getCustomer } from "@lib/data/customer"
 
@@ -27,15 +28,18 @@ const fetchCart = async () => {
 }
 
 export default async function Checkout() {
-  const cart = await fetchCart()
-  const customer = await getCustomer()
+  const [cart, customer, { discount_rate }] = await Promise.all([
+    fetchCart(),
+    getCustomer(),
+    getSubscriptionConfig(),
+  ])
 
   return (
     <div className="grid grid-cols-1 small:grid-cols-[1fr_416px] content-container gap-x-40 py-12">
       <Wrapper cart={cart}>
-        <CheckoutForm cart={cart} customer={customer} />
+        <CheckoutForm cart={cart} customer={customer} discountRate={discount_rate} />
       </Wrapper>
-      <CheckoutSummary cart={cart} />
+      <CheckoutSummary cart={cart} discountRate={discount_rate} />
     </div>
   )
 }

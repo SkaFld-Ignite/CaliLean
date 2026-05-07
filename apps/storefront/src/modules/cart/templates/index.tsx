@@ -8,9 +8,11 @@ import { HttpTypes } from "@medusajs/types"
 const CartTemplate = ({
   cart,
   customer,
+  discountRate,
 }: {
   cart: HttpTypes.StoreCart | null
   customer: HttpTypes.StoreCustomer | null
+  discountRate?: number
 }) => {
   return (
     <div className="py-12">
@@ -31,7 +33,7 @@ const CartTemplate = ({
                 {cart && cart.region && (
                   <>
                     <div className="bg-calilean-bg py-6">
-                      <Summary cart={cart as any} />
+                      <Summary cart={cart as any} discountRate={discountRate} />
                     </div>
                   </>
                 )}

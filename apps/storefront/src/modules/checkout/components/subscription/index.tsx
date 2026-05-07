@@ -8,7 +8,7 @@ import { updateSubscriptionData, removeSubscriptionData } from "@lib/data/cart"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import { convertToLocale } from "@lib/util/money"
 
-const SubscriptionForm = ({ cart }: { cart: any }) => {
+const SubscriptionForm = ({ cart, discountRate = 0.115 }: { cart: any; discountRate?: number }) => {
   const [purchaseType, setPurchaseType] = useState<"one-time" | "subscription">(
     cart?.metadata?.subscription_interval ? "subscription" : "one-time"
   )
@@ -25,7 +25,8 @@ const SubscriptionForm = ({ cart }: { cart: any }) => {
 
   const currencyCode = cart?.currency_code || "usd"
   const subtotal = cart?.subtotal ?? 0
-  const discountedMonthly = Math.round(subtotal * 0.885)
+  const discountedMonthly = Math.round(subtotal * (1 - discountRate))
+  const discountPct = Math.round(discountRate * 1000) / 10
 
   // Sync state when cart changes externally
   useEffect(() => {
@@ -135,7 +136,7 @@ const SubscriptionForm = ({ cart }: { cart: any }) => {
                       size="small"
                       className="bg-green-100 text-green-700 border-green-200"
                     >
-                      11.5% off
+                      {discountPct}% off
                     </Badge>
                   </div>
                   <div className="flex items-baseline gap-x-2">

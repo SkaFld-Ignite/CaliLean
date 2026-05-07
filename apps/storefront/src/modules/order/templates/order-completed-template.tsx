@@ -8,6 +8,7 @@ import OnboardingCta from "@modules/order/components/onboarding-cta"
 import OrderDetails from "@modules/order/components/order-details"
 import ShippingDetails from "@modules/order/components/shipping-details"
 import PaymentDetails from "@modules/order/components/payment-details"
+import { getSubscriptionConfig } from "@lib/data/subscriptions"
 import { HttpTypes } from "@medusajs/types"
 
 type OrderCompletedTemplateProps = {
@@ -17,7 +18,10 @@ type OrderCompletedTemplateProps = {
 export default async function OrderCompletedTemplate({
   order,
 }: OrderCompletedTemplateProps) {
-  const cookieStore = await cookies()
+  const [cookieStore, { discount_rate }] = await Promise.all([
+    cookies(),
+    getSubscriptionConfig(),
+  ])
   const isOnboarding = cookieStore.get("_medusa_onboarding")?.value === "true"
 
   return (
@@ -42,7 +46,7 @@ export default async function OrderCompletedTemplate({
             Summary
           </Heading>
           <Items items={order.items} />
-          <CartTotals totals={order as any} />
+          <CartTotals totals={order as any} discountRate={discount_rate} />
           <ShippingDetails order={order} />
           <PaymentDetails order={order} />
           <Help />

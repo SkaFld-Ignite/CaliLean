@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import CartTemplate from "@modules/cart/templates"
 
 import { enrichLineItems, retrieveCart } from "@lib/data/cart"
+import { getSubscriptionConfig } from "@lib/data/subscriptions"
 import { HttpTypes } from "@medusajs/types"
 import { getCustomer } from "@lib/data/customer"
 
@@ -26,8 +27,11 @@ const fetchCart = async () => {
 }
 
 export default async function Cart() {
-  const cart = await fetchCart()
-  const customer = await getCustomer()
+  const [cart, customer, { discount_rate }] = await Promise.all([
+    fetchCart(),
+    getCustomer(),
+    getSubscriptionConfig(),
+  ])
 
-  return <CartTemplate cart={cart} customer={customer} />
+  return <CartTemplate cart={cart} customer={customer} discountRate={discount_rate} />
 }

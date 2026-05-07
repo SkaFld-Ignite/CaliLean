@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import { listSubscriptions } from "@lib/data/subscriptions"
+import { listSubscriptions, getSubscriptionConfig } from "@lib/data/subscriptions"
 import SubscriptionOverview from "@modules/account/components/subscription-overview"
 
 export const metadata: Metadata = {
@@ -8,7 +8,10 @@ export const metadata: Metadata = {
 }
 
 export default async function Subscriptions() {
-  const subscriptions = await listSubscriptions()
+  const [subscriptions, { discount_rate }] = await Promise.all([
+    listSubscriptions(),
+    getSubscriptionConfig(),
+  ])
 
   return (
     <div className="w-full" data-testid="subscriptions-page-wrapper">
@@ -20,7 +23,7 @@ export default async function Subscriptions() {
         </p>
       </div>
       <div>
-        <SubscriptionOverview subscriptions={subscriptions} />
+        <SubscriptionOverview subscriptions={subscriptions} discountRate={discount_rate} />
       </div>
     </div>
   )

@@ -6,7 +6,7 @@ import CartTotals from "@modules/common/components/cart-totals"
 import Divider from "@modules/common/components/divider"
 import RUODisclaimer from "@modules/common/components/ruo-disclaimer"
 
-const CheckoutSummary = ({ cart }: { cart: any }) => {
+const CheckoutSummary = ({ cart, discountRate }: { cart: any; discountRate?: number }) => {
   return (
     <div className="sticky top-0 flex flex-col-reverse small:flex-col gap-y-8 py-8 small:py-0 ">
       <div className="w-full bg-calilean-bg flex flex-col">
@@ -18,7 +18,7 @@ const CheckoutSummary = ({ cart }: { cart: any }) => {
           In your Cart
         </Heading>
         <Divider className="my-6" />
-        <CartTotals totals={cart} />
+        <CartTotals totals={cart} discountRate={discountRate} />
         <ItemsPreviewTemplate items={cart?.items} />
         <div className="my-6">
           <DiscountCode cart={cart} />

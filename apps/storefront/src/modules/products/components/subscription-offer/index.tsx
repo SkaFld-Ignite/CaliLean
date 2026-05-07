@@ -6,13 +6,12 @@ import { getProductPrice } from "@lib/util/get-product-price"
 import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
 
-const SUBSCRIPTION_DISCOUNT = 0.115
-
 type SubscriptionOfferProps = {
   product: HttpTypes.StoreProduct
   variant?: HttpTypes.StoreProductVariant
   selected: "one-time" | "subscribe"
   onSelect: (value: "one-time" | "subscribe") => void
+  discountRate?: number
 }
 
 export default function SubscriptionOffer({
@@ -20,6 +19,7 @@ export default function SubscriptionOffer({
   variant,
   selected,
   onSelect,
+  discountRate = 0.115,
 }: SubscriptionOfferProps) {
   const { cheapestPrice, variantPrice } = getProductPrice({
     product,
@@ -31,7 +31,7 @@ export default function SubscriptionOffer({
 
   const baseAmount = price.calculated_price_number
   const currencyCode = price.currency_code
-  const discountedAmount = Math.round(baseAmount * (1 - SUBSCRIPTION_DISCOUNT))
+  const discountedAmount = Math.round(baseAmount * (1 - discountRate))
 
   const originalFormatted = convertToLocale({
     amount: baseAmount,
@@ -127,7 +127,7 @@ export default function SubscriptionOffer({
                 Subscribe &amp; Save
               </span>
               <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-green-100 text-green-700 border border-green-200">
-                11.5% off
+                {Math.round(discountRate * 1000) / 10}% off
               </span>
             </div>
             <div className="flex items-baseline gap-x-2">

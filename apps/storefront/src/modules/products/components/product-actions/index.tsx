@@ -23,6 +23,7 @@ type ProductActionsProps = {
   product: HttpTypes.StoreProduct
   region: HttpTypes.StoreRegion
   disabled?: boolean
+  discountRate?: number
 }
 
 const optionsAsKeymap = (variantOptions: any) => {
@@ -45,6 +46,7 @@ export default function ProductActions({
   product,
   region,
   disabled,
+  discountRate,
 }: ProductActionsProps) {
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
@@ -151,6 +153,7 @@ export default function ProductActions({
           variant={selectedVariant}
           selected={purchaseType}
           onSelect={setPurchaseType}
+          discountRate={discountRate}
         />
 
         <Button

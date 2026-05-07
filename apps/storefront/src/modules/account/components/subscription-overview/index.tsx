@@ -15,8 +15,10 @@ const statusColors: Record<string, "green" | "orange" | "red" | "grey"> = {
 
 const SubscriptionOverview = ({
   subscriptions,
+  discountRate = 0.115,
 }: {
   subscriptions: SubscriptionData[]
+  discountRate?: number
 }) => {
   if (!subscriptions?.length) {
     return (
@@ -40,7 +42,7 @@ const SubscriptionOverview = ({
   return (
     <div className="flex flex-col gap-y-6 w-full">
       {subscriptions.map((sub) => (
-        <SubscriptionCard key={sub.id} subscription={sub} />
+        <SubscriptionCard key={sub.id} subscription={sub} discountRate={discountRate} />
       ))}
     </div>
   )
@@ -48,9 +50,12 @@ const SubscriptionOverview = ({
 
 const SubscriptionCard = ({
   subscription,
+  discountRate = 0.115,
 }: {
   subscription: SubscriptionData
+  discountRate?: number
 }) => {
+  const discountPct = Math.round(discountRate * 1000) / 10
   const [canceling, setCanceling] = useState(false)
   const [status, setStatus] = useState(subscription.status)
 
@@ -88,7 +93,7 @@ const SubscriptionCard = ({
           </Badge>
           {status === "active" && (
             <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-green-100 text-green-700 border border-green-200">
-              11.5% off every order
+              {discountPct}% off every order
             </span>
           )}
         </div>
@@ -111,7 +116,7 @@ const SubscriptionCard = ({
           <div className="flex items-center gap-x-2 text-green-700">
             <CheckMini />
             <span className="text-xs font-medium">
-              11.5% discount applied to every renewal order
+              {discountPct}% discount applied to every renewal order
             </span>
           </div>
           <div className="flex items-center gap-x-2 text-green-700">

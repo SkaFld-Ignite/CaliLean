@@ -1,5 +1,6 @@
 import { MedusaService } from "@medusajs/framework/utils"
 import Subscription from "./models/subscription";
+import SubscriptionConfig from "./models/subscription-config";
 import {
   CreateSubscriptionData,
   SubscriptionData,
@@ -9,7 +10,8 @@ import {
 import moment from "moment";
 
 class SubscriptionModuleService extends MedusaService({
-  Subscription
+  Subscription,
+  SubscriptionConfig,
 }) {
   // @ts-expect-error
   async createSubscriptions(
@@ -115,6 +117,26 @@ class SubscriptionModuleService extends MedusaService({
     // null. Otherwise, return the next order date.
     return nextOrderDate.isAfter(expirationMomentDate) ?
       null : nextOrderDate.toDate()
+  }
+
+  async getSubscriptionConfig(): Promise<{ id: string; discount_rate: number; display_label: string }> {
+    const results = await this.listSubscriptionConfigs({ id: "default" })
+    if (results.length > 0) return results[0] as any
+    // seed default row if missing
+    await this.createSubscriptionConfigs({ id: "default", discount_rate: 0.115, display_label: "11.5%" } as any)
+    return { id: "default", discount_rate: 0.115, display_label: "11.5%" }
+  }
+
+  async updateSubscriptionConfig(discount_rate: number): Promise<{ id: string; discount_rate: number; display_label: string }> {
+    const pct = Math.round(discount_rate * 1000) / 10
+    const display_label = `${pct}%`
+    const results = await this.listSubscriptionConfigs({ id: "default" })
+    if (results.length === 0) {
+      await this.createSubscriptionConfigs({ id: "default", discount_rate, display_label } as any)
+    } else {
+      await this.updateSubscriptionConfigs({ selector: { id: "default" }, data: { discount_rate, display_label } })
+    }
+    return { id: "default", discount_rate, display_label }
   }
 
   getExpirationDate({

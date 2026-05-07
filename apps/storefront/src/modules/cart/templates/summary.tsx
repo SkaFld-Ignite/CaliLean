@@ -12,12 +12,11 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import { updateSubscriptionData, removeSubscriptionData } from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
 
-const SUBSCRIPTION_DISCOUNT = 0.115
-
 type SummaryProps = {
   cart: HttpTypes.StoreCart & {
     promotions: HttpTypes.StorePromotion[]
   }
+  discountRate?: number
 }
 
 function getCheckoutStep(cart: HttpTypes.StoreCart) {
@@ -30,13 +29,14 @@ function getCheckoutStep(cart: HttpTypes.StoreCart) {
   }
 }
 
-function SubscriptionBanner({ cart }: { cart: HttpTypes.StoreCart }) {
+function SubscriptionBanner({ cart, discountRate = 0.115 }: { cart: HttpTypes.StoreCart; discountRate?: number }) {
   const isSubscribed = !!cart?.metadata?.subscription_interval
   const [loading, setLoading] = useState(false)
 
   const subtotal = cart?.subtotal ?? 0
-  const discountedAmount = Math.round(subtotal * (1 - SUBSCRIPTION_DISCOUNT))
+  const discountedAmount = Math.round(subtotal * (1 - discountRate))
   const savings = subtotal - discountedAmount
+  const discountPct = Math.round(discountRate * 1000) / 10
 
   const toggle = async () => {
     setLoading(true)
@@ -58,7 +58,7 @@ function SubscriptionBanner({ cart }: { cart: HttpTypes.StoreCart }) {
           <CheckMini className="text-calilean-pacific flex-shrink-0" />
           <div className="flex flex-col gap-y-0.5">
             <span className="text-sm font-medium">
-              Monthly Subscription — 11.5% off
+              Monthly Subscription — {discountPct}% off
             </span>
             {savings > 0 && (
               <span className="text-xs text-calilean-pacific font-medium">
@@ -85,7 +85,7 @@ function SubscriptionBanner({ cart }: { cart: HttpTypes.StoreCart }) {
     >
       <div className="flex flex-col gap-y-0.5">
         <span className="text-sm font-medium text-calilean-ink">
-          Subscribe &amp; Save 11.5%
+          Subscribe &amp; Save {discountPct}%
         </span>
         <span className="text-xs text-ui-fg-subtle">
           Renews monthly — cancel anytime
@@ -98,7 +98,7 @@ function SubscriptionBanner({ cart }: { cart: HttpTypes.StoreCart }) {
   )
 }
 
-const Summary = ({ cart }: SummaryProps) => {
+const Summary = ({ cart, discountRate }: SummaryProps) => {
   const step = getCheckoutStep(cart)
 
   return (
@@ -106,10 +106,10 @@ const Summary = ({ cart }: SummaryProps) => {
       <Heading level="h2" className="text-[2rem] leading-[2.75rem]">
         Summary
       </Heading>
-      <SubscriptionBanner cart={cart} />
+      <SubscriptionBanner cart={cart} discountRate={discountRate} />
       <DiscountCode cart={cart} />
       <Divider />
-      <CartTotals totals={cart} />
+      <CartTotals totals={cart} discountRate={discountRate} />
       <p className="text-xs text-calilean-fog text-center">
         By checking out you confirm this purchase is for research use only.
       </p>
