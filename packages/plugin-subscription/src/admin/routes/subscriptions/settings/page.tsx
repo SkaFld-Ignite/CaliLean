@@ -1,5 +1,5 @@
 import { defineRouteConfig } from "@medusajs/admin-sdk"
-import { AdjustmentsSolid } from "@medusajs/icons"
+import { Adjustments } from "@medusajs/icons"
 import { Container, Heading, Text, Input, Button, toast } from "@medusajs/ui"
 import { useCallback, useEffect, useState } from "react"
 import { sdk } from "../../../lib/sdk.js"
@@ -117,7 +117,7 @@ const SubscriptionSettingsPage = () => {
 
 export const config = defineRouteConfig({
   label: "Subscription Settings",
-  icon: AdjustmentsSolid,
+  icon: Adjustments,
 })
 
 export default SubscriptionSettingsPage
