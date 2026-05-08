@@ -14,6 +14,7 @@ export const PostQrCampaignSchema = z.object({
   utm_content: z.string().nullable().optional(),
   is_active: z.boolean().optional(),
   product_id: z.string().nullable().optional(),
+  variant_id: z.string().nullable().optional(),
   notes: z.string().nullable().optional(),
   enable_guest_access: z.boolean().optional(),
 })
@@ -29,6 +30,7 @@ export const PostQrCampaignUpdateSchema = z.object({
   utm_content: z.string().nullable().optional(),
   is_active: z.boolean().optional(),
   product_id: z.string().nullable().optional(),
+  variant_id: z.string().nullable().optional(),
   notes: z.string().nullable().optional(),
   enable_guest_access: z.boolean().optional(),
 })

@@ -13,7 +13,7 @@ const STOREFRONT_URL = process.env.STOREFRONT_URL || "https://calilean.com"
 const QR_FIELDS = [
   "id", "code", "name", "destination_url",
   "utm_source", "utm_medium", "utm_campaign", "utm_content",
-  "scan_count", "is_active", "product_id", "notes", "guest_key",
+  "scan_count", "is_active", "product_id", "variant_id", "notes", "guest_key",
   "created_at", "updated_at",
 ]
 

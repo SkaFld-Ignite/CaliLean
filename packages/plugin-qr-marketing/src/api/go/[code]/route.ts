@@ -78,11 +78,33 @@ export const GET = async (
   }
   url.searchParams.set("qr_code", campaign.code)
 
+  // Deep-link to variant: look up variant options and append as query params
+  if (campaign.variant_id) {
+    try {
+      const productService = req.scope.resolve(Modules.PRODUCT)
+      const variant = await productService.retrieveProductVariant(
+        campaign.variant_id,
+        { relations: ["options", "options.option"] }
+      )
+      if (variant?.options?.length) {
+        for (const optionValue of variant.options) {
+          const optionTitle = optionValue.option?.title
+          if (optionTitle && optionValue.value) {
+            url.searchParams.set(optionTitle, optionValue.value)
+          }
+        }
+      }
+    } catch {
+      // Variant lookup failed — continue without deep-link params
+    }
+  }
+
   return res.json({
     campaign: {
       code: campaign.code,
       name: campaign.name,
       destination_url: campaign.destination_url,
+      variant_id: campaign.variant_id || null,
       utm_source: campaign.utm_source,
       utm_medium: campaign.utm_medium,
       utm_campaign: campaign.utm_campaign,

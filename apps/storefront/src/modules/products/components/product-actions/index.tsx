@@ -2,7 +2,7 @@
 
 import { Button } from "@medusajs/ui"
 import { isEqual } from "lodash"
-import { useParams } from "next/navigation"
+import { useParams, useSearchParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
 
 import { useIntersection } from "@lib/hooks/use-in-view"
@@ -55,15 +55,56 @@ export default function ProductActions({
     "one-time"
   )
   const countryCode = useParams().countryCode as string
+  const searchParams = useSearchParams()
 
-  // Preselect the first variant on mount
   useEffect(() => {
-    const first = product.variants?.[0]
-    if (first && Object.keys(options).length === 0) {
-      const variantOptions = optionsAsKeymap(first.options)
-      setOptions(variantOptions ?? {})
+    if (Object.keys(options).length > 0) return
+
+    const variants = product.variants ?? []
+    const variantId = searchParams.get("variant")
+
+    if (variantId) {
+      const match = variants.find((v) => v.id === variantId)
+      if (match) {
+        setOptions(optionsAsKeymap(match.options) ?? {})
+        return
+      }
     }
-  }, [product.variants])
+
+    const optionTitles = (product.options || [])
+      .map((o) => o.title)
+      .filter(Boolean) as string[]
+
+    if (optionTitles.length > 0) {
+      const paramOptions: Record<string, string> = {}
+      let hasMatch = false
+      for (const title of optionTitles) {
+        const val = searchParams.get(title)
+        if (val) {
+          paramOptions[title] = val
+          hasMatch = true
+        }
+      }
+
+      if (hasMatch) {
+        const match = variants.find((v) => {
+          const vOpts = optionsAsKeymap(v.options) ?? {}
+          return Object.entries(paramOptions).every(
+            ([k, val]) => vOpts[k] === val
+          )
+        })
+        if (match) {
+          setOptions(optionsAsKeymap(match.options) ?? {})
+          return
+        }
+      }
+    }
+
+    const first = variants[0]
+    if (first) {
+      setOptions(optionsAsKeymap(first.options) ?? {})
+    }
+  }, [product.variants, product.options, searchParams])
 
   const updateOptions = (title: string, value: string) => {
     setOptions((prev) => ({ ...prev, [title]: value }))

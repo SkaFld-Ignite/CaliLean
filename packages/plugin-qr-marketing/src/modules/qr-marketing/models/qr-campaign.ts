@@ -12,6 +12,7 @@ const QrCampaign = model.define("qr_campaign", {
   scan_count: model.bigNumber().default(0),
   is_active: model.boolean().default(true),
   product_id: model.text().nullable(),
+  variant_id: model.text().nullable(),
   notes: model.text().nullable(),
   guest_key: model.text().nullable(),
   metadata: model.json().nullable(),

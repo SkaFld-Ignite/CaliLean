@@ -50,11 +50,10 @@ const ProductTemplate: React.FC<ProductTemplateProps> = async ({
 
             <Suspense
               fallback={
-                <ProductActions
-                  disabled={true}
-                  product={product}
-                  region={region}
-                />
+                <div className="flex flex-col gap-y-4 animate-pulse">
+                  <div className="h-10 bg-ui-bg-subtle rounded" />
+                  <div className="h-10 bg-ui-bg-subtle rounded w-1/2" />
+                </div>
               }
             >
               <ProductActionsWrapper id={product.id} region={region} />

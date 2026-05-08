@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import { getProductsById } from "@lib/data/products"
 import { getSubscriptionConfig } from "@lib/data/subscriptions"
 import { HttpTypes } from "@medusajs/types"
@@ -20,10 +21,12 @@ export default async function ProductActionsWrapper({
   }
 
   return (
-    <ProductActions
-      product={product}
-      region={region}
-      discountRate={discount_rate}
-    />
+    <Suspense>
+      <ProductActions
+        product={product}
+        region={region}
+        discountRate={discount_rate}
+      />
+    </Suspense>
   )
 }
