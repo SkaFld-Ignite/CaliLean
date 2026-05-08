@@ -20,6 +20,12 @@ docs/
     └── specs/
 ```
 
+## Environment
+
+For local development or scripts operating in the `docs` context, the `.env` file should be placed at the root of the `docs` directory (`docs/.env`).
+
+Any Doppler configuration linking to these secrets should be updated to target this `docs/` path.
+
 ## Build
 
 ```bash
