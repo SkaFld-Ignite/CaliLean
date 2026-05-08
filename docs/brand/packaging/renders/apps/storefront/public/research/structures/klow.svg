@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Klow (NAD+): adenine ring + nicotinamide ring connected by phosphate bridge -->
+  <!-- Adenine ring (purine bicyclic — 6+5 fused) on the left -->
+  <!-- 6-membered ring -->
+  <polygon points="18,62 24,50 36,50 42,62 36,74 24,74"
+           stroke="#1F2937" stroke-width="1.5" fill="#E5E7EB"/>
+  <!-- 5-membered ring fused at top -->
+  <polygon points="24,50 36,50 42,42 34,36 26,40"
+           stroke="#1F2937" stroke-width="1.5" fill="#E5E7EB"/>
+  <!-- N atoms in adenine (highlighted positions) -->
+  <circle cx="24" cy="50" r="2.5" fill="#7090AB" stroke="#1F2937" stroke-width="1" opacity="0.8"/>
+  <circle cx="36" cy="50" r="2.5" fill="#7090AB" stroke="#1F2937" stroke-width="1" opacity="0.8"/>
+  <circle cx="42" cy="62" r="2.5" fill="#7090AB" stroke="#1F2937" stroke-width="1" opacity="0.8"/>
+  <text x="30" y="66" text-anchor="middle" font-size="6" fill="#1F2937" font-family="monospace">Ade</text>
+  <!-- Ribose sugars (simplified ovals) -->
+  <ellipse cx="52" cy="70" rx="7" ry="5" stroke="#1F2937" stroke-width="1" fill="#E5E7EB" opacity="0.7"/>
+  <text x="52" y="73" text-anchor="middle" font-size="4.5" fill="#6B7280" font-family="monospace">rib</text>
+  <ellipse cx="68" cy="70" rx="7" ry="5" stroke="#1F2937" stroke-width="1" fill="#E5E7EB" opacity="0.7"/>
+  <text x="68" y="73" text-anchor="middle" font-size="4.5" fill="#6B7280" font-family="monospace">rib</text>
+  <!-- Phosphate bridge -->
+  <line x1="42" y1="70" x2="44" y2="70" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="52" cy="70" r="0.1" fill="none"/>
+  <line x1="59" y1="70" x2="61" y2="70" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Pyrophosphate group in center -->
+  <rect x="55" y="64" width="10" height="8" rx="2" fill="#7090AB" stroke="#1F2937" stroke-width="1" opacity="0.7"/>
+  <text x="60" y="71" text-anchor="middle" font-size="5.5" fill="white" font-family="monospace">PP</text>
+  <!-- Nicotinamide ring (6-membered, right side) -->
+  <polygon points="78,58 84,48 96,48 102,58 96,68 84,68"
+           stroke="#1F2937" stroke-width="1.5" fill="#E5E7EB"/>
+  <!-- N+ in nicotinamide ring (positive charge) -->
+  <circle cx="90" cy="58" r="3" fill="#7090AB" stroke="#1F2937" stroke-width="1" opacity="0.85"/>
+  <text x="90" y="61" text-anchor="middle" font-size="5" fill="white" font-family="monospace">N⁺</text>
+  <text x="90" y="45" text-anchor="middle" font-size="6" fill="#1F2937" font-family="monospace">Nic</text>
+  <!-- CONH2 amide substituent -->
+  <line x1="102" y1="58" x2="112" y2="54" stroke="#1F2937" stroke-width="1"/>
+  <text x="114" y="53" text-anchor="start" font-size="5" fill="#6B7280" font-family="monospace">CONH₂</text>
+  <!-- Connection line from ribose right to nicotinamide -->
+  <line x1="75" y1="70" x2="78" y2="68" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Label -->
+  <text x="60" y="92" text-anchor="middle" font-size="8" fill="#1F2937" font-family="monospace">Klow</text>
+  <text x="60" y="102" text-anchor="middle" font-size="6" fill="#6B7280" font-family="monospace">NAD⁺ coenzyme</text>
+</svg>

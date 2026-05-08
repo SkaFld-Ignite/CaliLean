@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- TB-500: 43 amino acid peptide — long serpentine backbone -->
+  <!-- Row 1 (top, left to right) -->
+  <line x1="8" y1="28" x2="16" y2="20" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="16" y1="20" x2="24" y2="28" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="24" y1="28" x2="32" y2="20" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="32" y1="20" x2="40" y2="28" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="40" y1="28" x2="48" y2="20" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="48" y1="20" x2="56" y2="28" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="56" y1="28" x2="64" y2="20" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="64" y1="20" x2="72" y2="28" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="72" y1="28" x2="80" y2="20" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="80" y1="20" x2="88" y2="28" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="88" y1="28" x2="96" y2="20" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Turn -->
+  <line x1="96" y1="20" x2="104" y2="28" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="104" y1="28" x2="112" y2="20" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="112" y1="20" x2="112" y2="36" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Row 2 (middle, right to left) -->
+  <line x1="112" y1="36" x2="104" y2="44" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="104" y1="44" x2="96" y2="36" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="96" y1="36" x2="88" y2="44" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="88" y1="44" x2="80" y2="36" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="80" y1="36" x2="72" y2="44" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="72" y1="44" x2="64" y2="36" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="64" y1="36" x2="56" y2="44" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="56" y1="44" x2="48" y2="36" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="48" y1="36" x2="40" y2="44" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="40" y1="44" x2="32" y2="36" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="32" y1="36" x2="24" y2="44" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="24" y1="44" x2="16" y2="36" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="16" y1="36" x2="8" y2="44" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Turn down -->
+  <line x1="8" y1="44" x2="8" y2="58" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Row 3 (bottom, left to right) -->
+  <line x1="8" y1="58" x2="16" y2="52" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="16" y1="52" x2="24" y2="58" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="24" y1="58" x2="32" y2="52" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="32" y1="52" x2="40" y2="58" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="40" y1="58" x2="48" y2="52" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="48" y1="52" x2="56" y2="58" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="56" y1="58" x2="64" y2="52" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="64" y1="52" x2="72" y2="58" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Nodes row 1 -->
+  <circle cx="8" cy="28" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="16" cy="20" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="24" cy="28" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="32" cy="20" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="40" cy="28" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="48" cy="20" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="56" cy="28" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="64" cy="20" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="72" cy="28" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="80" cy="20" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="88" cy="28" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="96" cy="20" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="104" cy="28" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="112" cy="20" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Nodes row 2 -->
+  <circle cx="112" cy="36" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="104" cy="44" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="96" cy="36" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="88" cy="44" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="80" cy="36" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="72" cy="44" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="64" cy="36" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="56" cy="44" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="48" cy="36" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="40" cy="44" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="32" cy="36" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="24" cy="44" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="16" cy="36" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="8" cy="44" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Nodes row 3 -->
+  <circle cx="8" cy="58" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="16" cy="52" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="24" cy="58" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="32" cy="52" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="40" cy="58" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="48" cy="52" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="56" cy="58" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="64" cy="52" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="72" cy="58" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Label -->
+  <text x="60" y="80" text-anchor="middle" font-size="8" fill="#1F2937" font-family="monospace">TB-500</text>
+  <text x="60" y="90" text-anchor="middle" font-size="6" fill="#6B7280" font-family="monospace">43 aa</text>
+</svg>

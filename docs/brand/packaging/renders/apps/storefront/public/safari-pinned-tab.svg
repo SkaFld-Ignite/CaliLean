@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  CaliLean — Safari pinned-tab mask (v0)
+  Per Apple spec: single-color silhouette, black on transparent, 16×16 viewBox.
+  Fill via <link rel="mask-icon" color="#1F2326"> in root layout.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <text
+    x="50%"
+    y="50%"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-family="Fraunces, 'GT Sectra Display', 'Domaine Display', 'Times New Roman', serif"
+    font-size="13"
+    font-weight="600"
+    fill="black"
+  >c</text>
+</svg>

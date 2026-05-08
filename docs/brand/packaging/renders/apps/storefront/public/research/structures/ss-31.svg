@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- SS-31: tetrapeptide D-Arg-Dmt-Lys-Phe-NH2, 4 nodes, D-Arg highlighted -->
+  <!-- Backbone connections -->
+  <line x1="20" y1="65" x2="43" y2="42" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="43" y1="42" x2="77" y2="42" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="77" y1="42" x2="100" y2="65" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Side chain stub on Dmt (dimethyltyrosine) -->
+  <line x1="43" y1="42" x2="43" y2="26" stroke="#1F2937" stroke-width="1" stroke-dasharray="2 2"/>
+  <circle cx="43" cy="22" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1"/>
+  <!-- Side chain stub on Lys -->
+  <line x1="77" y1="42" x2="77" y2="26" stroke="#1F2937" stroke-width="1" stroke-dasharray="2 2"/>
+  <circle cx="77" cy="22" r="3" fill="#E5E7EB" stroke="#1F2937" stroke-width="1"/>
+  <!-- NH2 terminus on C-end -->
+  <line x1="100" y1="65" x2="110" y2="78" stroke="#7090AB" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.7"/>
+  <text x="112" y="82" text-anchor="middle" font-size="7" fill="#7090AB" font-family="monospace">NH₂</text>
+  <!-- D-Arg node highlighted (first aa, unusual D-configuration) -->
+  <circle cx="20" cy="65" r="7" fill="#7090AB" stroke="#1F2937" stroke-width="1.5" opacity="0.85"/>
+  <text x="20" y="68" text-anchor="middle" font-size="6" fill="white" font-family="monospace">D-R</text>
+  <!-- Other nodes -->
+  <circle cx="43" cy="42" r="5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <text x="43" y="45" text-anchor="middle" font-size="5" fill="#1F2937" font-family="monospace">Dmt</text>
+  <circle cx="77" cy="42" r="5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <text x="77" y="45" text-anchor="middle" font-size="5" fill="#1F2937" font-family="monospace">Lys</text>
+  <circle cx="100" cy="65" r="5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <text x="100" y="68" text-anchor="middle" font-size="5" fill="#1F2937" font-family="monospace">Phe</text>
+  <!-- Label -->
+  <text x="60" y="98" text-anchor="middle" font-size="8" fill="#1F2937" font-family="monospace">SS-31</text>
+  <text x="60" y="108" text-anchor="middle" font-size="6" fill="#6B7280" font-family="monospace">4 aa · mito</text>
+</svg>

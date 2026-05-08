@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Ipamorelin: pentapeptide, 5 connected nodes -->
+  <line x1="20" y1="80" x2="40" y2="40" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="40" y1="40" x2="60" y2="68" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="60" y1="68" x2="80" y2="35" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="80" y1="35" x2="100" y2="62" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="20" cy="80" r="4" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="40" cy="40" r="4" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="60" cy="68" r="4" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="80" cy="35" r="4" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="100" cy="62" r="4" fill="#7090AB" stroke="#1F2937" stroke-width="1.5" opacity="0.85"/>
+  <!-- Aib (α-aminoisobutyric acid) marker on node 1 -->
+  <text x="20" y="76" text-anchor="middle" font-size="5" fill="#6B7280" font-family="monospace">Aib</text>
+  <!-- Label -->
+  <text x="60" y="100" text-anchor="middle" font-size="8" fill="#1F2937" font-family="monospace">Ipamorelin</text>
+  <text x="60" y="110" text-anchor="middle" font-size="6" fill="#6B7280" font-family="monospace">5 aa · GHSR</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- GHK-Cu: tripeptide (Gly-His-Lys) with copper ion center -->
+  <!-- Coordination bonds to Cu center -->
+  <line x1="30" y1="40" x2="60" y2="58" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="60" y1="58" x2="90" y2="40" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="60" y1="58" x2="60" y2="30" stroke="#7090AB" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.7"/>
+  <line x1="60" y1="58" x2="45" y2="72" stroke="#7090AB" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.7"/>
+  <line x1="60" y1="58" x2="75" y2="72" stroke="#7090AB" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.7"/>
+  <!-- Coordination electron dots -->
+  <circle cx="60" cy="30" r="2" fill="#7090AB" opacity="0.6"/>
+  <circle cx="45" cy="72" r="2" fill="#7090AB" opacity="0.6"/>
+  <circle cx="75" cy="72" r="2" fill="#7090AB" opacity="0.6"/>
+  <!-- Peptide backbone nodes (Gly, His, Lys) -->
+  <circle cx="30" cy="40" r="6" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="90" cy="40" r="6" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Cu2+ center highlighted -->
+  <circle cx="60" cy="58" r="9" fill="#7090AB" stroke="#1F2937" stroke-width="1.5" opacity="0.85"/>
+  <!-- Labels on nodes -->
+  <text x="30" y="43" text-anchor="middle" font-size="6" fill="#1F2937" font-family="monospace">Gly</text>
+  <text x="90" y="43" text-anchor="middle" font-size="6" fill="#1F2937" font-family="monospace">Lys</text>
+  <text x="60" y="62" text-anchor="middle" font-size="7" fill="white" font-family="monospace">Cu²⁺</text>
+  <!-- His label below Cu -->
+  <text x="60" y="82" text-anchor="middle" font-size="6" fill="#1F2937" font-family="monospace">His</text>
+  <circle cx="60" cy="78" r="5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <line x1="60" y1="67" x2="60" y2="73" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Overall label -->
+  <text x="60" y="100" text-anchor="middle" font-size="8" fill="#1F2937" font-family="monospace">GHK-Cu</text>
+  <text x="60" y="110" text-anchor="middle" font-size="6" fill="#6B7280" font-family="monospace">tripeptide + Cu²⁺</text>
+</svg>

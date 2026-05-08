@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- GLP-2 (dual receptor agonist): stylized double-helix motif -->
+  <!-- Strand A (left) -->
+  <path d="M 32 85 C 28 75 36 65 40 55 C 44 45 36 35 40 25 C 44 16 52 14 56 20"
+        stroke="#1F2937" stroke-width="1.5" fill="none"/>
+  <!-- Strand B (right) -->
+  <path d="M 88 85 C 92 75 84 65 80 55 C 76 45 84 35 80 25 C 76 16 68 14 64 20"
+        stroke="#1F2937" stroke-width="1.5" fill="none"/>
+  <!-- Cross-rungs (base pair style) -->
+  <line x1="38" y1="72" x2="82" y2="72" stroke="#7090AB" stroke-width="1" stroke-dasharray="2 2" opacity="0.6"/>
+  <line x1="36" y1="58" x2="84" y2="58" stroke="#7090AB" stroke-width="1" stroke-dasharray="2 2" opacity="0.6"/>
+  <line x1="40" y1="44" x2="80" y2="44" stroke="#7090AB" stroke-width="1" stroke-dasharray="2 2" opacity="0.6"/>
+  <line x1="38" y1="30" x2="82" y2="30" stroke="#7090AB" stroke-width="1" stroke-dasharray="2 2" opacity="0.6"/>
+  <!-- Nodes on strand A -->
+  <circle cx="32" cy="85" r="3.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="38" cy="72" r="3.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="36" cy="58" r="3.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="40" cy="44" r="3.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="38" cy="30" r="3.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="56" cy="20" r="3.5" fill="#7090AB" stroke="#1F2937" stroke-width="1.5" opacity="0.8"/>
+  <!-- Nodes on strand B -->
+  <circle cx="88" cy="85" r="3.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="82" cy="72" r="3.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="84" cy="58" r="3.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="80" cy="44" r="3.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="82" cy="30" r="3.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="64" cy="20" r="3.5" fill="#7090AB" stroke="#1F2937" stroke-width="1.5" opacity="0.8"/>
+  <!-- Center join at top -->
+  <line x1="56" y1="20" x2="64" y2="20" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Label -->
+  <text x="60" y="100" text-anchor="middle" font-size="8" fill="#1F2937" font-family="monospace">GLP-2</text>
+  <text x="60" y="110" text-anchor="middle" font-size="6" fill="#6B7280" font-family="monospace">dual agonist</text>
+</svg>

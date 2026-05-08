@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Tesamorelin: 44 aa GHRH analog — long serpentine chain with helix indicator -->
+  <!-- Row 1 (top) -->
+  <polyline points="8,22 16,14 24,22 32,14 40,22 48,14 56,22 64,14 72,22 80,14 88,22 96,14 104,22 112,14"
+            stroke="#1F2937" stroke-width="1.5" fill="none"/>
+  <!-- Turn right side down -->
+  <line x1="112" y1="14" x2="112" y2="34" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Row 2 (right to left) -->
+  <polyline points="112,34 104,42 96,34 88,42 80,34 72,42 64,34 56,42 48,34 40,42 32,34 24,42 16,34 8,42"
+            stroke="#1F2937" stroke-width="1.5" fill="none"/>
+  <!-- Turn left side down -->
+  <line x1="8" y1="42" x2="8" y2="58" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Row 3 (left to right) — partial (remaining aa) -->
+  <polyline points="8,58 16,50 24,58 32,50 40,58 48,50 56,58 64,50 72,58 80,50 88,58"
+            stroke="#1F2937" stroke-width="1.5" fill="none"/>
+  <!-- Helix region indicator (tesamorelin has alpha-helical region) -->
+  <rect x="30" y="30" width="62" height="14" rx="3" stroke="#7090AB" stroke-width="1" stroke-dasharray="2 2" fill="#7090AB" fill-opacity="0.05" opacity="0.7"/>
+  <!-- Row 1 nodes -->
+  <circle cx="8" cy="22" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="16" cy="14" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="24" cy="22" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="32" cy="14" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="40" cy="22" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="48" cy="14" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="56" cy="22" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="64" cy="14" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="72" cy="22" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="80" cy="14" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="88" cy="22" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="96" cy="14" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="104" cy="22" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="112" cy="14" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Row 2 nodes -->
+  <circle cx="112" cy="34" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="104" cy="42" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="96" cy="34" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="88" cy="42" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="80" cy="34" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="72" cy="42" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="64" cy="34" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="56" cy="42" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="48" cy="34" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="40" cy="42" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="32" cy="34" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="24" cy="42" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="16" cy="34" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="8" cy="42" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <!-- Row 3 nodes -->
+  <circle cx="8" cy="58" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="16" cy="50" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="24" cy="58" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="32" cy="50" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="40" cy="58" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="48" cy="50" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="56" cy="58" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="64" cy="50" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="72" cy="58" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="80" cy="50" r="2.5" fill="#E5E7EB" stroke="#1F2937" stroke-width="1.5"/>
+  <circle cx="88" cy="58" r="2.5" fill="#7090AB" stroke="#1F2937" stroke-width="1.5" opacity="0.8"/>
+  <!-- Label -->
+  <text x="60" y="82" text-anchor="middle" font-size="8" fill="#1F2937" font-family="monospace">Tesamorelin</text>
+  <text x="60" y="92" text-anchor="middle" font-size="6" fill="#6B7280" font-family="monospace">44 aa · GHRH</text>
+</svg>
