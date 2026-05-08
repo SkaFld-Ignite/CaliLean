@@ -1,0 +1,2249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CaliLean — Packaging Color Reference</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --box-bg: #6B8399;
+    --text-dark: #111111;
+    --text-muted: #9CA3A8;
+    --white: #FFFFFF;
+    --label-bg: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background: #F2F1EF;
+    color: #111;
+    padding: 48px 32px;
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 48px;
+  }
+
+  /* ── Section headers ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 48px 0 20px;
+  }
+  .section-header h2 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #444;
+  }
+  .section-divider {
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+  }
+
+  /* ── Palette chips ── */
+  .palette-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .chip-swatch {
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .chip-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #555;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .chip-name {
+    font-size: 10px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+  }
+
+  /* ── Product grid ── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  /* ── Vial card ── */
+  .vial-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.05);
+  }
+  .vial-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .vial-card-title {
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .vial-card-category {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #888;
+  }
+  .vial-card-body {
+    padding: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  /* ── Vial illustration ── */
+  .vial-wrap {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .vial-cap {
+    width: 26px;
+    height: 14px;
+    border-radius: 4px 4px 0 0;
+    border: 1px solid rgba(0,0,0,0.12);
+  }
+  .vial-crimp {
+    width: 28px;
+    height: 5px;
+    background: linear-gradient(to bottom, #d4d4d4, #b8b8b8, #d4d4d4);
+    border-left: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+  }
+  .vial-body {
+    width: 28px;
+    height: 64px;
+    background: #f8f8f5;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .vial-label-strip {
+    position: absolute;
+    inset: 2px;
+    background: white;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    padding: 2px;
+  }
+  .vial-label-wordmark {
+    font-size: 4px;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: 0.1px;
+  }
+  .vial-label-favicon-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+  }
+  .vial-label-row {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .vial-label-sku {
+    font-size: 5px;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: 0.2px;
+  }
+  .vial-label-dose {
+    font-size: 4px;
+    color: #9CA3A8;
+  }
+  .vial-label-qr {
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
+  }
+  .vial-powder {
+    position: absolute;
+    bottom: 0;
+    left: 1px; right: 1px;
+    height: 16px;
+    background: #f5f2ec;
+    border-radius: 0 0 2px 2px;
+  }
+
+  /* ── Color info beside vial ── */
+  .vial-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .color-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .color-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+    flex-shrink: 0;
+  }
+  .color-row-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .color-row-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .color-row-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #111;
+  }
+  .color-row-hex {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #888;
+  }
+  .combo-badge {
+    margin-top: 4px;
+    display: inline-block;
+    padding: 2px 7px;
+    background: #f3f3f3;
+    border-radius: 99px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: #666;
+  }
+
+  /* ── Box preview ── */
+  .box-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+  }
+  .box-top {
+    width: 36px;
+    height: 12px;
+    border-radius: 3px 3px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .box-body {
+    width: 36px;
+    min-height: 80px;
+    border-radius: 0 0 3px 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 4px;
+    position: relative;
+  }
+  .box-favicon-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .box-favicon-icon {
+    /* stylized "c" wave as a simple shape */
+    font-size: 18px;
+    font-weight: 900;
+    font-style: italic;
+    color: rgba(255,255,255,0.25); /* silver foil approximation */
+    text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+    font-family: Georgia, serif;
+    filter: drop-shadow(0 0 3px rgba(255,255,255,0.2));
+  }
+  .box-wordmark {
+    font-size: 4px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+  .box-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: #888;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  /* ── Box section (the big box showcase) ── */
+  .box-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .box-showcase-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.05);
+  }
+  .box-showcase-header {
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .box-showcase-header h3 {
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .box-showcase-header span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #888;
+  }
+  .box-showcase-body {
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  /* ── Tall single-vial box mockup ── */
+  .tall-box {
+    flex-shrink: 0;
+    display: flex;
+    gap: 2px;
+    align-items: flex-start;
+  }
+  .tall-box-front {
+    width: 44px;
+    height: 100px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 4px 6px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+  }
+  .tall-box-side {
+    width: 16px;
+    height: 100px;
+    border-radius: 0 3px 3px 0;
+    padding: 6px 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 3px;
+  }
+  .tall-box-sku {
+    font-size: 5px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    letter-spacing: 0.5px;
+  }
+  .tall-box-qr-mini {
+    width: 10px;
+    height: 10px;
+    border-radius: 1px;
+    margin: 0 auto;
+  }
+  .box-favicon-foil {
+    font-size: 26px;
+    font-weight: 900;
+    font-style: italic;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #e8e8e8 0%, #fff 40%, #c8c8c8 60%, #f0f0f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 4px rgba(255,255,255,0.4));
+    line-height: 1;
+  }
+  .box-wordmark-foil {
+    font-size: 5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    background: linear-gradient(135deg, #e0e0e0, #fff, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Box info panel ── */
+  .box-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .box-color-spec {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .spec-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .spec-swatch {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+    flex-shrink: 0;
+  }
+  .spec-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .spec-label {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #888;
+  }
+  .spec-value {
+    font-size: 11px;
+    font-weight: 600;
+    color: #111;
+  }
+  .spec-hex {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #888;
+  }
+
+  /* ── Category legend ── */
+  .category-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .legend-item {
+    background: white;
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.04);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .legend-favicon-chip {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 900;
+    font-style: italic;
+    font-family: Georgia, serif;
+    color: rgba(255,255,255,0.6);
+  }
+  .legend-info {
+    flex: 1;
+  }
+  .legend-category-name {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .legend-hex {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .legend-products {
+    font-size: 10px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  /* ── Full product table ── */
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.05);
+    margin-bottom: 48px;
+    font-size: 12px;
+  }
+  .product-table th {
+    background: #f8f8f8;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #666;
+    border-bottom: 1px solid #eee;
+  }
+  .product-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #f3f3f3;
+    vertical-align: middle;
+  }
+  .product-table tr:last-child td {
+    border-bottom: none;
+  }
+  .table-swatch-pair {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .table-swatch {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.08);
+    flex-shrink: 0;
+  }
+  .table-hex {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #666;
+  }
+  .table-product-name {
+    font-weight: 600;
+    color: #111;
+  }
+  .table-combo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .combo-swatch-sm {
+    width: 14px;
+    height: 28px;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  .combo-plus {
+    font-size: 10px;
+    color: #bbb;
+  }
+
+  /* ── Box palette section ── */
+  .box-palette-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+    align-items: flex-end;
+  }
+  .box-color-swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .box-swatch-rect {
+    width: 72px;
+    height: 44px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .box-swatch-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #555;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .box-swatch-name {
+    font-size: 10px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+  }
+
+  .cat-tag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.3px;
+  }
+
+  .page-footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid #ddd;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #aaa;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+
+<h1>CaliLean — Packaging Color Reference</h1>
+<p class="subtitle">docs/brand/packaging/ideation/label-color-system.md · 2026-05-07 · 15 products · 17 unique hex values</p>
+
+<!-- ─────────────────────────────────────────── -->
+<div class="section-header">
+  <h2>Box Surface Colors</h2>
+  <div class="section-divider"></div>
+</div>
+
+<div class="box-palette-row">
+  <div class="box-color-swatch">
+    <div class="box-swatch-rect" style="background:#6B8399;">
+      <span style="color:rgba(255,255,255,0.5);font-family:'JetBrains Mono',monospace;font-size:8px;">BOX</span>
+    </div>
+    <div class="box-swatch-name">Box / Sleeve</div>
+    <div class="box-swatch-label">#6B8399<br>Steel Blue Matte</div>
+  </div>
+  <div class="box-color-swatch">
+    <div class="box-swatch-rect" style="background:linear-gradient(135deg,#e8e8e8,#fff 40%,#c8c8c8 60%,#f0f0f0); border:1px solid #ccc;">
+      <span style="color:#aaa;font-family:'JetBrains Mono',monospace;font-size:7px;">FOIL</span>
+    </div>
+    <div class="box-swatch-name">Favicon + Logo</div>
+    <div class="box-swatch-label">Metallic Silver<br>Foil stamp</div>
+  </div>
+  <div class="box-color-swatch">
+    <div class="box-swatch-rect" style="background:#FFFFFF;border:1px solid #ddd;">
+      <span style="color:#ccc;font-family:'JetBrains Mono',monospace;font-size:8px;">TXT</span>
+    </div>
+    <div class="box-swatch-name">Box Text</div>
+    <div class="box-swatch-label">#FFFFFF<br>White print</div>
+  </div>
+  <div class="box-color-swatch" style="margin-left:16px;padding-left:16px;border-left:1px solid #ddd;">
+    <div class="box-swatch-rect" style="background:#FFFFFF;border:1px solid #ddd;">
+      <span style="color:#ccc;font-family:'JetBrains Mono',monospace;font-size:7px;">LABEL</span>
+    </div>
+    <div class="box-swatch-name">Label Background</div>
+    <div class="box-swatch-label">#FFFFFF<br>Pure white</div>
+  </div>
+  <div class="box-color-swatch">
+    <div class="box-swatch-rect" style="background:#111111;">
+      <span style="color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;font-size:8px;">TXT</span>
+    </div>
+    <div class="box-swatch-name">Label Text</div>
+    <div class="box-swatch-label">#111111<br>Near-black</div>
+  </div>
+  <div class="box-color-swatch">
+    <div class="box-swatch-rect" style="background:#9CA3A8;">
+      <span style="color:rgba(255,255,255,0.6);font-family:'JetBrains Mono',monospace;font-size:8px;">MUTED</span>
+    </div>
+    <div class="box-swatch-name">Label Secondary</div>
+    <div class="box-swatch-label">#9CA3A8<br>Muted gray</div>
+  </div>
+</div>
+
+
+<!-- ─────────────────────────────────────────── -->
+<div class="section-header">
+  <h2>Category Colors — Favicon Mark + QR Code</h2>
+  <div class="section-divider"></div>
+</div>
+
+<div class="category-legend">
+
+  <div class="legend-item">
+    <div class="legend-favicon-chip" style="background:#B8622E;">c</div>
+    <div class="legend-info">
+      <div class="legend-category-name">Repair</div>
+      <div class="legend-hex">#B8622E — Ember</div>
+      <div class="legend-products">BPC-157 · TB-500 · GHK-Cu · Wolverine</div>
+    </div>
+  </div>
+
+  <div class="legend-item">
+    <div class="legend-favicon-chip" style="background:#6D8AA7;">c</div>
+    <div class="legend-info">
+      <div class="legend-category-name">Metabolic</div>
+      <div class="legend-hex">#6D8AA7 — Pacific</div>
+      <div class="legend-products">CL-1S · CL-2T · CL-3R</div>
+    </div>
+  </div>
+
+  <div class="legend-item">
+    <div class="legend-favicon-chip" style="background:#5B6E8A;">c</div>
+    <div class="legend-info">
+      <div class="legend-category-name">GH Axis</div>
+      <div class="legend-hex">#5B6E8A — Slate</div>
+      <div class="legend-products">Ipamorelin · Tesamorelin</div>
+    </div>
+  </div>
+
+  <div class="legend-item">
+    <div class="legend-favicon-chip" style="background:#7C8A78;">c</div>
+    <div class="legend-info">
+      <div class="legend-category-name">Longevity</div>
+      <div class="legend-hex">#7C8A78 — Eucalyptus</div>
+      <div class="legend-products">MOTS-C · SS-31</div>
+    </div>
+  </div>
+
+  <div class="legend-item">
+    <div class="legend-favicon-chip" style="background:#8A6E5B;">c</div>
+    <div class="legend-info">
+      <div class="legend-category-name">Specialty</div>
+      <div class="legend-hex">#8A6E5B — Driftwood</div>
+      <div class="legend-products">GLOW · KLOW · Melanotan 2</div>
+    </div>
+  </div>
+
+  <div class="legend-item">
+    <div class="legend-favicon-chip" style="background:#8B9298;">c</div>
+    <div class="legend-info">
+      <div class="legend-category-name">Accessory</div>
+      <div class="legend-hex">#8B9298 — Fog</div>
+      <div class="legend-products">Bac Water</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ─────────────────────────────────────────── -->
+<div class="section-header">
+  <h2>All 15 Product Identities — Vial + Box Preview</h2>
+  <div class="section-divider"></div>
+</div>
+
+<div class="product-grid">
+
+  <!-- 1. BPC-157 -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">BPC-157</div>
+        <div class="vial-card-category">Repair · #1</div>
+      </div>
+      <span class="cat-tag" style="background:#B8622E;">Ember</span>
+    </div>
+    <div class="vial-card-body">
+      <!-- Vial illustration -->
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#4E5C72;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#B8622E;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku">BPC-157</div>
+            <div class="vial-label-dose">5mg / 10mg</div>
+            <div class="vial-label-qr" style="background:#B8622E;opacity:0.7;"></div>
+          </div>
+        </div>
+        <!-- Tiny box -->
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <!-- Info -->
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#4E5C72;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Dusk Slate</div>
+            <div class="color-row-hex">#4E5C72</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#B8622E;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Ember</div>
+            <div class="color-row-hex">#B8622E</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Ember + Dusk · Flagship</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. TB-500 -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">TB-500</div>
+        <div class="vial-card-category">Repair · #2</div>
+      </div>
+      <span class="cat-tag" style="background:#B8622E;">Ember</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#8A7D5A;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#B8622E;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku">TB-500</div>
+            <div class="vial-label-dose">5mg / 10mg</div>
+            <div class="vial-label-qr" style="background:#B8622E;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#8A7D5A;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Antique Gold</div>
+            <div class="color-row-hex">#8A7D5A</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#B8622E;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Ember</div>
+            <div class="color-row-hex">#B8622E</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Ember + Antique Gold</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. GHK-Cu -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">GHK-Cu</div>
+        <div class="vial-card-category">Repair · #3</div>
+      </div>
+      <span class="cat-tag" style="background:#B8622E;">Ember</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#7A4A35;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#B8622E;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku">GHK-Cu</div>
+            <div class="vial-label-dose">10mg</div>
+            <div class="vial-label-qr" style="background:#B8622E;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#7A4A35;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Burnt Sienna</div>
+            <div class="color-row-hex">#7A4A35</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#B8622E;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Ember</div>
+            <div class="color-row-hex">#B8622E</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Ember + Burnt Sienna</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Wolverine -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">Wolverine</div>
+        <div class="vial-card-category">Repair · #4</div>
+      </div>
+      <span class="cat-tag" style="background:#B8622E;">Ember</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#3D3D3D;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#B8622E;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku" style="font-size:4px;">Wolverine</div>
+            <div class="vial-label-dose">5mg / 10mg</div>
+            <div class="vial-label-qr" style="background:#B8622E;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#3D3D3D;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Charcoal</div>
+            <div class="color-row-hex">#3D3D3D</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#B8622E;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Ember</div>
+            <div class="color-row-hex">#B8622E</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Ember + Charcoal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. CL-1S -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">CL-1S</div>
+        <div class="vial-card-category">Metabolic · Semaglutide</div>
+      </div>
+      <span class="cat-tag" style="background:#6D8AA7;">Pacific</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#6B7E6B;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#6D8AA7;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku">CL-1S</div>
+            <div class="vial-label-dose">10mg / 30mg</div>
+            <div class="vial-label-qr" style="background:#6D8AA7;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B7E6B;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Patina</div>
+            <div class="color-row-hex">#6B7E6B</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6D8AA7;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Pacific</div>
+            <div class="color-row-hex">#6D8AA7</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Pacific + Patina</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. CL-2T -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">CL-2T</div>
+        <div class="vial-card-category">Metabolic · Tirzepatide</div>
+      </div>
+      <span class="cat-tag" style="background:#6D8AA7;">Pacific</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#2A6B6B;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#6D8AA7;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku">CL-2T</div>
+            <div class="vial-label-dose">10mg / 30mg</div>
+            <div class="vial-label-qr" style="background:#6D8AA7;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#2A6B6B;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Deep Teal</div>
+            <div class="color-row-hex">#2A6B6B</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6D8AA7;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Pacific</div>
+            <div class="color-row-hex">#6D8AA7</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Pacific + Deep Teal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. CL-3R -->
+  <div class="vial-card" style="outline:2px solid #6D8AA7;">
+    <div class="vial-card-header" style="background:#f0f4f8;">
+      <div>
+        <div class="vial-card-title">CL-3R</div>
+        <div class="vial-card-category">Metabolic Flagship · Retatrutide · APPROVED</div>
+      </div>
+      <span class="cat-tag" style="background:#6D8AA7;">Pacific</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#6D8AA7;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#6D8AA7;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku">CL-3R</div>
+            <div class="vial-label-dose">10mg</div>
+            <div class="vial-label-qr" style="background:#6D8AA7;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#6D8AA7;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Pacific Blue</div>
+            <div class="color-row-hex">#6D8AA7</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6D8AA7;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Pacific</div>
+            <div class="color-row-hex">#6D8AA7</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Pacific + Pacific — Monochrome Flagship</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Ipamorelin -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">Ipamorelin</div>
+        <div class="vial-card-category">GH Axis · #8</div>
+      </div>
+      <span class="cat-tag" style="background:#5B6E8A;">Slate</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#4682B4;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#5B6E8A;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku" style="font-size:4px;">Ipamor.</div>
+            <div class="vial-label-dose">10mg</div>
+            <div class="vial-label-qr" style="background:#5B6E8A;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#4682B4;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#4682B4</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#5B6E8A;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Slate</div>
+            <div class="color-row-hex">#5B6E8A</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Slate + Steel Blue</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. Tesamorelin -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">Tesamorelin</div>
+        <div class="vial-card-category">GH Axis · #9</div>
+      </div>
+      <span class="cat-tag" style="background:#5B6E8A;">Slate</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#3D3D3D;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#5B6E8A;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku" style="font-size:4px;">Tesam.</div>
+            <div class="vial-label-dose">10mg</div>
+            <div class="vial-label-qr" style="background:#5B6E8A;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#3D3D3D;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Charcoal</div>
+            <div class="color-row-hex">#3D3D3D</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#5B6E8A;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Slate</div>
+            <div class="color-row-hex">#5B6E8A</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Slate + Charcoal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. MOTS-C -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">MOTS-C</div>
+        <div class="vial-card-category">Longevity · #10 · Flagship</div>
+      </div>
+      <span class="cat-tag" style="background:#7C8A78;">Eucalyptus</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#7C8A78;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#7C8A78;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku">MOTS-C</div>
+            <div class="vial-label-dose">10mg</div>
+            <div class="vial-label-qr" style="background:#7C8A78;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#7C8A78;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Sage</div>
+            <div class="color-row-hex">#7C8A78</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#7C8A78;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Eucalyptus</div>
+            <div class="color-row-hex">#7C8A78</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Eucalyptus + Sage — Monochrome</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. SS-31 -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">SS-31</div>
+        <div class="vial-card-category">Longevity · #11</div>
+      </div>
+      <span class="cat-tag" style="background:#7C8A78;">Eucalyptus</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#4E5C72;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#7C8A78;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku">SS-31</div>
+            <div class="vial-label-dose">10mg</div>
+            <div class="vial-label-qr" style="background:#7C8A78;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#4E5C72;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Dusk Slate</div>
+            <div class="color-row-hex">#4E5C72</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#7C8A78;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Eucalyptus</div>
+            <div class="color-row-hex">#7C8A78</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Eucalyptus + Dusk Slate</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. GLOW -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">GLOW</div>
+        <div class="vial-card-category">Specialty · #12</div>
+      </div>
+      <span class="cat-tag" style="background:#8A6E5B;">Driftwood</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#9A9478;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#8A6E5B;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku">GLOW</div>
+            <div class="vial-label-dose">10mg</div>
+            <div class="vial-label-qr" style="background:#8A6E5B;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#9A9478;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Pewter Gold</div>
+            <div class="color-row-hex">#9A9478</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#8A6E5B;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Driftwood</div>
+            <div class="color-row-hex">#8A6E5B</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Driftwood + Pewter Gold</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13. KLOW -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">KLOW</div>
+        <div class="vial-card-category">Specialty · #13</div>
+      </div>
+      <span class="cat-tag" style="background:#8A6E5B;">Driftwood</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#7A6B5E;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#8A6E5B;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku">KLOW</div>
+            <div class="vial-label-dose">10mg</div>
+            <div class="vial-label-qr" style="background:#8A6E5B;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#7A6B5E;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Clay</div>
+            <div class="color-row-hex">#7A6B5E</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#8A6E5B;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Driftwood</div>
+            <div class="color-row-hex">#8A6E5B</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Driftwood + Clay</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14. Melanotan 2 -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">Melanotan 2</div>
+        <div class="vial-card-category">Specialty · #14</div>
+      </div>
+      <span class="cat-tag" style="background:#8A6E5B;">Driftwood</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#5E4538;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-powder"></div>
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#8A6E5B;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku" style="font-size:4px;">MT-2</div>
+            <div class="vial-label-dose">10mg</div>
+            <div class="vial-label-qr" style="background:#8A6E5B;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#5E4538;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Bronze</div>
+            <div class="color-row-hex">#5E4538</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#8A6E5B;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Driftwood</div>
+            <div class="color-row-hex">#8A6E5B</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Driftwood + Bronze</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15. Bac Water -->
+  <div class="vial-card">
+    <div class="vial-card-header">
+      <div>
+        <div class="vial-card-title">Bac Water</div>
+        <div class="vial-card-category">Accessory · #15</div>
+      </div>
+      <span class="cat-tag" style="background:#8B9298;">Fog</span>
+    </div>
+    <div class="vial-card-body">
+      <div class="vial-wrap">
+        <div class="vial-cap" style="background:#B0B8BF;"></div>
+        <div class="vial-crimp"></div>
+        <div class="vial-body">
+          <div class="vial-label-strip">
+            <div class="vial-label-row">
+              <div class="vial-label-wordmark">Cali Lean</div>
+              <div class="vial-label-favicon-dot" style="background:#8B9298;border-radius:50% 50% 0 50%;width:3px;height:3px;"></div>
+            </div>
+            <div class="vial-label-sku" style="font-size:4px;">BacWtr</div>
+            <div class="vial-label-dose">3mL / 10mL</div>
+            <div class="vial-label-qr" style="background:#8B9298;opacity:0.7;"></div>
+          </div>
+        </div>
+        <div style="margin-top:6px;">
+          <div style="width:20px;height:6px;background:#6B8399;border-radius:2px 2px 0 0;"></div>
+          <div style="width:20px;height:46px;background:#6B8399;border-radius:0 0 2px 2px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 2px 3px;box-shadow:1px 1px 4px rgba(0,0,0,0.15);">
+            <div style="font-size:12px;font-weight:900;font-style:italic;font-family:Georgia,serif;color:rgba(255,255,255,0.22);line-height:1;">c</div>
+            <div style="font-size:3px;font-weight:700;color:rgba(255,255,255,0.3);letter-spacing:0.3px;">Cali Lean</div>
+          </div>
+        </div>
+        <div class="box-label">vial + box</div>
+      </div>
+      <div class="vial-info">
+        <div class="color-row">
+          <div class="color-dot" style="background:#B0B8BF;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Cap</div>
+            <div class="color-row-name">Light Gray</div>
+            <div class="color-row-hex">#B0B8BF</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#8B9298;border-radius:4px 4px 2px 2px;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Favicon / QR</div>
+            <div class="color-row-name">Fog</div>
+            <div class="color-row-hex">#8B9298</div>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-dot" style="background:#6B8399;"></div>
+          <div class="color-row-info">
+            <div class="color-row-label">Box</div>
+            <div class="color-row-name">Steel Blue</div>
+            <div class="color-row-hex">#6B8399</div>
+          </div>
+        </div>
+        <span class="combo-badge">Fog + Light Gray</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /product-grid -->
+
+
+<!-- ─────────────────────────────────────────── -->
+<div class="section-header">
+  <h2>Complete Reference Table</h2>
+  <div class="section-divider"></div>
+</div>
+
+<table class="product-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Product</th>
+      <th>Category</th>
+      <th>Favicon / QR</th>
+      <th>Cap</th>
+      <th>Box Surface</th>
+      <th>Unique Combo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td class="table-product-name">BPC-157</td>
+      <td><span class="cat-tag" style="background:#B8622E;">Repair</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#B8622E;"></div>
+          <div><div>Ember</div><div class="table-hex">#B8622E</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#4E5C72;"></div>
+          <div><div>Dusk Slate</div><div class="table-hex">#4E5C72</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Ember + Dusk</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td class="table-product-name">TB-500</td>
+      <td><span class="cat-tag" style="background:#B8622E;">Repair</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#B8622E;"></div>
+          <div><div>Ember</div><div class="table-hex">#B8622E</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#8A7D5A;"></div>
+          <div><div>Antique Gold</div><div class="table-hex">#8A7D5A</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Ember + Gold</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td class="table-product-name">GHK-Cu</td>
+      <td><span class="cat-tag" style="background:#B8622E;">Repair</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#B8622E;"></div>
+          <div><div>Ember</div><div class="table-hex">#B8622E</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#7A4A35;"></div>
+          <div><div>Burnt Sienna</div><div class="table-hex">#7A4A35</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Ember + Sienna</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td class="table-product-name">Wolverine</td>
+      <td><span class="cat-tag" style="background:#B8622E;">Repair</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#B8622E;"></div>
+          <div><div>Ember</div><div class="table-hex">#B8622E</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#3D3D3D;"></div>
+          <div><div>Charcoal</div><div class="table-hex">#3D3D3D</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Ember + Charcoal</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td class="table-product-name">CL-1S</td>
+      <td><span class="cat-tag" style="background:#6D8AA7;">Metabolic</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6D8AA7;"></div>
+          <div><div>Pacific</div><div class="table-hex">#6D8AA7</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B7E6B;"></div>
+          <div><div>Patina</div><div class="table-hex">#6B7E6B</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Pacific + Patina</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td class="table-product-name">CL-2T</td>
+      <td><span class="cat-tag" style="background:#6D8AA7;">Metabolic</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6D8AA7;"></div>
+          <div><div>Pacific</div><div class="table-hex">#6D8AA7</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#2A6B6B;"></div>
+          <div><div>Deep Teal</div><div class="table-hex">#2A6B6B</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Pacific + Teal</td>
+    </tr>
+    <tr style="background:#f5f8fc;">
+      <td>7</td>
+      <td class="table-product-name">CL-3R</td>
+      <td><span class="cat-tag" style="background:#6D8AA7;">Metabolic</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6D8AA7;"></div>
+          <div><div>Pacific</div><div class="table-hex">#6D8AA7</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6D8AA7;"></div>
+          <div><div>Pacific Blue</div><div class="table-hex">#6D8AA7</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Pacific + Pacific</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td class="table-product-name">Ipamorelin</td>
+      <td><span class="cat-tag" style="background:#5B6E8A;">GH Axis</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#5B6E8A;"></div>
+          <div><div>Slate</div><div class="table-hex">#5B6E8A</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#4682B4;"></div>
+          <div><div>Steel Blue</div><div class="table-hex">#4682B4</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Slate + Steel</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td class="table-product-name">Tesamorelin</td>
+      <td><span class="cat-tag" style="background:#5B6E8A;">GH Axis</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#5B6E8A;"></div>
+          <div><div>Slate</div><div class="table-hex">#5B6E8A</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#3D3D3D;"></div>
+          <div><div>Charcoal</div><div class="table-hex">#3D3D3D</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Slate + Charcoal</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td class="table-product-name">MOTS-C</td>
+      <td><span class="cat-tag" style="background:#7C8A78;">Longevity</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#7C8A78;"></div>
+          <div><div>Eucalyptus</div><div class="table-hex">#7C8A78</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#7C8A78;"></div>
+          <div><div>Sage</div><div class="table-hex">#7C8A78</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Eucalyptus + Sage</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td class="table-product-name">SS-31</td>
+      <td><span class="cat-tag" style="background:#7C8A78;">Longevity</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#7C8A78;"></div>
+          <div><div>Eucalyptus</div><div class="table-hex">#7C8A78</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#4E5C72;"></div>
+          <div><div>Dusk Slate</div><div class="table-hex">#4E5C72</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Eucalyptus + Dusk</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td class="table-product-name">GLOW</td>
+      <td><span class="cat-tag" style="background:#8A6E5B;">Specialty</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#8A6E5B;"></div>
+          <div><div>Driftwood</div><div class="table-hex">#8A6E5B</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#9A9478;"></div>
+          <div><div>Pewter Gold</div><div class="table-hex">#9A9478</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Driftwood + Gold</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td class="table-product-name">KLOW</td>
+      <td><span class="cat-tag" style="background:#8A6E5B;">Specialty</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#8A6E5B;"></div>
+          <div><div>Driftwood</div><div class="table-hex">#8A6E5B</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#7A6B5E;"></div>
+          <div><div>Clay</div><div class="table-hex">#7A6B5E</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Driftwood + Clay</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td class="table-product-name">Melanotan 2</td>
+      <td><span class="cat-tag" style="background:#8A6E5B;">Specialty</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#8A6E5B;"></div>
+          <div><div>Driftwood</div><div class="table-hex">#8A6E5B</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#5E4538;"></div>
+          <div><div>Bronze</div><div class="table-hex">#5E4538</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Driftwood + Bronze</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td class="table-product-name">Bac Water</td>
+      <td><span class="cat-tag" style="background:#8B9298;">Accessory</span></td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#8B9298;"></div>
+          <div><div>Fog</div><div class="table-hex">#8B9298</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#B0B8BF;"></div>
+          <div><div>Light Gray</div><div class="table-hex">#B0B8BF</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="table-swatch-pair">
+          <div class="table-swatch" style="background:#6B8399;"></div>
+          <div class="table-hex">#6B8399</div>
+        </div>
+      </td>
+      <td>Fog + Gray</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ─────────────────────────────────────────── -->
+<div class="section-header">
+  <h2>Full Palette — All 17 Unique Values</h2>
+  <div class="section-divider"></div>
+</div>
+
+<p style="font-size:11px;color:#888;margin-bottom:16px;font-family:'JetBrains Mono',monospace;">6 favicon/QR colors + 11 cap-only colors + 1 box surface = 18 values (box surface is universal)</p>
+
+<div class="palette-row">
+  <!-- Box -->
+  <div class="chip">
+    <div class="chip-swatch" style="background:#6B8399;"></div>
+    <div class="chip-name">Box Surface</div>
+    <div class="chip-label">#6B8399<br>Steel Blue</div>
+  </div>
+  <!-- Favicons -->
+  <div class="chip" style="margin-left:16px;padding-left:16px;border-left:1px solid #ddd;">
+    <div class="chip-swatch" style="background:#B8622E;"></div>
+    <div class="chip-name">Ember</div>
+    <div class="chip-label">#B8622E<br>Repair favicon</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#6D8AA7;"></div>
+    <div class="chip-name">Pacific</div>
+    <div class="chip-label">#6D8AA7<br>Metabolic favicon</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#5B6E8A;"></div>
+    <div class="chip-name">Slate</div>
+    <div class="chip-label">#5B6E8A<br>GH Axis favicon</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#7C8A78;"></div>
+    <div class="chip-name">Eucalyptus</div>
+    <div class="chip-label">#7C8A78<br>Longevity favicon</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#8A6E5B;"></div>
+    <div class="chip-name">Driftwood</div>
+    <div class="chip-label">#8A6E5B<br>Specialty favicon</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#8B9298;"></div>
+    <div class="chip-name">Fog</div>
+    <div class="chip-label">#8B9298<br>Accessory favicon</div>
+  </div>
+  <!-- Cap-only -->
+  <div class="chip" style="margin-left:16px;padding-left:16px;border-left:1px solid #ddd;">
+    <div class="chip-swatch" style="background:#4E5C72;"></div>
+    <div class="chip-name">Dusk Slate</div>
+    <div class="chip-label">#4E5C72<br>BPC-157 / SS-31</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#2A6B6B;"></div>
+    <div class="chip-name">Deep Teal</div>
+    <div class="chip-label">#2A6B6B<br>CL-2T</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#6B7E6B;"></div>
+    <div class="chip-name">Patina</div>
+    <div class="chip-label">#6B7E6B<br>CL-1S</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#3D3D3D;"></div>
+    <div class="chip-name">Charcoal</div>
+    <div class="chip-label">#3D3D3D<br>Wolverine / Tesam.</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#8A7D5A;"></div>
+    <div class="chip-name">Antique Gold</div>
+    <div class="chip-label">#8A7D5A<br>TB-500</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#7A4A35;"></div>
+    <div class="chip-name">Burnt Sienna</div>
+    <div class="chip-label">#7A4A35<br>GHK-Cu</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#4682B4;"></div>
+    <div class="chip-name">Steel Blue</div>
+    <div class="chip-label">#4682B4<br>Ipamorelin</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#9A9478;"></div>
+    <div class="chip-name">Pewter Gold</div>
+    <div class="chip-label">#9A9478<br>GLOW</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#7A6B5E;"></div>
+    <div class="chip-name">Clay</div>
+    <div class="chip-label">#7A6B5E<br>KLOW</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#5E4538;"></div>
+    <div class="chip-name">Bronze</div>
+    <div class="chip-label">#5E4538<br>Melanotan 2</div>
+  </div>
+  <div class="chip">
+    <div class="chip-swatch" style="background:#B0B8BF;"></div>
+    <div class="chip-name">Light Gray</div>
+    <div class="chip-label">#B0B8BF<br>Bac Water</div>
+  </div>
+</div>
+
+
+<div class="page-footer">
+  <span>CaliLean Packaging Color Reference · label-color-system.md + prompts/03-box-dielines.md + prompts/04-hero-vial-and-box.md</span>
+  <span>2026-05-07 · 15 products · 6 categories · 17 hex values</span>
+</div>
+
+</body>
+</html>

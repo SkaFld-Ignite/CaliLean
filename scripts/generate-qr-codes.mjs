@@ -70,6 +70,24 @@ const CAMPAIGNS = [
   { handle: "bac-water", title: "Bac Water", size: "10mL", variantId: "variant_01KQAXQ7PY4HM7VWAPK579KE3X", productId: "prod_01KQAXQ61V94NGFQDKH25CPK0Q", category: "accessory" },
 ]
 
+const CATEGORY_COLORS = {
+  "bpc-157": "#B8622E",
+  "tb-500": "#B8622E",
+  "ghk-cu": "#B8622E",
+  "wolverine": "#B8622E",
+  "cl-1s": "#6D8AA7",
+  "cl-2t": "#6D8AA7",
+  "cl-3r": "#6D8AA7",
+  "ipamorelin": "#5B6E8A",
+  "tesamorelin": "#5B6E8A",
+  "mots-c": "#7C8A78",
+  "ss-31": "#7C8A78",
+  "glow": "#8A6E5B",
+  "klow": "#8A6E5B",
+  "melanotan-2": "#8A6E5B",
+  "bac-water": "#8B9298"
+}
+
 function makeId() {
   // Medusa-style ULID: timestamp (10 chars) + random (16 chars) in Crockford Base32
   const chars = "0123456789ABCDEFGHJKMNPQRSTVWXYZ"

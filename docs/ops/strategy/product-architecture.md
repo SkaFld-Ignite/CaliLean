@@ -48,9 +48,9 @@ Storefront nav order: Recovery → Weight Management → Growth & Anti-Aging →
 
 | # | SKU | Handle | Receptor profile | Story | Variants |
 |---|---|---|---|---|---|
-| 5 | **CL-1S** | `cl-1s` | GLP-1R agonist (single) | Incretin receptor agonist for metabolic pathway and glucose homeostasis research. | 10mg, 20mg, 30mg |
-| 6 | **CL-2T** | `cl-2t` | GIP/GLP-1R dual agonist | Dual-incretin "twincretin" for parallel pathway investigation. | 10mg, 20mg, 30mg |
-| 7 | **CL-3R** | `cl-3r` | GIP/GLP-1R/GcgR triple agonist | The most mechanistically expansive metabolic research tool — three receptors, one compound. Extended COA panel (LC-MS identity confirmation). | 10mg, 20mg, 30mg |
+| 5 | **CL-1S** | `cl-1s` | GLP-1R agonist (single) | Incretin receptor agonist for metabolic pathway and glucose homeostasis research. | 10mg, 30mg |
+| 6 | **CL-2T** | `cl-2t` | GIP/GLP-1R dual agonist | Dual-incretin "twincretin" for parallel pathway investigation. | 10mg, 30mg |
+| 7 | **CL-3R** | `cl-3r` | GIP/GLP-1R/GcgR triple agonist | The most mechanistically expansive metabolic research tool — three receptors, one compound. Extended COA panel (LC-MS identity confirmation). | 10mg, 30mg |
 
 ### Growth & Anti-Aging / GH Axis (2)
 
@@ -117,9 +117,9 @@ The metabolic compounds (formerly referenced by their generic pharmaceutical nam
 | TB-500 | 5mg, 10mg | TBD (placeholder $1) |
 | GHK-Cu | 50mg, 100mg | TBD |
 | Wolverine | 5mg, 10mg | **$199** |
-| CL-1S | 10mg, 20mg, 30mg | **$159** |
-| CL-2T | 10mg, 20mg, 30mg | **$159** |
-| CL-3R | 10mg, 20mg, 30mg | **$179** |
+| CL-1S | 10mg, 30mg | **$159** |
+| CL-2T | 10mg, 30mg | **$159** |
+| CL-3R | 10mg, 30mg | **$179** |
 | Ipamorelin | 5mg, 10mg | **$35** |
 | Tesamorelin | 10mg, 20mg | **$179** |
 | MOTS-c | 10mg, 40mg | TBD (placeholder $3) |

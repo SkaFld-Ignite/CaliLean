@@ -68,13 +68,10 @@ Comprehensive pricing analysis across 8 peptide/compound competitors reveals Cal
 | Product | Variant | Old Price | New Price | Market Range |
 |---------|---------|-----------|-----------|-------------|
 | GLP1-S (Semaglutide) | 10mg | $159 | **$69.99** | $39.00 - $85.00 |
-| GLP1-S | 20mg | $289 | **$119.99** | $39.00 (Ion flat) |
 | GLP1-S | 30mg | $399 | **$159.99** | $39.00 (Ion flat) |
 | GLP2-T (Tirzepatide) | 10mg | $159 | **$79.99** | $49.00 - $89.99 |
-| GLP2-T | 20mg | $289 | **$139.99** | $49.00 - $104.99 |
 | GLP2-T | 30mg | $399 | **$189.99** | $49.00 - $150.00 |
 | GLP3-R (Retatrutide) | 10mg | $179 | **$79.99** | $39.00 - $100.00 |
-| GLP3-R | 20mg | $329 | **$149.99** | $39.00 - $150.00 |
 | GLP3-R | 30mg | $449 | **$260.00** | $39.00 - $249.99 |
 
 #### GH Axis Category
@@ -118,7 +115,7 @@ At 10+ units with 20% off, CaliLean's effective prices approach Ion Peptide's ba
 ## Competitive Advantages to Emphasize
 
 1. **Transparent pricing** - No account required to see prices (unlike MHC, Flawless, Crush)
-2. **Large GLP variant sizes** - 20mg and 30mg sizes that most competitors don't offer
+2. **Large GLP variant sizes** - 30mg sizes that most competitors don't offer
 3. **Stack and Save** - Clear, per-product volume discounts visible on product page
 4. **Unique blends** - GLOW (70mg) and KLOW (80mg) proprietary formulations
 5. **Wolverine stack** - Pre-blended BPC/TB at value pricing vs buying separately

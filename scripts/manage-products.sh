@@ -197,19 +197,16 @@ echo "════════════════════════�
 # CL-1S (GLP-1 Receptor Agonist)
 create_product "CL-1S" "cl-1s" "published" \
   "10mg" "CL-GL1-0010" 15900 \
-  "20mg" "CL-GL1-0020" 28900 \
   "30mg" "CL-GL1-0030" 39900
 
 # CL-2T (Dual GIP/GLP-1 Receptor Agonist)
 create_product "CL-2T" "cl-2t" "published" \
   "10mg" "CL-GL2-0010" 15900 \
-  "20mg" "CL-GL2-0020" 28900 \
   "30mg" "CL-GL2-0030" 39900
 
 # CL-3R (Triple GIP/GLP-1/Glucagon Receptor Agonist)
 create_product "CL-3R" "cl-3r" "published" \
   "10mg" "CL-GL3-0010" 17900 \
-  "20mg" "CL-GL3-0020" 32900 \
   "30mg" "CL-GL3-0030" 44900
 
 # Tesamorelin

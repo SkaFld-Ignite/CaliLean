@@ -1,0 +1,263 @@
+[
+  {
+    "pageName": "CL-3R",
+    "frameName": "CL-3R — 10mg",
+    "frameId": "34:2",
+    "qrCodeId": "34:7",
+    "colorHex": "#000000",
+    "productName": "CL-3R",
+    "dose": "10mg"
+  },
+  {
+    "pageName": "CL-3R",
+    "frameName": "CL-3R — 30mg",
+    "frameId": "34:28",
+    "qrCodeId": "34:33",
+    "colorHex": "#000000",
+    "productName": "CL-3R",
+    "dose": "30mg"
+  },
+  {
+    "pageName": "GLOW",
+    "frameName": "GLOW — 70mg",
+    "frameId": "34:41",
+    "qrCodeId": "34:46",
+    "colorHex": "#000000",
+    "productName": "GLOW",
+    "dose": "70mg"
+  },
+  {
+    "pageName": "Bac Water",
+    "frameName": "Bac Water — 3mL",
+    "frameId": "34:54",
+    "qrCodeId": "34:59",
+    "colorHex": "#000000",
+    "productName": "BAC WATER",
+    "dose": "3mL"
+  },
+  {
+    "pageName": "Bac Water",
+    "frameName": "Bac Water — 10mL",
+    "frameId": "34:67",
+    "qrCodeId": "34:72",
+    "colorHex": "#000000",
+    "productName": "BAC WATER",
+    "dose": "10mL"
+  },
+  {
+    "pageName": "BPC-157",
+    "frameName": "BPC-157 — 5mg",
+    "frameId": "45:2",
+    "qrCodeId": "45:7",
+    "colorHex": "#000000",
+    "productName": "BPC-157",
+    "dose": "5mg"
+  },
+  {
+    "pageName": "BPC-157",
+    "frameName": "BPC-157 — 10mg",
+    "frameId": "45:15",
+    "qrCodeId": "45:20",
+    "colorHex": "#000000",
+    "productName": "BPC-157",
+    "dose": "10mg"
+  },
+  {
+    "pageName": "TB-500",
+    "frameName": "TB-500 — 5mg",
+    "frameId": "46:2",
+    "qrCodeId": "46:7",
+    "colorHex": "#000000",
+    "productName": "TB-500",
+    "dose": "5mg"
+  },
+  {
+    "pageName": "TB-500",
+    "frameName": "TB-500 — 10mg",
+    "frameId": "46:15",
+    "qrCodeId": "46:20",
+    "colorHex": "#000000",
+    "productName": "TB-500",
+    "dose": "10mg"
+  },
+  {
+    "pageName": "GHK-Cu",
+    "frameName": "GHK-Cu — 50mg",
+    "frameId": "47:2",
+    "qrCodeId": "47:7",
+    "colorHex": "#000000",
+    "productName": "GHK-Cu",
+    "dose": "50mg"
+  },
+  {
+    "pageName": "GHK-Cu",
+    "frameName": "GHK-Cu — 100mg",
+    "frameId": "47:15",
+    "qrCodeId": "47:20",
+    "colorHex": "#000000",
+    "productName": "GHK-Cu",
+    "dose": "100mg"
+  },
+  {
+    "pageName": "Wolverine",
+    "frameName": "Wolverine — 5mg",
+    "frameId": "48:2",
+    "qrCodeId": "48:7",
+    "colorHex": "#000000",
+    "productName": "WOLVERINE",
+    "dose": "5mg"
+  },
+  {
+    "pageName": "Wolverine",
+    "frameName": "Wolverine — 10mg",
+    "frameId": "48:15",
+    "qrCodeId": "48:20",
+    "colorHex": "#000000",
+    "productName": "WOLVERINE",
+    "dose": "10mg"
+  },
+  {
+    "pageName": "CL-1S",
+    "frameName": "CL-1S — 10mg",
+    "frameId": "49:2",
+    "qrCodeId": "49:7",
+    "colorHex": "#000000",
+    "productName": "CL-1S",
+    "dose": "10mg"
+  },
+  {
+    "pageName": "CL-1S",
+    "frameName": "CL-1S — 20mg",
+    "frameId": "49:15",
+    "qrCodeId": "49:20",
+    "colorHex": "#000000",
+    "productName": "CL-1S",
+    "dose": "20mg"
+  },
+  {
+    "pageName": "CL-1S",
+    "frameName": "CL-1S — 30mg",
+    "frameId": "49:28",
+    "qrCodeId": "49:33",
+    "colorHex": "#000000",
+    "productName": "CL-1S",
+    "dose": "30mg"
+  },
+  {
+    "pageName": "CL-2T",
+    "frameName": "CL-2T — 10mg",
+    "frameId": "50:2",
+    "qrCodeId": "50:7",
+    "colorHex": "#000000",
+    "productName": "CL-2T",
+    "dose": "10mg"
+  },
+  {
+    "pageName": "CL-2T",
+    "frameName": "CL-2T — 20mg",
+    "frameId": "50:15",
+    "qrCodeId": "50:20",
+    "colorHex": "#000000",
+    "productName": "CL-2T",
+    "dose": "20mg"
+  },
+  {
+    "pageName": "CL-2T",
+    "frameName": "CL-2T — 30mg",
+    "frameId": "50:28",
+    "qrCodeId": "50:33",
+    "colorHex": "#000000",
+    "productName": "CL-2T",
+    "dose": "30mg"
+  },
+  {
+    "pageName": "Ipamorelin",
+    "frameName": "Ipamorelin — 5mg",
+    "frameId": "51:2",
+    "qrCodeId": "51:7",
+    "colorHex": "#000000",
+    "productName": "IPAMORELIN",
+    "dose": "5mg"
+  },
+  {
+    "pageName": "Ipamorelin",
+    "frameName": "Ipamorelin — 10mg",
+    "frameId": "51:15",
+    "qrCodeId": "51:20",
+    "colorHex": "#000000",
+    "productName": "IPAMORELIN",
+    "dose": "10mg"
+  },
+  {
+    "pageName": "Tesamorelin",
+    "frameName": "Tesamorelin — 10mg",
+    "frameId": "52:2",
+    "qrCodeId": "52:7",
+    "colorHex": "#000000",
+    "productName": "TESAMORELIN",
+    "dose": "10mg"
+  },
+  {
+    "pageName": "Tesamorelin",
+    "frameName": "Tesamorelin — 20mg",
+    "frameId": "52:15",
+    "qrCodeId": "52:20",
+    "colorHex": "#000000",
+    "productName": "TESAMORELIN",
+    "dose": "20mg"
+  },
+  {
+    "pageName": "MOTS-c",
+    "frameName": "MOTS-c — 10mg",
+    "frameId": "53:2",
+    "qrCodeId": "53:7",
+    "colorHex": "#000000",
+    "productName": "MOTS-c",
+    "dose": "10mg"
+  },
+  {
+    "pageName": "MOTS-c",
+    "frameName": "MOTS-c — 40mg",
+    "frameId": "53:15",
+    "qrCodeId": "53:20",
+    "colorHex": "#000000",
+    "productName": "MOTS-c",
+    "dose": "40mg"
+  },
+  {
+    "pageName": "SS-31",
+    "frameName": "SS-31 — 10mg",
+    "frameId": "54:2",
+    "qrCodeId": "54:7",
+    "colorHex": "#000000",
+    "productName": "SS-31",
+    "dose": "10mg"
+  },
+  {
+    "pageName": "SS-31",
+    "frameName": "SS-31 — 50mg",
+    "frameId": "54:15",
+    "qrCodeId": "54:20",
+    "colorHex": "#000000",
+    "productName": "SS-31",
+    "dose": "50mg"
+  },
+  {
+    "pageName": "KLOW",
+    "frameName": "KLOW — 80mg",
+    "frameId": "55:2",
+    "qrCodeId": "55:7",
+    "colorHex": "#000000",
+    "productName": "KLOW",
+    "dose": "80mg"
+  },
+  {
+    "pageName": "Melanotan 2",
+    "frameName": "Melanotan 2 — 10mg",
+    "frameId": "55:16",
+    "qrCodeId": "55:21",
+    "colorHex": "#000000",
+    "productName": "MELANTONAN 2",
+    "dose": "10mg"
+  }
+]
