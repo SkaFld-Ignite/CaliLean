@@ -60,6 +60,14 @@ const CAMPAIGNS = [
   // Wolverine
   { handle: "wolverine", title: "Wolverine", size: "5mg",  variantId: "variant_01KQAXQ22GE6974HMFQSJ36AZS", productId: "prod_01KQAXQ0DPPJZBN4DD3VZC594E", category: "repair" },
   { handle: "wolverine", title: "Wolverine", size: "10mg", variantId: "variant_01KQAXQ22GEZ4XATPS1C7YRM4Y", productId: "prod_01KQAXQ0DPPJZBN4DD3VZC594E", category: "repair" },
+  // CL-3R
+  { handle: "cl-3r",  title: "CL-3R",   size: "10mg", variantId: "variant_01KQAXPH5X6WMKJ2AG1X2Y5VVJ", productId: "prod_01KQAXPFHK85WKQVZRBN6KAW5K", category: "metabolic" },
+  { handle: "cl-3r",  title: "CL-3R",   size: "30mg", variantId: "variant_01KQAXPH5X6CM9S52G4HTTKRHD", productId: "prod_01KQAXPFHK85WKQVZRBN6KAW5K", category: "metabolic" },
+  // GLOW
+  { handle: "glow",   title: "GLOW",    size: "70mg", variantId: "variant_01KKVY3NHH7TTFDMTSN6CSRHGN", productId: "prod_01KKVY3NFTRB6744B7BHH85NE8", category: "specialty" },
+  // Bac Water
+  { handle: "bac-water", title: "Bac Water", size: "3mL",  variantId: "variant_01KQAXQ7PX59PKYJBVNS9BC1DB", productId: "prod_01KQAXQ61V94NGFQDKH25CPK0Q", category: "accessory" },
+  { handle: "bac-water", title: "Bac Water", size: "10mL", variantId: "variant_01KQAXQ7PY4HM7VWAPK579KE3X", productId: "prod_01KQAXQ61V94NGFQDKH25CPK0Q", category: "accessory" },
 ]
 
 function makeId() {
