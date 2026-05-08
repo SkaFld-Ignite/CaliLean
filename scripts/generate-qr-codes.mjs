@@ -16,40 +16,50 @@ const DB_URL =
   process.env.DATABASE_URL ||
   "postgresql://postgres:nsPLfRsClteLsLEjmwWIRsaktgNTgMhu@turntable.proxy.rlwy.net:26273/railway"
 
+// Category colors — favicon mark + QR code color per brand spec
+const CATEGORY_COLORS = {
+  repair:    "#B8622E", // Ember
+  metabolic: "#6D8AA7", // Pacific
+  ghaxis:    "#5B6E8A", // Slate
+  longevity: "#7C8A78", // Eucalyptus
+  specialty: "#8A6E5B", // Driftwood
+  accessory: "#8B9298", // Fog
+}
+
 // All 20 new variant campaigns (existing 3 products already have QR codes)
 const CAMPAIGNS = [
   // BPC-157
-  { handle: "bpc-157", title: "BPC-157", size: "5mg",  variantId: "variant_01KKVY3H8PK44N968DVJZGKB9P", productId: "prod_01KKVY3H63QW7HBX13G12Z0ZTZ" },
-  { handle: "bpc-157", title: "BPC-157", size: "10mg", variantId: "variant_01KKVY3H8QW9V8JVNV1NQMMBBE", productId: "prod_01KKVY3H63QW7HBX13G12Z0ZTZ" },
+  { handle: "bpc-157", title: "BPC-157", size: "5mg",  variantId: "variant_01KKVY3H8PK44N968DVJZGKB9P", productId: "prod_01KKVY3H63QW7HBX13G12Z0ZTZ", category: "repair" },
+  { handle: "bpc-157", title: "BPC-157", size: "10mg", variantId: "variant_01KKVY3H8QW9V8JVNV1NQMMBBE", productId: "prod_01KKVY3H63QW7HBX13G12Z0ZTZ", category: "repair" },
   // CL-1S
-  { handle: "cl-1s",  title: "CL-1S",   size: "10mg", variantId: "variant_01KQAXNCDXC1KEK547JMZ3994C", productId: "prod_01KQAXNARSC5E9MWBZ9VKYTSMK" },
-  { handle: "cl-1s",  title: "CL-1S",   size: "30mg", variantId: "variant_01KQAXNCDY76MWP78PHM4QA3CF", productId: "prod_01KQAXNARSC5E9MWBZ9VKYTSMK" },
+  { handle: "cl-1s",  title: "CL-1S",   size: "10mg", variantId: "variant_01KQAXNCDXC1KEK547JMZ3994C", productId: "prod_01KQAXNARSC5E9MWBZ9VKYTSMK", category: "metabolic" },
+  { handle: "cl-1s",  title: "CL-1S",   size: "30mg", variantId: "variant_01KQAXNCDY76MWP78PHM4QA3CF", productId: "prod_01KQAXNARSC5E9MWBZ9VKYTSMK", category: "metabolic" },
   // CL-2T
-  { handle: "cl-2t",  title: "CL-2T",   size: "10mg", variantId: "variant_01KQAXPBHRXF9Z2PQXVM275AFN", productId: "prod_01KQAXP9XV9S9CDPJGHTT0KA0C" },
-  { handle: "cl-2t",  title: "CL-2T",   size: "30mg", variantId: "variant_01KQAXPBHR11CGJ24XJKC0YTVW", productId: "prod_01KQAXP9XV9S9CDPJGHTT0KA0C" },
+  { handle: "cl-2t",  title: "CL-2T",   size: "10mg", variantId: "variant_01KQAXPBHRXF9Z2PQXVM275AFN", productId: "prod_01KQAXP9XV9S9CDPJGHTT0KA0C", category: "metabolic" },
+  { handle: "cl-2t",  title: "CL-2T",   size: "30mg", variantId: "variant_01KQAXPBHR11CGJ24XJKC0YTVW", productId: "prod_01KQAXP9XV9S9CDPJGHTT0KA0C", category: "metabolic" },
   // GHK-Cu
-  { handle: "ghk-cu", title: "GHK-Cu",  size: "50mg",  variantId: "variant_01KKVY3KNM1Y3XDPMZN471H0XF", productId: "prod_01KKVY3KKQT8XCG39E3WNJP0TG" },
-  { handle: "ghk-cu", title: "GHK-Cu",  size: "100mg", variantId: "variant_01KKVY3KNN6WGV631VB2CFM4QR", productId: "prod_01KKVY3KKQT8XCG39E3WNJP0TG" },
+  { handle: "ghk-cu", title: "GHK-Cu",  size: "50mg",  variantId: "variant_01KKVY3KNM1Y3XDPMZN471H0XF", productId: "prod_01KKVY3KKQT8XCG39E3WNJP0TG", category: "repair" },
+  { handle: "ghk-cu", title: "GHK-Cu",  size: "100mg", variantId: "variant_01KKVY3KNN6WGV631VB2CFM4QR", productId: "prod_01KKVY3KKQT8XCG39E3WNJP0TG", category: "repair" },
   // Ipamorelin
-  { handle: "ipamorelin", title: "Ipamorelin", size: "10mg", variantId: "variant_01KKVY3JGV56V8GD4CAGCNX5RP", productId: "prod_01KKVY3JF30DG48VSYDEW4XTN8" },
+  { handle: "ipamorelin", title: "Ipamorelin", size: "10mg", variantId: "variant_01KKVY3JGV56V8GD4CAGCNX5RP", productId: "prod_01KKVY3JF30DG48VSYDEW4XTN8", category: "ghaxis" },
   // KLOW
-  { handle: "klow",   title: "KLOW",    size: "80mg", variantId: "variant_01KKVY3P3YN67T6MKH5Q0WCRBN", productId: "prod_01KKVY3P21G0ARTN9HXG2Q8RCY" },
+  { handle: "klow",   title: "KLOW",    size: "80mg", variantId: "variant_01KKVY3P3YN67T6MKH5Q0WCRBN", productId: "prod_01KKVY3P21G0ARTN9HXG2Q8RCY", category: "specialty" },
   // Melanotan 2
-  { handle: "melanotan-2", title: "Melanotan 2", size: "10mg", variantId: "variant_01KKVY3YV20ZTSX5GGCRYBAG7N", productId: "prod_01KKVY3YSC9SZD4X653KGVF9NK" },
+  { handle: "melanotan-2", title: "Melanotan 2", size: "10mg", variantId: "variant_01KKVY3YV20ZTSX5GGCRYBAG7N", productId: "prod_01KKVY3YSC9SZD4X653KGVF9NK", category: "specialty" },
   // MOTS-C
-  { handle: "mots-c", title: "MOTS-C",  size: "10mg", variantId: "variant_01KQ6KMWN8XDFBSAV93ZHB5J6C", productId: "prod_01KKVY427RN68N5TRW3WP9EF55" },
+  { handle: "mots-c", title: "MOTS-C",  size: "10mg", variantId: "variant_01KQ6KMWN8XDFBSAV93ZHB5J6C", productId: "prod_01KKVY427RN68N5TRW3WP9EF55", category: "longevity" },
   // SS-31
-  { handle: "ss-31",  title: "SS-31",   size: "10mg", variantId: "variant_01KQAXPWEJJC5465Z1J2G0JTYC", productId: "prod_01KQAXPTSFFZ3FXV12M1MWM7K8" },
-  { handle: "ss-31",  title: "SS-31",   size: "50mg", variantId: "variant_01KQAXPWEJWHQ3J1R4DQJP5HQW", productId: "prod_01KQAXPTSFFZ3FXV12M1MWM7K8" },
+  { handle: "ss-31",  title: "SS-31",   size: "10mg", variantId: "variant_01KQAXPWEJJC5465Z1J2G0JTYC", productId: "prod_01KQAXPTSFFZ3FXV12M1MWM7K8", category: "longevity" },
+  { handle: "ss-31",  title: "SS-31",   size: "50mg", variantId: "variant_01KQAXPWEJWHQ3J1R4DQJP5HQW", productId: "prod_01KQAXPTSFFZ3FXV12M1MWM7K8", category: "longevity" },
   // TB-500
-  { handle: "tb-500", title: "TB-500",  size: "5mg",  variantId: "variant_01KKVY3K2WK4BTV93MY4A2BW9F", productId: "prod_01KKVY3K187HW5HP7Q3E3NQJCS" },
-  { handle: "tb-500", title: "TB-500",  size: "10mg", variantId: "variant_01KKVY3K2XHX2SSC7MDM31MHH6", productId: "prod_01KKVY3K187HW5HP7Q3E3NQJCS" },
+  { handle: "tb-500", title: "TB-500",  size: "5mg",  variantId: "variant_01KKVY3K2WK4BTV93MY4A2BW9F", productId: "prod_01KKVY3K187HW5HP7Q3E3NQJCS", category: "repair" },
+  { handle: "tb-500", title: "TB-500",  size: "10mg", variantId: "variant_01KKVY3K2XHX2SSC7MDM31MHH6", productId: "prod_01KKVY3K187HW5HP7Q3E3NQJCS", category: "repair" },
   // Tesamorelin
-  { handle: "tesamorelin", title: "Tesamorelin", size: "10mg", variantId: "variant_01KQAXPPT4D3J058CVN6JF388R", productId: "prod_01KQAXPN5DTGD3A09TKB3D03WR" },
-  { handle: "tesamorelin", title: "Tesamorelin", size: "20mg", variantId: "variant_01KQAXPPT4YZS0DTWHVADJCZQJ", productId: "prod_01KQAXPN5DTGD3A09TKB3D03WR" },
+  { handle: "tesamorelin", title: "Tesamorelin", size: "10mg", variantId: "variant_01KQAXPPT4D3J058CVN6JF388R", productId: "prod_01KQAXPN5DTGD3A09TKB3D03WR", category: "ghaxis" },
+  { handle: "tesamorelin", title: "Tesamorelin", size: "20mg", variantId: "variant_01KQAXPPT4YZS0DTWHVADJCZQJ", productId: "prod_01KQAXPN5DTGD3A09TKB3D03WR", category: "ghaxis" },
   // Wolverine
-  { handle: "wolverine", title: "Wolverine", size: "5mg",  variantId: "variant_01KQAXQ22GE6974HMFQSJ36AZS", productId: "prod_01KQAXQ0DPPJZBN4DD3VZC594E" },
-  { handle: "wolverine", title: "Wolverine", size: "10mg", variantId: "variant_01KQAXQ22GEZ4XATPS1C7YRM4Y", productId: "prod_01KQAXQ0DPPJZBN4DD3VZC594E" },
+  { handle: "wolverine", title: "Wolverine", size: "5mg",  variantId: "variant_01KQAXQ22GE6974HMFQSJ36AZS", productId: "prod_01KQAXQ0DPPJZBN4DD3VZC594E", category: "repair" },
+  { handle: "wolverine", title: "Wolverine", size: "10mg", variantId: "variant_01KQAXQ22GEZ4XATPS1C7YRM4Y", productId: "prod_01KQAXQ0DPPJZBN4DD3VZC594E", category: "repair" },
 ]
 
 function makeId() {
@@ -116,13 +126,14 @@ async function main() {
       inserted++
     }
 
-    // Always regenerate PNG
+    // Always regenerate PNG — use category color from brand spec
+    const qrColor = CATEGORY_COLORS[c.category] || "#000000"
     await QRCode.toFile(pngFile, redirectUrl, {
       errorCorrectionLevel: "H",
       type: "png",
       width: 512,
       margin: 2,
-      color: { dark: "#000000", light: "#ffffff" },
+      color: { dark: qrColor, light: "#ffffff" },
     })
     console.log(`  png      qr-${c.handle}-${c.size}.png`)
     pngsGenerated++
