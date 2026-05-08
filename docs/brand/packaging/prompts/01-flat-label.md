@@ -31,7 +31,7 @@ TYPOGRAPHY:
 COLOR PALETTE:
 - Primary text: near-black (hex 111111)
 - Data/secondary text: muted gray "Fog" (hex 9CA3A8)
-- Accent color (mark + QR): muted steel-blue "Pacific" (hex 3A5A6A)
+- Accent color (mark + QR): muted steel-blue "Pacific" (hex 6D8AA7)
 - Label stock: pure white (hex FFFFFF)
 
 The label is divided into two zones:
@@ -43,7 +43,7 @@ LEFT ZONE (approximately 60% of width), reading top to bottom:
   wordmark should be clearly readable, reinforcing brand identity. 
   Next to the wordmark on the right, place a small version of the 
   FAVICON mark (the "c" with wave) printed in Pacific steel-blue 
-  (hex 3A5A6A) as the brand accent.
+  (hex 6D8AA7) as the brand accent.
 - Below the wordmark: a thin hairline rule in near-black
 - CENTER, large and dominant, with generous white space above and 
   below: "CL-3R" in bold Plus Jakarta Sans 700 weight, near-black 
@@ -60,7 +60,7 @@ LEFT ZONE (approximately 60% of width), reading top to bottom:
 
 RIGHT ZONE (approximately 40% of width):
 - Top-right area: a small square QR code in Pacific steel-blue 
-  (hex 3A5A6A), approximately 8mm square. This links to 
+  (hex 6D8AA7), approximately 8mm square. This links to 
   calilean.com/coa for certificate of analysis verification.
 - Below QR code, tiny: "calilean.com/coa" in tiny JetBrains 
   Mono 400, muted gray (hex 9CA3A8)

@@ -47,14 +47,14 @@ showing. The box looks like a sealed, retail-ready product.
 THE VIAL (copy the VIAL REFERENCE exactly):
 - Clear glass, approximately 16mm wide x 37mm tall
 - Pale beige-white lyophilized powder cake inside
-- Cap: muted steel-blue matching hex 3A5A6A — a cool blue-gray 
+- Cap: muted steel-blue matching hex 6D8AA7 — a cool blue-gray 
   like the box color but slightly deeper. Not teal. Not dark.
 - Silver aluminum crimp ring beneath the cap
 - Pure white label (hex FFFFFF) wrapped around the vial with:
   - "Cali Lean" wordmark copied exactly from the LOGO reference, 
     printed in near-black (hex 111111), at the top of the label.
     Next to it, the favicon mark copied exactly from the FAVICON 
-    reference, printed small in steel-blue (hex 3A5A6A). The 
+    reference, printed small in steel-blue (hex 6D8AA7). The 
     favicon is a SEPARATE ICON next to the wordmark — it is not 
     a letter, not the letter "C", it is the specific wave shape 
     from the FAVICON image.
@@ -65,7 +65,7 @@ THE VIAL (copy the VIAL REFERENCE exactly):
   - Thin hairline rule
   - "Lot CL-GL3-0410-A | Purity >99% | Store 2-8°C" in tiny 
     muted gray (hex 9CA3A8)
-  - QR code in steel-blue (hex 3A5A6A) and RUO text partially 
+  - QR code in steel-blue (hex 6D8AA7) and RUO text partially 
     visible wrapping around the right edge
 
 THE BOX (copy the BOX SHAPE REFERENCE proportions exactly):
@@ -96,14 +96,14 @@ SIDE A of the box sleeve (the face angled toward camera):
 - "Lyophilized Powder" in small white
 - ">99% Pure" in small white monospace
 - "2-8°C" in small white monospace
-- Small QR code in hex 3A5A6A (slightly darker than box surface)
+- Small QR code in hex 6D8AA7 (slightly darker than box surface)
 - "For research use only." in tiny white
 - "Not for human or animal use." in tiny white
 - "calilean.com" in tiny white monospace
 
 TOP face (partially visible):
 - "Cali Lean" wordmark in metallic silver foil
-- Small favicon mark in hex 3A5A6A
+- Small favicon mark in hex 6D8AA7
 
 The box is fully closed. No tray, no pull tab, no white edges 
 visible. Clean, sealed, retail-ready.

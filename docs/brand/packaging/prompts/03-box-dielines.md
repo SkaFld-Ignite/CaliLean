@@ -76,7 +76,7 @@ Reading top to bottom in white text:
 - ">99% Pure" in small JetBrains Mono
 - "2-8°C" in small JetBrains Mono
 - blank space
-- Small QR code in Pacific steel-blue (hex 3A5A6A)
+- Small QR code in Pacific steel-blue (hex 6D8AA7)
 - blank space
 - "For research use only." in tiny white Plus Jakarta Sans
 - "Not for human or animal use." in tiny white Plus Jakarta Sans
@@ -103,7 +103,7 @@ TOP face (30x30mm square):
 - "Cali Lean" wordmark matching LOGO reference shape, metallic 
   silver foil, centered
 - Below wordmark: small FAVICON mark shape in Pacific steel-blue 
-  (hex 3A5A6A)
+  (hex 6D8AA7)
 
 BOTTOM face (30x30mm square):
 - One small barcode in white, centered, subtle, blending with 
@@ -157,7 +157,7 @@ BACK face (120mm x 20mm):
 
 BOTTOM face (120x58mm):
 - One small barcode in white, subtle, centered
-- Small QR code in Pacific steel-blue (hex 3A5A6A)
+- Small QR code in Pacific steel-blue (hex 6D8AA7)
 
 INNER TRAY:
 - White rigid paperboard, slightly smaller than 120x58mm
@@ -191,7 +191,7 @@ FRONT face (120mm x 20mm):
 
 BOTTOM face (120x110mm):
 - One small barcode in white, subtle, centered
-- Small QR code in Pacific steel-blue (hex 3A5A6A)
+- Small QR code in Pacific steel-blue (hex 6D8AA7)
 
 INNER TRAY:
 - White rigid paperboard, slightly smaller than 120x110mm

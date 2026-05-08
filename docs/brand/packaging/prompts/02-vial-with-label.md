@@ -30,7 +30,7 @@ VIAL SPECIFICATIONS:
 
 CAP COLOR — CRITICAL:
 - The cap is a flat aluminum disc on top, colored muted steel-blue 
-  "Pacific Blue" (hex 3A5A6A). This is a cool, desaturated 
+  "Pacific Blue" (hex 6D8AA7). This is a cool, desaturated 
   blue-gray — like weathered ocean slate. Not bright blue, not 
   navy, not teal. It should closely match the steel-blue box 
   color but slightly deeper.
@@ -42,11 +42,11 @@ LABEL (wrap the FLAT LABEL reference around the vial):
 - Front-facing view shows the left zone with:
   - "Cali Lean" wordmark matching the LOGO reference shape, 
     printed in near-black, with small "c" wave favicon mark 
-    in Pacific steel-blue (hex 3A5A6A)
+    in Pacific steel-blue (hex 6D8AA7)
   - "CL-3R" as the largest, most prominent text
   - "10mg" smaller below in muted gray (hex 9CA3A8)
   - Lot/purity/storage data line at the bottom
-- The QR code (in Pacific hex 3A5A6A) and RUO disclaimer text on 
+- The QR code (in Pacific hex 6D8AA7) and RUO disclaimer text on 
   the right side of the label should be partially visible wrapping 
   around the right edge of the vial
 - ALL label text must be perfectly legible and sharp
