@@ -22,9 +22,9 @@ docs/
 
 ## Environment
 
-For local development or scripts operating in the `docs` context, the `.env` file should be placed at the root of the `docs` directory (`docs/.env`).
+For local development or scripts operating in the `docs` context, use the Doppler `dev_docs` config. The local `.env` fallback, when needed, should be placed at the root of the `docs` directory (`docs/.env`).
 
-Any Doppler configuration linking to these secrets should be updated to target this `docs/` path.
+Docs secrets should live in a `*_docs` service config inside each existing Doppler environment, alongside `*_backend` and `*_storefront`.
 
 ## Build
 

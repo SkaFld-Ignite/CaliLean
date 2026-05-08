@@ -6,5 +6,5 @@ setup:
     config: dev_storefront
     path: ./apps/storefront
   - project: calilean
-    config: dev_backend
+    config: dev_docs
     path: ./docs
