@@ -9,6 +9,11 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  @page {
+    size: 11in 17in;
+    margin: 0;
+  }
+
   :root {
     --box-bg: #6B8399;
     --text-dark: #111111;
@@ -23,6 +28,8 @@
     color: #111;
     padding: 48px 32px;
     min-height: 100vh;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 
   h1 {
@@ -655,12 +662,51 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .print-keep {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  @media print {
+    html,
+    body {
+      width: 11in;
+      min-height: 17in;
+      background: #F2F1EF;
+    }
+
+    body {
+      padding: 0.45in;
+    }
+
+    .subtitle,
+    .page-footer {
+      display: none;
+    }
+
+    .section-header,
+    .category-legend {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .legend-item,
+    .vial-card,
+    .box-showcase-card,
+    .chip,
+    .box-color-swatch,
+    .print-keep,
+    .product-table tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+  }
 </style>
 </head>
 <body>
 
 <h1>CaliLean — Packaging Color Reference</h1>
-<p class="subtitle">docs/brand/packaging/ideation/label-color-system.md · 2026-05-07 · 15 products · 17 unique hex values</p>
 
 <!-- ─────────────────────────────────────────── -->
 <div class="section-header">
@@ -2135,15 +2181,16 @@
 </table>
 
 
-<!-- ─────────────────────────────────────────── -->
-<div class="section-header">
-  <h2>Full Palette — All 17 Unique Values</h2>
-  <div class="section-divider"></div>
-</div>
+<div class="print-keep">
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section-header">
+    <h2>Full Palette — All 17 Unique Values</h2>
+    <div class="section-divider"></div>
+  </div>
 
-<p style="font-size:11px;color:#888;margin-bottom:16px;font-family:'JetBrains Mono',monospace;">6 favicon/QR colors + 11 cap-only colors + 1 box surface = 18 values (box surface is universal)</p>
+  <p style="font-size:11px;color:#888;margin-bottom:16px;font-family:'JetBrains Mono',monospace;">6 favicon/QR colors + 11 cap-only colors + 1 box surface = 18 values (box surface is universal)</p>
 
-<div class="palette-row">
+  <div class="palette-row">
   <!-- Box -->
   <div class="chip">
     <div class="chip-swatch" style="background:#6B8399;"></div>
@@ -2238,12 +2285,8 @@
     <div class="chip-label">#B0B8BF<br>Bac Water</div>
   </div>
 </div>
-
-
-<div class="page-footer">
-  <span>CaliLean Packaging Color Reference · label-color-system.md + prompts/03-box-dielines.md + prompts/04-hero-vial-and-box.md</span>
-  <span>2026-05-07 · 15 products · 6 categories · 17 hex values</span>
 </div>
+
 
 </body>
 </html>

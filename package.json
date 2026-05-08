@@ -15,6 +15,7 @@
     "storefront:dev": "turbo dev --filter=medusa-next",
     "build:brand-book": "node docs/brand/brand-book/export_brand_book_pdf.js",
     "build:deck": "node docs/deliverables/pitch-deck/export_pdf.js",
+    "build:packaging-color-reference": "node docs/brand/packaging/export/export_color_reference_pdf.js",
     "build:docx": "python3 docs/utils/md_to_docx.py --all",
     "build:docx:clean": "python3 docs/utils/md_to_docx.py --clean",
     "build:all-docs": "npm run build:brand-book && npm run build:deck && npm run build:docx",
