@@ -52,11 +52,14 @@ export default async function CategorizedProducts({
   // Build a flat list of display categories:
   // If a top-level category has children, show the children as sections
   // If it has no children (e.g. Supplies), show it directly
+  // Derive children from parent_category_id to avoid depending on category_children API field
   const displayCategories: { id: string; name: string; description: string }[] =
     []
 
   for (const parent of topLevel) {
-    const children = (parent as any).category_children || []
+    const children = categories.filter(
+      (c: any) => c.parent_category_id === parent.id
+    )
     if (children.length > 0) {
       for (const child of children) {
         displayCategories.push({

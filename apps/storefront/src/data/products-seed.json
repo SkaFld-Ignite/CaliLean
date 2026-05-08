@@ -137,7 +137,7 @@
     "options": [
       {
         "title": "Size",
-        "values": ["10mg", "20mg", "30mg"]
+        "values": ["10mg", "30mg"]
       }
     ],
     "price": "$159.00",
@@ -166,7 +166,7 @@
     "options": [
       {
         "title": "Size",
-        "values": ["10mg", "20mg", "30mg"]
+        "values": ["10mg", "30mg"]
       }
     ],
     "price": "$159.00",
@@ -196,7 +196,7 @@
     "options": [
       {
         "title": "Size",
-        "values": ["10mg", "20mg", "30mg"]
+        "values": ["10mg", "30mg"]
       }
     ],
     "price": "$260.00",
