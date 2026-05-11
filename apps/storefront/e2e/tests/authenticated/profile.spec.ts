@@ -1,6 +1,11 @@
 import { test, expect } from "../../index"
 
 test.describe("Account profile tests", () => {
+  test.skip(
+    process.env.CI === "true" && !process.env.TEST_POSTGRES_DATABASE,
+    "Account profile tests require per-test database resets; CI uses a single ephemeral DB."
+  )
+
   test("Profile completed update flow", async ({
     accountOverviewPage: overviewPage,
     accountProfilePage: profilePage,
