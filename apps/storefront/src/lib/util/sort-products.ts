@@ -46,5 +46,13 @@ export function sortProducts(
     })
   }
 
+  if (sortBy === "name_asc") {
+    sortedProducts.sort((a, b) => {
+      return (a.title || "").localeCompare(b.title || "", undefined, {
+        sensitivity: "base",
+      })
+    })
+  }
+
   return sortedProducts
 }

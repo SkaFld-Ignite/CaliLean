@@ -36,7 +36,7 @@ export default async function CategorizedProducts({
       page: 1,
       queryParams: {
         limit: 100,
-        fields: "*variants.calculated_price,+categories.*",
+        fields: "*variants.calculated_price,+categories.*,+status",
       },
       sortBy: "created_at",
       countryCode,
@@ -44,7 +44,9 @@ export default async function CategorizedProducts({
   ])
 
   // Guard: only show published products (belt-and-suspenders against cache/API drift)
-  const products = allProducts.filter((p: any) => p.status === "published")
+  const products = allProducts.filter((p: any) => {
+    return !p.status || p.status === "published"
+  })
 
   // Find top-level categories and their children
   const topLevel = categories.filter((c: any) => !c.parent_category_id)
@@ -109,7 +111,7 @@ export default async function CategorizedProducts({
             </div>
             <ul className="grid grid-cols-2 small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8">
               {categoryProducts
-                .filter((p: any) => p.status === "published")
+                .filter((p: any) => !p.status || p.status === "published")
                 .map((p) => (
                   <li key={p.id}>
                     <ProductPreview product={p} region={region} />
