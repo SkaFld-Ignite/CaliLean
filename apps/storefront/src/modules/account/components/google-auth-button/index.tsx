@@ -19,7 +19,18 @@ const GoogleAuthButton = ({
       if (redirectTo) {
         sessionStorage.setItem("_cl_google_redirect", redirectTo)
       }
-      const result = await sdk.auth.login("customer", "google", {})
+      const callbackUrl = new URL(
+        "/api/auth/google/callback",
+        window.location.origin
+      )
+
+      if (redirectTo?.startsWith("/")) {
+        callbackUrl.searchParams.set("redirect", redirectTo)
+      }
+
+      const result = await sdk.auth.login("customer", "google", {
+        callback_url: callbackUrl.toString(),
+      })
       if (typeof result === "object" && result.location) {
         window.location.href = result.location
         return
