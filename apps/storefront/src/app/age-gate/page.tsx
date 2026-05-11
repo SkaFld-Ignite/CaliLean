@@ -3,7 +3,6 @@
 import { Suspense } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import CaliLeanLogo from "@modules/calilean/icons/calilean-logo"
-import ParticleSwarm from "@modules/common/components/particle-swarm"
 
 function AgeGateInner() {
   const searchParams = useSearchParams()
@@ -25,7 +24,53 @@ function AgeGateInner() {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 relative bg-calilean-bg overflow-hidden">
-      <ParticleSwarm />
+      {/* Animated blue aura */}
+      <style jsx>{`
+        @keyframes meshMove {
+          0% {
+            background-position: 0% 50%, 100% 50%, 50% 100%;
+          }
+          25% {
+            background-position: 100% 0%, 0% 100%, 80% 20%;
+          }
+          50% {
+            background-position: 50% 100%, 50% 0%, 0% 50%;
+          }
+          75% {
+            background-position: 0% 100%, 100% 0%, 20% 80%;
+          }
+          100% {
+            background-position: 0% 50%, 100% 50%, 50% 100%;
+          }
+        }
+      `}</style>
+
+      {/* Primary aura layer */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: `
+            radial-gradient(ellipse 80% 60% at 0% 50%, rgba(112,144,171,0.45) 0%, transparent 50%),
+            radial-gradient(ellipse 60% 80% at 100% 50%, rgba(112,144,171,0.35) 0%, transparent 50%),
+            radial-gradient(ellipse 70% 50% at 50% 100%, rgba(112,144,171,0.30) 0%, transparent 50%)
+          `,
+          backgroundSize: "200% 200%, 200% 200%, 200% 200%",
+          animation: "meshMove 30s ease-in-out infinite",
+        }}
+      />
+
+      {/* Secondary layer for depth */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: `
+            radial-gradient(ellipse 50% 70% at 70% 30%, rgba(112,144,171,0.25) 0%, transparent 50%),
+            radial-gradient(ellipse 60% 40% at 30% 70%, rgba(112,144,171,0.20) 0%, transparent 50%)
+          `,
+          backgroundSize: "200% 200%",
+          animation: "meshMove 45s ease-in-out infinite reverse",
+        }}
+      />
 
       {/* Corner accents */}
       <div className="absolute top-10 left-10 hidden small:block">
