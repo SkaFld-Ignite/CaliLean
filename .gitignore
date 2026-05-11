@@ -22,6 +22,9 @@ docs/build/
 # Workspace-local secrets
 .env.secrets
 
+# Production product snapshots (rollback data, contains prod product IDs)
+scripts/snapshots/
+
 # Raster image-gen masters live in MinIO (docs/brand/imagery/hosting.md).
 # Web JPG review copies in docs/brand/imagery/renders/web/ stay in git for
 # async review without a MinIO round-trip. Prompts (*.prompt.txt) stay in

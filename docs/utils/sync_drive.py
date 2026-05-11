@@ -22,6 +22,7 @@ SYNC_MAP = {
     'docs/build/docs/strategy/': ('Cali Lean/Strategy/', ['.docx']),
     'docs/brand/packaging/qr-codes/': ('Cali Lean/Brand/Packaging/QR Codes/', ['.png']),
     'docs/brand/packaging/renders/labels/': ('Cali Lean/Brand/Packaging/Labels/', ['.svg', '.png']),
+    'docs/brand/packaging/renders/hero-image/': ('Cali Lean/Brand/Packaging/Hero Images/', ['.jpeg']),
     'docs/brand/packaging/export/color-reference.pdf': ('Cali Lean/Brand/Packaging/Color Reference/color-reference.pdf', ['.pdf']),
     'docs/build/docs/brand/packaging/ideation/': ('Cali Lean/Brand/Packaging/Ideation/', ['.docx']),
     'docs/build/docs/brand/assets/imagery/': ('Cali Lean/Brand/Imagery/', ['.docx']),
