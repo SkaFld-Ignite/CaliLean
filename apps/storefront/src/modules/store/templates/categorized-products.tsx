@@ -17,6 +17,14 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
   Supplies: "Reconstitution and preparation essentials.",
 }
 
+const CATEGORY_PRIORITY = ["Weight Management", "Cosmetic", "Recovery"]
+
+const getCategoryPriority = (name: string) => {
+  const priority = CATEGORY_PRIORITY.indexOf(name)
+
+  return priority === -1 ? CATEGORY_PRIORITY.length : priority
+}
+
 export default async function CategorizedProducts({
   countryCode,
 }: {
@@ -78,6 +86,13 @@ export default async function CategorizedProducts({
       })
     }
   }
+
+  displayCategories.sort((a, b) => {
+    const priorityDiff =
+      getCategoryPriority(a.name) - getCategoryPriority(b.name)
+
+    return priorityDiff
+  })
 
   // Map products by their category IDs
   const productsByCategoryId = new Map<string, HttpTypes.StoreProduct[]>()

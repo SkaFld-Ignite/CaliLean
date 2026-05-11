@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { redirect } from "next/navigation"
 
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import StoreTemplate from "@modules/store/templates"
@@ -23,6 +24,11 @@ type Params = {
 export default async function StorePage({ searchParams, params }: Params) {
   const { sortBy, page, view } = await searchParams
   const { countryCode } = await params
+  const activeView = view === "all" ? "all" : "pathway"
+
+  if (activeView === "pathway" && (sortBy || page)) {
+    redirect(`/${countryCode}/store`)
+  }
 
   return (
     <StoreTemplate

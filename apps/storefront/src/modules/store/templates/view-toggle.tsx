@@ -12,10 +12,15 @@ const ViewToggle = ({ active }: { active: "pathway" | "all" }) => {
     const params = new URLSearchParams(searchParams)
     if (view === "pathway") {
       params.delete("view")
+      params.delete("sortBy")
+      params.delete("page")
     } else {
       params.set("view", view)
     }
-    router.push(`${pathname}?${params.toString()}`, { scroll: false })
+    const queryString = params.toString()
+    router.push(queryString ? `${pathname}?${queryString}` : pathname, {
+      scroll: false,
+    })
   }
 
   return (
