@@ -1,16 +1,34 @@
 import { NextRequest, NextResponse } from "next/server"
 import { sdk } from "@lib/config"
+import { getSafeRedirectPath } from "@lib/util/safe-redirect"
+
+const GOOGLE_REDIRECT_COOKIE = "_cl_google_redirect"
 
 const getPublicBaseUrl = (request: NextRequest) => {
   return process.env.NEXT_PUBLIC_BASE_URL || request.nextUrl.origin
+}
+
+const getSafeRedirectTo = (request: NextRequest) => {
+  const rawRedirect =
+    request.nextUrl.searchParams.get("redirect") ||
+    request.cookies.get(GOOGLE_REDIRECT_COOKIE)?.value ||
+    "/"
+
+  let redirectTo = "/"
+  try {
+    redirectTo = decodeURIComponent(rawRedirect)
+  } catch {
+    redirectTo = rawRedirect
+  }
+
+  return getSafeRedirectPath(redirectTo)
 }
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
   const code = searchParams.get("code")
   const error = searchParams.get("error")
-  const redirectTo = searchParams.get("redirect")
-  const safeRedirectTo = redirectTo?.startsWith("/") ? redirectTo : "/"
+  const safeRedirectTo = getSafeRedirectTo(request)
   const publicBaseUrl = getPublicBaseUrl(request)
 
   if (error) {
@@ -29,6 +47,7 @@ export async function GET(request: NextRequest) {
 
     if (typeof token === "string") {
       const response = NextResponse.redirect(new URL(safeRedirectTo, publicBaseUrl))
+      response.cookies.delete(GOOGLE_REDIRECT_COOKIE)
 
       // Set the Medusa JWT cookie so the middleware and hooks recognize the session
       response.cookies.set("_medusa_jwt", token, {

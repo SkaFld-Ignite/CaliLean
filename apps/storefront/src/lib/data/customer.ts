@@ -9,6 +9,7 @@ import { isRedirectError } from "next/dist/client/components/redirect-error"
 import { redirect } from "next/navigation"
 import { cache } from "react"
 import { getAuthHeaders, removeAuthToken, setAuthToken } from "./cookies"
+import { getSafeRedirectPath } from "@lib/util/safe-redirect"
 
 export const getCustomer = cache(async function () {
   return await sdk.store.customer
@@ -63,12 +64,10 @@ export async function signup(_currentState: unknown, formData: FormData) {
 
     revalidateTag("customer")
     const redirectTo = formData.get("redirect") as string
-    // Only allow relative paths to prevent open redirect
-    const safePath = redirectTo?.startsWith("/") ? redirectTo : "/"
     return {
       success: true as const,
       firstName: customerForm.first_name,
-      redirectTo: safePath,
+      redirectTo: getSafeRedirectPath(redirectTo),
     }
   } catch (error: any) {
     if (isRedirectError(error)) throw error
@@ -100,8 +99,7 @@ export async function login(_currentState: unknown, formData: FormData) {
     await setAuthToken(typeof token === "string" ? token : token.location)
     revalidateTag("customer")
     const redirectTo = formData.get("redirect") as string
-    const safePath = redirectTo?.startsWith("/") ? redirectTo : "/"
-    redirect(safePath)
+    redirect(getSafeRedirectPath(redirectTo))
   } catch (error: any) {
     if (isRedirectError(error)) throw error
     return "Invalid email or password."

@@ -1,11 +1,28 @@
 "use client"
 
 import { sdk } from "@lib/config"
+import { getSafeRedirectPath } from "@lib/util/safe-redirect"
+
+const GOOGLE_REDIRECT_COOKIE = "_cl_google_redirect"
 
 type Props = {
   action?: "login" | "register"
   className?: string
   redirectTo?: string
+}
+
+const setGoogleRedirectCookie = (redirectTo: string) => {
+  const safeRedirectTo = getSafeRedirectPath(redirectTo)
+
+  document.cookie = [
+    `${GOOGLE_REDIRECT_COOKIE}=${encodeURIComponent(safeRedirectTo)}`,
+    "Max-Age=600",
+    "Path=/",
+    "SameSite=Lax",
+    window.location.protocol === "https:" ? "Secure" : "",
+  ]
+    .filter(Boolean)
+    .join("; ")
 }
 
 const GoogleAuthButton = ({
@@ -15,10 +32,7 @@ const GoogleAuthButton = ({
 }: Props) => {
   const handleGoogleAuth = async () => {
     try {
-      // Stash the intended destination so the callback page can restore it
-      if (redirectTo) {
-        sessionStorage.setItem("_cl_google_redirect", redirectTo)
-      }
+      setGoogleRedirectCookie(redirectTo || "/account")
       const callbackUrl = new URL(
         "/api/auth/google/callback",
         window.location.origin
@@ -33,7 +47,7 @@ const GoogleAuthButton = ({
       }
       if (typeof result === "string") {
         // Already authenticated, refresh
-        window.location.href = redirectTo || "/"
+        window.location.href = getSafeRedirectPath(redirectTo || "/account")
         return
       }
     } catch (error) {

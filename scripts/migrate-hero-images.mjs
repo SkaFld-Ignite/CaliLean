@@ -246,8 +246,7 @@ async function main() {
     for (const f of failed) {
       lines.push(`-- ${f.handle}  (${f.productId})`);
       lines.push(`UPDATE product SET thumbnail = '${f.expected}', updated_at = NOW() WHERE id = '${f.productId}';`);
-      lines.push(`DELETE FROM image WHERE id IN (SELECT image_id FROM product_images WHERE product_id = '${f.productId}');`);
-      lines.push(`DELETE FROM product_images WHERE product_id = '${f.productId}';`);
+      lines.push(`WITH old_images AS (SELECT image_id FROM product_images WHERE product_id = '${f.productId}'), deleted_links AS (DELETE FROM product_images WHERE product_id = '${f.productId}' RETURNING image_id) DELETE FROM image WHERE id IN (SELECT image_id FROM old_images UNION SELECT image_id FROM deleted_links);`);
       lines.push(`WITH ins AS (INSERT INTO image (id, url, metadata, created_at, updated_at) VALUES ('img_' || substring(md5(random()::text), 1, 26), '${f.expected}', '{}', NOW(), NOW()) RETURNING id)`);
       lines.push(`INSERT INTO product_images (product_id, image_id) SELECT '${f.productId}', id FROM ins;`);
       lines.push("");
