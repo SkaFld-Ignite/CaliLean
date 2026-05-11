@@ -9,11 +9,18 @@ import GoogleAuthButton from "@modules/account/components/google-auth-button"
 
 type GateView = "sign-in" | "register" | "forgot-password"
 
-function SubmitButton({ children }: { children: React.ReactNode }) {
+function SubmitButton({
+  children,
+  "data-testid": dataTestId,
+}: {
+  children: React.ReactNode
+  "data-testid"?: string
+}) {
   const { pending } = useFormStatus()
   return (
     <button
       type="submit"
+      data-testid={dataTestId}
       disabled={pending}
       className="w-full bg-calilean-pacific text-white rounded-btn py-3 text-sm font-medium hover:bg-calilean-pacific/90 transition-colors mt-1 disabled:opacity-60 disabled:cursor-not-allowed"
     >
@@ -46,14 +53,17 @@ function SubmitButton({ children }: { children: React.ReactNode }) {
 function AgeSubmitButton({
   disabled,
   children,
+  "data-testid": dataTestId,
 }: {
   disabled: boolean
   children: React.ReactNode
+  "data-testid"?: string
 }) {
   const { pending } = useFormStatus()
   return (
     <button
       type="submit"
+      data-testid={dataTestId}
       disabled={disabled || pending}
       className="w-full bg-calilean-pacific text-white rounded-btn py-3 text-sm font-medium hover:bg-calilean-pacific/90 transition-colors mt-1 disabled:opacity-40 disabled:cursor-not-allowed"
     >
@@ -234,11 +244,12 @@ function SignInForm({
   const [message, formAction] = useActionState(login, null)
 
   return (
-    <form action={formAction} className="flex flex-col gap-3">
+    <form action={formAction} className="flex flex-col gap-3" data-testid="login-page">
       {redirectTo && <input type="hidden" name="redirect" value={redirectTo} />}
       <input
         name="email"
         type="email"
+        data-testid="email-input"
         placeholder="Email"
         required
         autoComplete="email"
@@ -247,13 +258,16 @@ function SignInForm({
       <input
         name="password"
         type="password"
+        data-testid="password-input"
         placeholder="Password"
         required
         autoComplete="current-password"
         className="w-full bg-calilean-sand border border-transparent rounded-btn px-4 py-3 text-sm text-calilean-ink placeholder:text-calilean-fog/60 outline-none focus:border-calilean-pacific/30 transition-colors"
       />
       {message && typeof message === "string" && (
-        <p className="text-calilean-alert text-xs">{message}</p>
+        <p className="text-calilean-alert text-xs" data-testid="login-error-message">
+          {message}
+        </p>
       )}
       <div className="flex justify-end -mt-1">
         <button
@@ -264,7 +278,7 @@ function SignInForm({
           Forgot password?
         </button>
       </div>
-      <SubmitButton>Sign in</SubmitButton>
+      <SubmitButton data-testid="sign-in-button">Sign in</SubmitButton>
       <div className="flex items-center w-full my-4">
         <div className="flex-1 border-t border-calilean-fog/20" />
         <span className="px-3 text-[10px] text-calilean-fog/40 uppercase tracking-widest">
@@ -282,6 +296,7 @@ function SignInForm({
         <button
           type="button"
           onClick={onSwitch}
+          data-testid="register-button"
           className="text-calilean-pacific hover:text-calilean-pacific/80 transition-colors"
         >
           Create an account
@@ -427,12 +442,13 @@ function RegisterForm({
   }
 
   return (
-    <form action={formAction} className="flex flex-col gap-3">
+    <form action={formAction} className="flex flex-col gap-3" data-testid="register-page">
       {redirectTo && <input type="hidden" name="redirect" value={redirectTo} />}
       <div className="grid grid-cols-2 gap-3">
         <input
           name="first_name"
           type="text"
+          data-testid="first-name-input"
           placeholder="First name"
           required
           autoComplete="given-name"
@@ -441,6 +457,7 @@ function RegisterForm({
         <input
           name="last_name"
           type="text"
+          data-testid="last-name-input"
           placeholder="Last name"
           required
           autoComplete="family-name"
@@ -450,6 +467,7 @@ function RegisterForm({
       <input
         name="email"
         type="email"
+        data-testid="email-input"
         placeholder="Email"
         required
         autoComplete="email"
@@ -458,6 +476,7 @@ function RegisterForm({
       <input
         name="phone"
         type="tel"
+        data-testid="phone-input"
         placeholder="Phone"
         autoComplete="tel"
         className="w-full bg-calilean-sand border border-transparent rounded-btn px-4 py-3 text-sm text-calilean-ink placeholder:text-calilean-fog/60 outline-none focus:border-calilean-pacific/30 transition-colors"
@@ -466,6 +485,7 @@ function RegisterForm({
         <input
           name="password"
           type="password"
+          data-testid="password-input"
           placeholder="Password"
           required
           minLength={8}
@@ -479,6 +499,7 @@ function RegisterForm({
       <label className="flex items-start gap-2.5 text-left mt-2">
         <input
           type="checkbox"
+          data-testid="age-confirm-checkbox"
           checked={ageConfirmed}
           onChange={(e) => setAgeConfirmed(e.target.checked)}
           className="mt-0.5 accent-calilean-pacific"
@@ -497,9 +518,13 @@ function RegisterForm({
         </span>
       </label>
       {message && typeof message === "string" && (
-        <p className="text-calilean-alert text-xs">{message}</p>
+        <p className="text-calilean-alert text-xs" data-testid="register-error">
+          {message}
+        </p>
       )}
-      <AgeSubmitButton disabled={!ageConfirmed}>Create account</AgeSubmitButton>
+      <AgeSubmitButton disabled={!ageConfirmed} data-testid="register-button">
+        Create account
+      </AgeSubmitButton>
       <div className="flex items-center w-full my-4">
         <div className="flex-1 border-t border-calilean-fog/20" />
         <span className="px-3 text-[10px] text-calilean-fog/40 uppercase tracking-widest">
@@ -517,6 +542,7 @@ function RegisterForm({
         <button
           type="button"
           onClick={onSwitch}
+          data-testid="login-link"
           className="text-calilean-pacific hover:text-calilean-pacific/80 transition-colors"
         >
           Sign in

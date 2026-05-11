@@ -20,7 +20,7 @@ export class LoginPage extends BasePage {
   }
 
   async goto() {
-    await this.page.goto("/account")
+    await this.page.goto("/gate?redirect=/account")
     await this.container.waitFor({ state: "visible" })
   }
 }

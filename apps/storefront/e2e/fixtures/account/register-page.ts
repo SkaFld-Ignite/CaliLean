@@ -8,6 +8,7 @@ export class RegisterPage extends BasePage {
   emailInput: Locator
   phoneInput: Locator
   passwordInput: Locator
+  ageConfirmCheckbox: Locator
   registerButton: Locator
   registerError: Locator
   loginLink: Locator
@@ -20,6 +21,7 @@ export class RegisterPage extends BasePage {
     this.emailInput = this.container.getByTestId("email-input")
     this.phoneInput = this.container.getByTestId("phone-input")
     this.passwordInput = this.container.getByTestId("password-input")
+    this.ageConfirmCheckbox = this.container.getByTestId("age-confirm-checkbox")
     this.registerButton = this.container.getByTestId("register-button")
     this.registerError = this.container.getByTestId("register-error")
     this.loginLink = this.container.getByTestId("login-link")

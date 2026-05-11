@@ -5,14 +5,15 @@ test.describe("User registration functionality", async () => {
     loginPage,
     registerPage,
   }) => {
-    await loginPage.accountLink.click()
-    await registerPage.container.isVisible()
+    await loginPage.goto()
     await loginPage.registerButton.click()
+    await expect(registerPage.container).toBeVisible()
 
     await registerPage.firstNameInput.fill("first")
     await registerPage.lastNameInput.fill("last")
     await registerPage.emailInput.fill("test@example.com")
     await registerPage.passwordInput.fill("password")
+    await registerPage.ageConfirmCheckbox.check()
     await registerPage.registerButton.click()
 
     await expect(registerPage.registerError).toBeVisible()
@@ -23,9 +24,10 @@ test.describe("User registration functionality", async () => {
     loginPage,
     registerPage,
   }) => {
-    await loginPage.accountLink.click()
-    await registerPage.container.isVisible()
+    await loginPage.goto()
     await loginPage.registerButton.click()
+    await expect(registerPage.container).toBeVisible()
+    await registerPage.ageConfirmCheckbox.check()
 
     await registerPage.registerButton.click()
     await expect(registerPage.firstNameInput).toBeFocused()
@@ -52,14 +54,15 @@ test.describe("User registration functionality", async () => {
     registerPage,
     accountOverviewPage,
   }) => {
-    await loginPage.accountLink.click()
-    await registerPage.container.isVisible()
+    await loginPage.goto()
     await loginPage.registerButton.click()
+    await expect(registerPage.container).toBeVisible()
 
     await registerPage.firstNameInput.fill("first")
     await registerPage.lastNameInput.fill("last")
     await registerPage.emailInput.fill("test-reg@example.com")
     await registerPage.passwordInput.fill("password")
+    await registerPage.ageConfirmCheckbox.check()
     await registerPage.registerButton.click()
 
     await expect(accountOverviewPage.welcomeMessage).toBeVisible()

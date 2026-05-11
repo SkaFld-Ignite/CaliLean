@@ -29,6 +29,7 @@ export default async function Nav() {
                 </LocalizedClientLink>
                 <LocalizedClientLink
                   href="/store"
+                  data-testid="nav-store-link"
                   className="font-medium text-calilean-ink hover:opacity-70 transition-opacity"
                 >
                   Peptides
@@ -50,6 +51,7 @@ export default async function Nav() {
                 {process.env.NEXT_PUBLIC_FEATURE_SEARCH_ENABLED && (
                   <LocalizedClientLink
                     href="/search"
+                    data-testid="nav-search-link"
                     className="font-medium text-calilean-ink hover:opacity-70 transition-opacity"
                   >
                     Search
@@ -57,6 +59,7 @@ export default async function Nav() {
                 )}
                 <LocalizedClientLink
                   href="/account"
+                  data-testid="nav-account-link"
                   className="font-medium text-calilean-ink hover:opacity-70 transition-opacity"
                 >
                   Account

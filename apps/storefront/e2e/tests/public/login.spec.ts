@@ -4,8 +4,7 @@ test.describe("Login Page functionality", async () => {
   test("access login page from nav menu and submit (partially) empty form", async ({
     loginPage,
   }) => {
-    await loginPage.accountLink.click()
-    await loginPage.container.waitFor({ state: "visible" })
+    await loginPage.goto()
     await loginPage.signInButton.click()
     await expect(loginPage.emailInput).toBeFocused()
 
@@ -17,8 +16,7 @@ test.describe("Login Page functionality", async () => {
   test("enter incorrect creds and verify error message", async ({
     loginPage,
   }) => {
-    await loginPage.accountLink.click()
-    await loginPage.container.waitFor({ state: "visible" })
+    await loginPage.goto()
     await loginPage.emailInput.fill("test-dne@example.com")
     await loginPage.passwordInput.fill("password")
     await loginPage.signInButton.click()
@@ -28,8 +26,7 @@ test.describe("Login Page functionality", async () => {
   test("enter different incorrect creds and verify error message", async ({
     loginPage,
   }) => {
-    await loginPage.accountLink.click()
-    await loginPage.container.waitFor({ state: "visible" })
+    await loginPage.goto()
     await loginPage.emailInput.fill("test@example.com")
     await loginPage.passwordInput.fill("passwrong")
     await loginPage.signInButton.click()
@@ -40,8 +37,7 @@ test.describe("Login Page functionality", async () => {
     accountOverviewPage,
     loginPage,
   }) => {
-    await loginPage.accountLink.click()
-    await loginPage.container.waitFor({ state: "visible" })
+    await loginPage.goto()
     await loginPage.emailInput.fill("test@example.com")
     await loginPage.passwordInput.fill("password")
     await loginPage.signInButton.click()
@@ -53,8 +49,7 @@ test.describe("Login Page functionality", async () => {
     accountOverviewPage,
     loginPage,
   }) => {
-    await loginPage.accountLink.click()
-    await loginPage.container.waitFor({ state: "visible" })
+    await loginPage.goto()
     await loginPage.emailInput.fill("test@example.com")
     await loginPage.passwordInput.fill("password")
     await loginPage.signInButton.click()
@@ -64,7 +59,6 @@ test.describe("Login Page functionality", async () => {
     await accountOverviewPage.logoutLink.click()
     await loginPage.container.waitFor({ state: "visible" })
 
-    await loginPage.accountLink.click()
-    await loginPage.container.waitFor({ state: "visible" })
+    await loginPage.goto()
   })
 })
