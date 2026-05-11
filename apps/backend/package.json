@@ -15,7 +15,7 @@
   "scripts": {
     "build": "medusa build && node src/scripts/postBuild.js",
     "seed": "NODE_OPTIONS='--require ./patch-workflows.js' medusa exec ./scripts/seed.ts",
-    "ib": "init-backend",
+    "ib": "NODE_OPTIONS='--require ./patch-workflows.js' init-backend",
     "start": "cd .medusa/server && medusa start --verbose",
     "dev": "NODE_OPTIONS='--require ./patch-workflows.js' medusa develop",
     "dev:doppler": "doppler run -- NODE_OPTIONS='--require ./patch-workflows.js' medusa develop",
