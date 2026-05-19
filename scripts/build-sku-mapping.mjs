@@ -43,7 +43,7 @@ const SKU_CODE_MAP = {
   'glutathione': 'GLU',
   'glow': 'GLW',
   'klow': 'KLW',
-  'bpc-157-tb-500-blend': 'BTB',
+  'wolverine': 'WLV',
   'nad': 'NAD',
   'snap-8': 'SN8',
   'selank': 'SEL',

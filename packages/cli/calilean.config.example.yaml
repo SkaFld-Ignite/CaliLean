@@ -30,6 +30,11 @@ categories:
   - name: "Supplies"
     handle: "supplies"
 
+# Pricing tiers: base / 4-5 (-10%) / 6-9 (-15%) / 10+ (-20%)
+# Source of truth: docs/ops/pricing/competitor-analysis.xlsx → "CaliLean Pricing" sheet
+# Hidden variants (metadata.hidden: true) are tracked here but NOT created in Medusa
+# until a price is set.
+
 products:
   - title: "BPC-157"
     handle: "bpc-157"
@@ -44,15 +49,406 @@ products:
         options: { Size: "5mg" }
         manage_inventory: false
         prices:
-          - currency_code: "usd"
-            amount: 29.74
+          - { currency_code: "usd", amount: 40.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 36.00, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 34.00, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 32.00, min_quantity: 10 }
       - title: "10mg"
         sku: "CL-BPC-0010"
         options: { Size: "10mg" }
         manage_inventory: false
         prices:
-          - currency_code: "usd"
-            amount: 47.99
+          - { currency_code: "usd", amount: 65.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 58.50, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 55.25, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 52.00, min_quantity: 10 }
+
+  - title: "TB-500"
+    handle: "tb-500"
+    status: "published"
+    categories: ["recovery"]
+    options:
+      - title: "Size"
+        values: ["5mg", "10mg"]
+    variants:
+      - title: "5mg"
+        sku: "CL-TB5-0005"
+        options: { Size: "5mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 55.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 49.50, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 46.75, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 44.00, min_quantity: 10 }
+      - title: "10mg"
+        sku: "CL-TB5-0010"
+        options: { Size: "10mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 79.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 71.10, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 67.15, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 63.20, min_quantity: 10 }
+
+  - title: "GHK-Cu"
+    handle: "ghk-cu"
+    status: "published"
+    categories: ["recovery"]
+    options:
+      - title: "Size"
+        values: ["50mg", "100mg"]
+    variants:
+      - title: "50mg"
+        sku: "CL-GHK-0050"
+        options: { Size: "50mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 49.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 44.10, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 41.65, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 39.20, min_quantity: 10 }
+      - title: "100mg"
+        sku: "CL-GHK-0100"
+        options: { Size: "100mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 85.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 76.50, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 72.25, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 68.00, min_quantity: 10 }
+
+  - title: "Wolverine"
+    handle: "wolverine"
+    status: "published"
+    categories: ["recovery"]
+    options:
+      - title: "Size"
+        values: ["10mg", "20mg"]
+    variants:
+      - title: "10mg"
+        sku: "CL-WLV-0010"
+        options: { Size: "10mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 105.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 94.50, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 89.25, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 84.00, min_quantity: 10 }
+      - title: "20mg"
+        sku: "CL-WLV-0020"
+        options: { Size: "20mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 195.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 175.50, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 165.75, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 156.00, min_quantity: 10 }
+
+  - title: "CL-1S"
+    handle: "cl-1s"
+    status: "published"
+    categories: ["weight-management"]
+    options:
+      - title: "Size"
+        values: ["10mg", "30mg"]
+    variants:
+      - title: "10mg"
+        sku: "CL-GL1-0010"
+        options: { Size: "10mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 59.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 53.10, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 50.15, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 47.20, min_quantity: 10 }
+      - title: "30mg"
+        sku: "CL-GL1-0030"
+        options: { Size: "30mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 130.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 117.00, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 110.50, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 104.00, min_quantity: 10 }
+
+  - title: "CL-2T"
+    handle: "cl-2t"
+    status: "published"
+    categories: ["weight-management"]
+    options:
+      - title: "Size"
+        values: ["20mg", "40mg"]
+    variants:
+      - title: "20mg"
+        sku: "CL-GL2-0020"
+        options: { Size: "20mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 99.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 89.10, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 84.15, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 79.20, min_quantity: 10 }
+      - title: "40mg"
+        sku: "CL-GL2-0040"
+        options: { Size: "40mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 169.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 152.10, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 143.65, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 135.20, min_quantity: 10 }
+
+  - title: "CL-3R"
+    handle: "cl-3r"
+    status: "published"
+    categories: ["weight-management"]
+    options:
+      - title: "Size"
+        values: ["10mg", "30mg"]
+    variants:
+      - title: "10mg"
+        sku: "CL-GL3-0010"
+        options: { Size: "10mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 120.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 108.00, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 102.00, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 96.00, min_quantity: 10 }
+      - title: "30mg"
+        sku: "CL-GL3-0030"
+        options: { Size: "30mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 299.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 269.10, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 254.15, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 239.20, min_quantity: 10 }
+
+  - title: "Ipamorelin"
+    handle: "ipamorelin"
+    status: "published"
+    categories: ["growth-anti-aging"]
+    options:
+      - title: "Size"
+        values: ["10mg"]
+    variants:
+      - title: "10mg"
+        sku: "CL-IPM-0010"
+        options: { Size: "10mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 79.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 71.10, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 67.15, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 63.20, min_quantity: 10 }
+
+  - title: "Tesamorelin"
+    handle: "tesamorelin"
+    status: "published"
+    categories: ["growth-anti-aging"]
+    options:
+      - title: "Size"
+        values: ["10mg", "20mg"]
+    variants:
+      - title: "10mg"
+        sku: "CL-TES-0010"
+        options: { Size: "10mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 49.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 44.10, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 41.65, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 39.20, min_quantity: 10 }
+      - title: "20mg"
+        sku: "CL-TES-0020"
+        options: { Size: "20mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 129.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 116.10, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 109.65, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 103.20, min_quantity: 10 }
+
+  - title: "MOTS-c"
+    handle: "mots-c"
+    status: "published"
+    categories: ["longevity"]
+    options:
+      - title: "Size"
+        values: ["10mg", "40mg"]
+    variants:
+      - title: "10mg"
+        sku: "CL-MOT-0010"
+        options: { Size: "10mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 54.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 48.60, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 45.90, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 43.20, min_quantity: 10 }
+      - title: "40mg"
+        sku: "CL-MOT-0040"
+        options: { Size: "40mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 109.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 98.10, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 92.65, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 87.20, min_quantity: 10 }
+
+  - title: "SS-31"
+    handle: "ss-31"
+    status: "published"
+    categories: ["longevity"]
+    options:
+      - title: "Size"
+        values: ["10mg", "50mg"]
+    variants:
+      - title: "10mg"
+        sku: "CL-SS3-0010"
+        options: { Size: "10mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 140.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 126.00, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 119.00, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 112.00, min_quantity: 10 }
+      - title: "50mg"
+        sku: "CL-SS3-0050"
+        options: { Size: "50mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 250.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 225.00, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 212.50, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 200.00, min_quantity: 10 }
+
+  - title: "GLOW"
+    handle: "glow"
+    status: "published"
+    categories: ["cosmetic"]
+    options:
+      - title: "Size"
+        values: ["70mg"]
+    variants:
+      - title: "70mg"
+        sku: "CL-GLW-0070"
+        options: { Size: "70mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 110.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 99.00, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 93.50, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 88.00, min_quantity: 10 }
+
+  - title: "KLOW"
+    handle: "klow"
+    status: "published"
+    categories: ["cosmetic"]
+    options:
+      - title: "Size"
+        values: ["80mg"]
+    variants:
+      - title: "80mg"
+        sku: "CL-KLW-0080"
+        options: { Size: "80mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 120.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 108.00, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 102.00, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 96.00, min_quantity: 10 }
+
+  - title: "Melanotan 2"
+    handle: "melanotan-ii"
+    status: "published"
+    categories: ["cosmetic"]
+    options:
+      - title: "Size"
+        values: ["10mg"]
+    variants:
+      - title: "10mg"
+        sku: "CL-MT2-0010"
+        options: { Size: "10mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 49.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 44.10, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 41.65, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 39.20, min_quantity: 10 }
+
+  - title: "NAD+"
+    handle: "nad"
+    status: "published"
+    categories: ["longevity"]
+    options:
+      - title: "Size"
+        values: ["500mg", "1000mg"]
+    variants:
+      - title: "500mg"
+        sku: "CL-NAD-0500"
+        options: { Size: "500mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 70.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 63.00, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 59.50, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 56.00, min_quantity: 10 }
+      - title: "1000mg"
+        sku: "CL-NAD-1000"
+        options: { Size: "1000mg" }
+        manage_inventory: false
+        prices:
+          - { currency_code: "usd", amount: 139.00 }
+        price_tiers:
+          - { currency_code: "usd", amount: 125.10, min_quantity: 4, max_quantity: 5 }
+          - { currency_code: "usd", amount: 118.15, min_quantity: 6, max_quantity: 9 }
+          - { currency_code: "usd", amount: 111.20, min_quantity: 10 }
+
+  - title: "Bac Water"
+    handle: "bac-water"
+    status: "published"
+    categories: ["supplies"]
+    options:
+      - title: "Size"
+        values: ["3mL", "10mL"]
+    variants:
+      - title: "3mL"
+        sku: "CL-BAC-0003"
+        options: { Size: "3mL" }
+        manage_inventory: false
+        metadata: { hidden: true }
+      - title: "10mL"
+        sku: "CL-BAC-0010"
+        options: { Size: "10mL" }
+        manage_inventory: false
+        metadata: { hidden: true }
 
 sales_channels:
   - name: "Default Sales Channel"

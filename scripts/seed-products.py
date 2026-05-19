@@ -17,7 +17,6 @@ Environment (or edit constants below):
 
 import json
 import os
-import re
 import sys
 import time
 import urllib.request
@@ -73,16 +72,6 @@ def authenticate():
         print("FATAL: Could not authenticate with Medusa admin API.")
         sys.exit(1)
     return result["token"]
-
-
-# ── Price Parser ────────────────────────────────────────────────────────────
-
-def parse_price(price_str):
-    """Convert '$40.00' or 'From $40.00' to numeric dollar value (40)."""
-    match = re.search(r"\$?([\d,]+(?:\.\d{2})?)", price_str or "0")
-    if match:
-        return int(float(match.group(1).replace(",", "")))
-    return 0
 
 
 # ── Setup Steps ─────────────────────────────────────────────────────────────
@@ -161,54 +150,51 @@ def get_existing_handles(token):
 # ── Product Creation ────────────────────────────────────────────────────────
 
 def create_product(token, product, region_id, collection_id, sales_channel_id):
-    """Create a single product with options, variants, prices, and images."""
+    """Create a single product with options, variants, prices, and images.
+
+    Reads per-variant pricing from product["variants"] (new schema):
+        [{"size": "5mg", "sku": "CL-BPC-0005", "price": 40.0, "hidden": False}]
+    Variants with "hidden": true are tracked in the seed but skipped here
+    (not created in Medusa until a price is set).
+    """
     handle = product["handle"]
     title = product["title"]
-    sizes = product.get("options", [{}])[0].get("values", ["10mg"])
-    if isinstance(sizes, str):
-        sizes = [sizes]
-    price = parse_price(product.get("price", "$0"))
     thumbnail = product.get("thumbnail") or product.get("image", "")
 
     # Clean metadata — remove empty strings
     raw_meta = product.get("metadata", {})
     metadata = {k: v for k, v in raw_meta.items() if v}
 
-    # Build variants — one per size.
-    # SKU format: CL-{XXX}-{DDDD} where XXX = product.sku_code and DDDD =
-    # per-component dose in mg, zero-padded. See docs/sku-system.md.
-    sku_code = product.get("sku_code")
-    if not sku_code:
+    seed_variants = product.get("variants")
+    if not seed_variants:
         raise ValueError(
-            f"Missing 'sku_code' on product '{handle}'. "
-            f"Add it to products-seed.json (see docs/sku-system.md)."
+            f"Product '{handle}' has no 'variants' array. "
+            f"Update to per-variant schema (size/sku/price/hidden)."
         )
 
-    def build_sku(size):
-        first = size.split("/")[0].split("+")[0].strip()
-        m = re.search(r"(\d+(?:\.\d+)?)\s*mg", first, re.IGNORECASE)
-        if not m:
-            raise ValueError(f"Cannot parse dose from size '{size}' on '{handle}'")
-        dose_mg = int(round(float(m.group(1))))
-        return f"CL-{sku_code}-{dose_mg:04d}"
+    # Filter out hidden variants (kept in seed for tracking, not created live)
+    visible_variants = [v for v in seed_variants if not v.get("hidden")]
+    if not visible_variants:
+        print(f"  SKIP {handle}: all variants are hidden")
+        return None
+
+    sizes = [v["size"] for v in visible_variants]
 
     variants = []
-    for i, size in enumerate(sizes):
-        sku = build_sku(size)
+    for v in visible_variants:
+        amount = v.get("price")
+        if amount is None:
+            raise ValueError(
+                f"Variant {v['sku']} on '{handle}' has no price but is not hidden"
+            )
         variants.append({
-            "title": size,
-            "sku": sku,
+            "title": v["size"],
+            "sku": v["sku"],
             "manage_inventory": False,
-            "prices": [
-                {
-                    "amount": price,
-                    "currency_code": "usd",
-                },
-            ],
-            "options": {"Size": size},
+            "prices": [{"amount": amount, "currency_code": "usd"}],
+            "options": {"Size": v["size"]},
         })
 
-    # Create product payload
     payload = {
         "title": title,
         "handle": handle,

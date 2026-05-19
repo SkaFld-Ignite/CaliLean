@@ -3,6 +3,14 @@
 **Date:** 2026-04-30
 **Scope:** 8 competitors analyzed, 30 launch SKU variants priced
 
+> **⚠ SUPERSEDED 2026-05-18.** The price table in this document reflects the
+> 2026-04-30 launch pricing, not the current catalog.
+> Source of truth for prices is now `docs/ops/pricing/competitor-analysis.xlsx`
+> (the **CaliLean Pricing** sheet) and `docs/ops/product/launch-skus.xlsx`.
+> The competitor analysis below is still current; only the CaliLean prices and
+> variant set have changed (NAD added, new variants on Wolverine / GLP / SS-31 /
+> MOTS-c, Tesamorelin SKU corrected, 5 variants hidden pending pricing).
+
 ---
 
 ## Executive Summary

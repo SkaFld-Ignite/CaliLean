@@ -62,7 +62,7 @@ if (existsSync(BACKEND_ENV)) {
 // not touch.
 const LAUNCH_SKUS = [
   { handle: "bpc-157", folder: "bpc-157" },
-  { handle: "bpc-157-tb-500-blend", folder: "bpc-157-tb-500-blend" },
+  { handle: "wolverine", folder: "wolverine" },
   { handle: "cjc-12-no-dac-ipamorelin-blend", folder: "cjc-12-no-dac-ipamorelin-blend" },
   { handle: "glutathione", folder: "glutathione" },
   { handle: "mots-c", folder: "mots-c" },

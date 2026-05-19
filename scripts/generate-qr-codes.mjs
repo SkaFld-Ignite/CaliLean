@@ -68,9 +68,12 @@ const CAMPAIGNS = [
   // Bac Water
   { handle: "bac-water", title: "Bac Water", size: "3mL",  variantId: "variant_01KQAXQ7PX59PKYJBVNS9BC1DB", productId: "prod_01KQAXQ61V94NGFQDKH25CPK0Q", category: "accessory" },
   { handle: "bac-water", title: "Bac Water", size: "10mL", variantId: "variant_01KQAXQ7PY4HM7VWAPK579KE3X", productId: "prod_01KQAXQ61V94NGFQDKH25CPK0Q", category: "accessory" },
+  // NAD+ (added 2026-05-18)
+  { handle: "nad", title: "NAD+", size: "500mg",  variantId: "variant_01KRYVTSB4RAANQZ5R1ZZDH6K6", productId: "prod_01KRYVTS94ZQGWWWN63VJNRQ24", category: "longevity" },
+  { handle: "nad", title: "NAD+", size: "1000mg", variantId: "variant_01KRYVTSB585NWQ5GZQE2Y5HTJ", productId: "prod_01KRYVTS94ZQGWWWN63VJNRQ24", category: "longevity" },
 ]
 
-const CATEGORY_COLORS = {
+const CATEGORY_COLORS_BY_HANDLE = {
   "bpc-157": "#B8622E",
   "tb-500": "#B8622E",
   "ghk-cu": "#B8622E",

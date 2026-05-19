@@ -78,7 +78,7 @@ const SKUS = [
     lot: "LOT 24-0410",
   },
   {
-    slug: "bpc-157-tb-500-blend",
+    slug: "wolverine",
     compound: "BPC-157 / TB-500",
     dosage: "5 mg + 5 mg",
     lot: "LOT 24-0421",

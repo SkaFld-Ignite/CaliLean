@@ -21,12 +21,28 @@
     "options": [
       {
         "title": "Size",
-        "values": ["5mg", "10mg"]
+        "values": [
+          "5mg",
+          "10mg"
+        ]
       }
     ],
-    "price": "$1.00",
     "image": "/brand/products/bpc-157/pdp-primary.jpg",
-    "category": "Repair"
+    "category": "Repair",
+    "variants": [
+      {
+        "size": "5mg",
+        "sku": "CL-BPC-0005",
+        "price": 40.0,
+        "hidden": false
+      },
+      {
+        "size": "10mg",
+        "sku": "CL-BPC-0010",
+        "price": 65.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "TB-500",
@@ -50,12 +66,28 @@
     "options": [
       {
         "title": "Size",
-        "values": ["5mg", "10mg"]
+        "values": [
+          "5mg",
+          "10mg"
+        ]
       }
     ],
-    "price": "$1.00",
     "image": "/brand/products/tb-500/pdp-primary.jpg",
-    "category": "Repair"
+    "category": "Repair",
+    "variants": [
+      {
+        "size": "5mg",
+        "sku": "CL-TB5-0005",
+        "price": 55.0,
+        "hidden": false
+      },
+      {
+        "size": "10mg",
+        "sku": "CL-TB5-0010",
+        "price": 79.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "GHK-Cu",
@@ -79,19 +111,35 @@
     "options": [
       {
         "title": "Size",
-        "values": ["50mg", "100mg"]
+        "values": [
+          "50mg",
+          "100mg"
+        ]
       }
     ],
-    "price": "TBD",
     "image": "https://bluumpeptides.com/cdn/shop/files/ghk-cu.webp?v=1762634582&width=600",
-    "category": "Repair"
+    "category": "Repair",
+    "variants": [
+      {
+        "size": "50mg",
+        "sku": "CL-GHK-0050",
+        "price": 49.0,
+        "hidden": false
+      },
+      {
+        "size": "100mg",
+        "sku": "CL-GHK-0100",
+        "price": 85.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "Wolverine",
-    "handle": "bpc-157-tb-500-blend",
+    "handle": "wolverine",
     "sku_code": "WLV",
     "description": "BPC-157 and TB-500 blend studied in soft-tissue repair, ECM remodeling, and cell-migration research. Identity and purity confirmed per batch by an independent lab.",
-    "thumbnail": "/brand/products/bpc-157-tb-500-blend/pdp-primary.jpg",
+    "thumbnail": "/brand/products/wolverine/pdp-primary.jpg",
     "metadata": {
       "batch": "421553",
       "report": "11201",
@@ -108,12 +156,28 @@
     "options": [
       {
         "title": "Size",
-        "values": ["5mg", "10mg"]
+        "values": [
+          "10mg",
+          "20mg"
+        ]
       }
     ],
-    "price": "$199.00",
-    "image": "/brand/products/bpc-157-tb-500-blend/pdp-primary.jpg",
-    "category": "Repair"
+    "image": "/brand/products/wolverine/pdp-primary.jpg",
+    "category": "Repair",
+    "variants": [
+      {
+        "size": "10mg",
+        "sku": "CL-WLV-0010",
+        "price": 105.0,
+        "hidden": false
+      },
+      {
+        "size": "20mg",
+        "sku": "CL-WLV-0020",
+        "price": 195.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "CL-1S",
@@ -137,12 +201,28 @@
     "options": [
       {
         "title": "Size",
-        "values": ["10mg", "30mg"]
+        "values": [
+          "10mg",
+          "30mg"
+        ]
       }
     ],
-    "price": "$159.00",
     "image": "",
-    "category": "Metabolic"
+    "category": "Metabolic",
+    "variants": [
+      {
+        "size": "10mg",
+        "sku": "CL-GL1-0010",
+        "price": 59.0,
+        "hidden": false
+      },
+      {
+        "size": "30mg",
+        "sku": "CL-GL1-0030",
+        "price": 130.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "CL-2T",
@@ -166,12 +246,28 @@
     "options": [
       {
         "title": "Size",
-        "values": ["10mg", "30mg"]
+        "values": [
+          "20mg",
+          "40mg"
+        ]
       }
     ],
-    "price": "$159.00",
     "image": "",
-    "category": "Metabolic"
+    "category": "Metabolic",
+    "variants": [
+      {
+        "size": "20mg",
+        "sku": "CL-GL2-0020",
+        "price": 99.0,
+        "hidden": false
+      },
+      {
+        "size": "40mg",
+        "sku": "CL-GL2-0040",
+        "price": 169.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "CL-3R",
@@ -196,12 +292,28 @@
     "options": [
       {
         "title": "Size",
-        "values": ["10mg", "30mg"]
+        "values": [
+          "10mg",
+          "30mg"
+        ]
       }
     ],
-    "price": "$260.00",
     "image": "/brand/products/cl-3r/pdp-primary.jpg",
-    "category": "Metabolic"
+    "category": "Metabolic",
+    "variants": [
+      {
+        "size": "10mg",
+        "sku": "CL-GL3-0010",
+        "price": 120.0,
+        "hidden": false
+      },
+      {
+        "size": "30mg",
+        "sku": "CL-GL3-0030",
+        "price": 299.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "Ipamorelin",
@@ -225,12 +337,21 @@
     "options": [
       {
         "title": "Size",
-        "values": ["5mg", "10mg"]
+        "values": [
+          "10mg"
+        ]
       }
     ],
-    "price": "$35.00",
     "image": "https://bluumpeptides.com/cdn/shop/files/ipamorelin.webp?v=1762634524&width=600",
-    "category": "GH Axis"
+    "category": "GH Axis",
+    "variants": [
+      {
+        "size": "10mg",
+        "sku": "CL-IPM-0010",
+        "price": 79.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "Tesamorelin",
@@ -254,12 +375,28 @@
     "options": [
       {
         "title": "Size",
-        "values": ["10mg", "20mg"]
+        "values": [
+          "10mg",
+          "20mg"
+        ]
       }
     ],
-    "price": "$179.00",
     "image": "https://bluumpeptides.com/cdn/shop/files/th9507.webp?v=1771980203&width=600",
-    "category": "GH Axis"
+    "category": "GH Axis",
+    "variants": [
+      {
+        "size": "10mg",
+        "sku": "CL-TES-0010",
+        "price": 49.0,
+        "hidden": false
+      },
+      {
+        "size": "20mg",
+        "sku": "CL-TES-0020",
+        "price": 129.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "MOTS-c",
@@ -283,12 +420,28 @@
     "options": [
       {
         "title": "Size",
-        "values": ["10mg", "40mg"]
+        "values": [
+          "10mg",
+          "40mg"
+        ]
       }
     ],
-    "price": "$3.00",
     "image": "/brand/products/mots-c/pdp-primary.jpg",
-    "category": "Longevity"
+    "category": "Longevity",
+    "variants": [
+      {
+        "size": "10mg",
+        "sku": "CL-MOT-0010",
+        "price": 54.0,
+        "hidden": false
+      },
+      {
+        "size": "40mg",
+        "sku": "CL-MOT-0040",
+        "price": 109.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "SS-31",
@@ -312,12 +465,28 @@
     "options": [
       {
         "title": "Size",
-        "values": ["10mg", "50mg"]
+        "values": [
+          "10mg",
+          "50mg"
+        ]
       }
     ],
-    "price": "$129.00",
     "image": "",
-    "category": "Longevity"
+    "category": "Longevity",
+    "variants": [
+      {
+        "size": "10mg",
+        "sku": "CL-SS3-0010",
+        "price": 140.0,
+        "hidden": false
+      },
+      {
+        "size": "50mg",
+        "sku": "CL-SS3-0050",
+        "price": 250.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "GLOW",
@@ -341,12 +510,21 @@
     "options": [
       {
         "title": "Size",
-        "values": ["70mg"]
+        "values": [
+          "70mg"
+        ]
       }
     ],
-    "price": "$1.00",
     "image": "https://bluumpeptides.com/cdn/shop/files/glow.webp?v=1762634339&width=600",
-    "category": "Specialty"
+    "category": "Specialty",
+    "variants": [
+      {
+        "size": "70mg",
+        "sku": "CL-GLW-0070",
+        "price": 110.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "KLOW",
@@ -370,12 +548,21 @@
     "options": [
       {
         "title": "Size",
-        "values": ["80mg"]
+        "values": [
+          "80mg"
+        ]
       }
     ],
-    "price": "$1.00",
     "image": "https://bluumpeptides.com/cdn/shop/files/KLOW_Peptide_Blend.webp?v=1766468832&width=600",
-    "category": "Specialty"
+    "category": "Specialty",
+    "variants": [
+      {
+        "size": "80mg",
+        "sku": "CL-KLW-0080",
+        "price": 120.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "Melanotan 2",
@@ -399,12 +586,21 @@
     "options": [
       {
         "title": "Size",
-        "values": ["10mg"]
+        "values": [
+          "10mg"
+        ]
       }
     ],
-    "price": "TBD",
     "image": "https://bluumpeptides.com/cdn/shop/files/melanotan-ii.webp?v=1762634477&width=600",
-    "category": "Specialty"
+    "category": "Specialty",
+    "variants": [
+      {
+        "size": "10mg",
+        "sku": "CL-MT2-0010",
+        "price": 49.0,
+        "hidden": false
+      }
+    ]
   },
   {
     "title": "Bac Water",
@@ -428,11 +624,72 @@
     "options": [
       {
         "title": "Size",
-        "values": ["3mL", "10mL"]
+        "values": [
+          "3mL",
+          "10mL"
+        ]
       }
     ],
-    "price": "$10.00",
     "image": "",
-    "category": "Accessory"
+    "category": "Accessory",
+    "variants": [
+      {
+        "size": "3mL",
+        "sku": "CL-BAC-0003",
+        "price": null,
+        "hidden": true
+      },
+      {
+        "size": "10mL",
+        "sku": "CL-BAC-0010",
+        "price": null,
+        "hidden": true
+      }
+    ]
+  },
+  {
+    "title": "NAD+",
+    "handle": "nad",
+    "sku_code": "NAD",
+    "description": "Nicotinamide adenine dinucleotide (NAD+) for cellular metabolism, sirtuin activation, and longevity research. Lyophilized powder in sealed research-grade vial.",
+    "thumbnail": "",
+    "metadata": {
+      "batch": "",
+      "report": "",
+      "purity": "",
+      "formula": "C21H27N7O14P2",
+      "cas": "53-84-9",
+      "mw": "663.43 g/mol",
+      "pubchem": "925",
+      "storage": "Lyophilized: ≤-20°C long-term, 2-8°C short-term. After reconstitution: 2-8°C.",
+      "application": "Research molecule for studies on cellular metabolism, sirtuin activation, mitochondrial function, and longevity pathways",
+      "appearance": "Lyophilized powder in glass vial",
+      "synonyms": "NAD+, NAD, Nicotinamide Adenine Dinucleotide, Coenzyme I"
+    },
+    "options": [
+      {
+        "title": "Size",
+        "values": [
+          "500mg",
+          "1000mg"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "size": "500mg",
+        "sku": "CL-NAD-0500",
+        "price": 70.0,
+        "hidden": false
+      },
+      {
+        "size": "1000mg",
+        "sku": "CL-NAD-1000",
+        "price": 139.0,
+        "hidden": false
+      }
+    ],
+    "image": "",
+    "category": "Longevity"
   }
 ]

@@ -51,7 +51,7 @@ const PRODUCTS = [
   { handle: "bpc-157",      file: "BPC_157/BPC-157___10mg.jpeg",        uploadName: "hero-bpc-157.jpeg" },
   { handle: "bac-water",    file: "Bac_Water/Bac-Water___10mL.jpeg",    uploadName: "hero-bac-water.jpeg" },
   { handle: "cl-1s",        file: "CL_1S/CL-1S___10mg.jpeg",            uploadName: "hero-cl-1s.jpeg" },
-  { handle: "cl-2t",        file: "CL_2T/CL-2T___10mg.jpeg",            uploadName: "hero-cl-2t.jpeg" },
+  { handle: "cl-2t",        file: "CL_2T/CL-2T___20mg.jpeg",            uploadName: "hero-cl-2t.jpeg" },
   { handle: "cl-3r",        file: "CL_3R/CL-3R___10mg.jpeg",            uploadName: "hero-cl-3r.jpeg" },
   { handle: "ghk-cu",       file: "GHK_Cu/GHK-Cu___50mg.jpeg",          uploadName: "hero-ghk-cu.jpeg" },
   { handle: "glow",         file: "GLOW/GLOW___70mg.jpeg",              uploadName: "hero-glow.jpeg" },
@@ -63,6 +63,7 @@ const PRODUCTS = [
   { handle: "tb-500",       file: "TB_500/TB-500___10mg.jpeg",          uploadName: "hero-tb-500.jpeg" },
   { handle: "tesamorelin",  file: "Tesamorelin/Tesamorelin___10mg.jpeg",uploadName: "hero-tesamorelin.jpeg" },
   { handle: "wolverine",    file: "Wolverine/Wolverine___10mg.jpeg",    uploadName: "hero-wolverine.jpeg" },
+  { handle: "nad",          file: "NAD_/NAD+___500mg.jpeg",             uploadName: "hero-nad.jpeg" },
 ];
 
 const HERO_DIR = resolvePath(REPO_ROOT, "docs", "brand", "packaging", "renders", "hero-image");

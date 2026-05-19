@@ -1,86 +1,149 @@
 import fs from 'fs';
 import path from 'path';
+import { execSync } from 'child_process';
 
 const FIGMA_TOKEN = process.env.FIGMA_PAT;
 const FILE_KEY = "WgQvUpgybIgrMILvoru3Jh";
+const OUT_DIR = path.join(process.cwd(), 'docs/brand/packaging/renders/labels');
+
+function slugify(str) {
+  return str.replace(/[^a-zA-Z0-9]/g, '_');
+}
+
+// "CL-1S — 10mg" → { base: "CL-1S___10mg", dir: "CL_1S" }
+function parseFrameName(pageName, frameName) {
+  // Split only on em dash or en dash surrounded by spaces, not hyphens
+  const parts = frameName.split(/\s+[—–]\s+/);
+  const dose = parts[1] ? parts[1].trim() : frameName.trim();
+  const base = `${pageName.replace(/\s/g, '-')}___${dose}`;
+  const dir = slugify(pageName);
+  return { base, dir };
+}
+
+async function fetchWithRetry(url, opts = {}, retries = 3) {
+  for (let i = 0; i < retries; i++) {
+    const res = await fetch(url, opts);
+    if (res.ok) return res;
+    if (i < retries - 1) await new Promise(r => setTimeout(r, 1000 * (i + 1)));
+  }
+  return null;
+}
+
+async function exportFormat(ids, format, scale) {
+  const params = new URLSearchParams({ ids: ids.join(','), format });
+  if (scale) params.set('scale', String(scale));
+  const res = await fetchWithRetry(
+    `https://api.figma.com/v1/images/${FILE_KEY}?${params}`,
+    { headers: { "X-Figma-Token": FIGMA_TOKEN } }
+  );
+  if (!res) throw new Error(`Failed to fetch ${format} image URLs`);
+  const data = await res.json();
+  return data.images || {};
+}
+
+async function downloadFile(url, filePath) {
+  const res = await fetchWithRetry(url);
+  if (!res) { console.warn(`  ⚠ Failed to download: ${filePath}`); return false; }
+  const buf = await res.arrayBuffer();
+  fs.writeFileSync(filePath, Buffer.from(buf));
+  return true;
+}
 
 async function main() {
   if (!FIGMA_TOKEN) {
-    console.error("Missing FIGMA_PAT environment variable");
+    console.error("Missing FIGMA_PAT — load docs/.env first");
     process.exit(1);
   }
-  const res = await fetch(`https://api.figma.com/v1/files/${FILE_KEY}`, {
-    headers: {
-      "X-Figma-Token": FIGMA_TOKEN
-    }
-  });
-  if (!res.ok) {
-    console.error("Failed to fetch Figma file:", res.status, res.statusText);
-    process.exit(1);
-  }
-  const data = await res.json();
-  const pages = data.document.children;
-  
+
+  console.log("📐 Fetching Figma file structure...");
+  const fileRes = await fetchWithRetry(
+    `https://api.figma.com/v1/files/${FILE_KEY}`,
+    { headers: { "X-Figma-Token": FIGMA_TOKEN } }
+  );
+  if (!fileRes) { console.error("Failed to fetch Figma file"); process.exit(1); }
+  const { document } = await fileRes.json();
+
+  // Collect all label frames (identified by having Favicon + QR Code children)
   const labels = [];
-  
-  for (const page of pages) {
-    const frames = page.children.filter(c => c.type === 'FRAME' || c.type === 'COMPONENT' || c.type === 'INSTANCE');
+  for (const page of document.children) {
+    const frames = page.children?.filter(c =>
+      c.type === 'FRAME' || c.type === 'COMPONENT' || c.type === 'INSTANCE'
+    ) || [];
     for (const frame of frames) {
-      const faviconFrame = frame.children?.find(c => c.name === 'Favicon');
-      const qrCodeNode = frame.children?.find(c => c.name === 'QR Code');
-      
-      if (faviconFrame && qrCodeNode) {
-        labels.push({
-          pageName: page.name,
-          frameName: frame.name,
-          frameId: frame.id
-        });
+      const hasFavicon = frame.children?.some(c => c.name === 'Favicon');
+      const hasQR = frame.children?.some(c => c.name === 'QR Code');
+      if (hasFavicon && hasQR) {
+        const { base, dir } = parseFrameName(page.name, frame.name);
+        labels.push({ pageName: page.name, frameName: frame.name, frameId: frame.id, base, dir });
       }
     }
   }
 
-  // Now fetch SVG for all these frames
-  const ids = labels.map(l => l.frameId).join(',');
-  const imagesRes = await fetch(`https://api.figma.com/v1/images/${FILE_KEY}?ids=${encodeURIComponent(ids)}&format=svg`, {
-    headers: {
-      "X-Figma-Token": FIGMA_TOKEN
-    }
-  });
-  
-  if (!imagesRes.ok) {
-    console.error("Failed to fetch image URLs:", imagesRes.status, await imagesRes.text());
-    process.exit(1);
-  }
-  
-  const imagesData = await imagesRes.json();
-  const imagesMap = imagesData.images || {};
-  
-  const outDirRoot = path.join(process.cwd(), 'renders', 'labels');
-  fs.mkdirSync(outDirRoot, { recursive: true });
+  console.log(`Found ${labels.length} label frames across ${[...new Set(labels.map(l => l.pageName))].length} pages\n`);
 
-  for (const label of labels) {
-    const svgUrl = imagesMap[label.frameId];
-    if (svgUrl) {
-      // Create product dir
-      const prodDir = path.join(outDirRoot, label.pageName.replace(/[^a-zA-Z0-9]/g, '_'));
-      fs.mkdirSync(prodDir, { recursive: true });
-      
-      // Fetch SVG content
-      const svgRes = await fetch(svgUrl);
-      const svgContent = await svgRes.text();
-      
-      const fileName = `${label.frameName.replace(/[^a-zA-Z0-9-]/g, '_')}.svg`;
-      const filePath = path.join(prodDir, fileName);
-      
-      fs.writeFileSync(filePath, svgContent);
-      console.log(`Saved ${filePath}`);
-    } else {
-      console.warn(`No SVG URL returned for ${label.frameName} (${label.frameId})`);
+  // Clear and recreate output directories
+  const dirs = [...new Set(labels.map(l => l.dir))];
+  for (const dir of dirs) {
+    const full = path.join(OUT_DIR, dir);
+    if (fs.existsSync(full)) fs.rmSync(full, { recursive: true });
+    fs.mkdirSync(full, { recursive: true });
+  }
+  // Also remove any stale dirs not in current label set
+  if (fs.existsSync(OUT_DIR)) {
+    for (const existing of fs.readdirSync(OUT_DIR)) {
+      if (existing.startsWith('.')) continue;
+      if (!dirs.includes(existing)) {
+        fs.rmSync(path.join(OUT_DIR, existing), { recursive: true });
+        console.log(`  🗑 Removed stale dir: ${existing}`);
+      }
     }
   }
-  
-  console.log("Finished extracting SVGs.");
+
+  const ids = labels.map(l => l.frameId);
+
+  // Fetch SVG and PNG export URLs in parallel
+  console.log("🔗 Requesting export URLs from Figma API (SVG + PNG @2x)...");
+  const [svgMap, pngMap] = await Promise.all([
+    exportFormat(ids, 'svg', null),
+    exportFormat(ids, 'png', 2),
+  ]);
+
+  // Download all files
+  console.log("⬇  Downloading files...\n");
+  let saved = 0;
+  for (const label of labels) {
+    const prodDir = path.join(OUT_DIR, label.dir);
+    const svgPath = path.join(prodDir, `${label.base}.svg`);
+    const pngPath = path.join(prodDir, `${label.base}@2x.png`);
+
+    process.stdout.write(`  ${label.frameName}  →  `);
+
+    const [svgOk, pngOk] = await Promise.all([
+      svgMap[label.frameId] ? downloadFile(svgMap[label.frameId], svgPath) : Promise.resolve(false),
+      pngMap[label.frameId] ? downloadFile(pngMap[label.frameId], pngPath) : Promise.resolve(false),
+    ]);
+
+    if (svgOk && pngOk) { console.log('SVG + PNG ✓'); saved += 2; }
+    else if (svgOk)      { console.log('SVG ✓  PNG ✗'); saved += 1; }
+    else if (pngOk)      { console.log('SVG ✗  PNG ✓'); saved += 1; }
+    else                 { console.log('✗ both failed'); }
+  }
+
+  console.log(`\n✅ Saved ${saved} files to ${OUT_DIR}\n`);
+
+  // Git commit + push
+  console.log("🚀 Pushing to GitHub...");
+  try {
+    execSync('git add docs/brand/packaging/renders/labels', { stdio: 'inherit' });
+    execSync(
+      'git commit -m "feat(brand): refresh all vial label renders (SVG + PNG @2x)"',
+      { stdio: 'inherit' }
+    );
+    execSync('git push', { stdio: 'inherit' });
+    console.log("✅ GitHub push complete\n");
+  } catch (e) {
+    console.warn("⚠ Git push failed (maybe nothing to commit):", e.message);
+  }
 }
 
-main().catch(console.error);
-
+main().catch(err => { console.error(err); process.exit(1); });

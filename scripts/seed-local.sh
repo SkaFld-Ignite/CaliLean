@@ -160,8 +160,8 @@ create_product "CL-1S" "cl-1s" "$WEIGHT_ID" \
   '[{"title":"10mg","sku":"CL-GL1-0010","options":{"Size":"10mg"},"manage_inventory":false,"prices":[{"currency_code":"usd","amount":69.99}]},{"title":"30mg","sku":"CL-GL1-0030","options":{"Size":"30mg"},"manage_inventory":false,"prices":[{"currency_code":"usd","amount":159.99}]}]'
 
 create_product "CL-2T" "cl-2t" "$WEIGHT_ID" \
-  '[{"title":"Size","values":["10mg","30mg"]}]' \
-  '[{"title":"10mg","sku":"CL-GL2-0010","options":{"Size":"10mg"},"manage_inventory":false,"prices":[{"currency_code":"usd","amount":79.99}]},{"title":"30mg","sku":"CL-GL2-0030","options":{"Size":"30mg"},"manage_inventory":false,"prices":[{"currency_code":"usd","amount":189.99}]}]'
+  '[{"title":"Size","values":["30mg"]}]' \
+  '[{"title":"30mg","sku":"CL-GL2-0030","options":{"Size":"30mg"},"manage_inventory":false,"prices":[{"currency_code":"usd","amount":189.99}]}]'
 
 create_product "CL-3R" "cl-3r" "$WEIGHT_ID" \
   '[{"title":"Size","values":["10mg","30mg"]}]' \

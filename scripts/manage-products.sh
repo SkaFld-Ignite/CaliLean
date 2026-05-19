@@ -201,7 +201,6 @@ create_product "CL-1S" "cl-1s" "published" \
 
 # CL-2T (Dual GIP/GLP-1 Receptor Agonist)
 create_product "CL-2T" "cl-2t" "published" \
-  "10mg" "CL-GL2-0010" 15900 \
   "30mg" "CL-GL2-0030" 39900
 
 # CL-3R (Triple GIP/GLP-1/Glucagon Receptor Agonist)
